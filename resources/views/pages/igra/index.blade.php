@@ -111,16 +111,16 @@ class extends Component
     <div class="max-w-2xl w-full">
 
         {{-- Header --}}
-        <div class="text-center mb-6">
-            <h1 class="text-3xl md:text-4xl font-extrabold text-white drop-shadow-lg">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg">
                 Dobro ili Lose?
             </h1>
-            <p class="text-lg text-purple-100 mt-1">Igra sa Kiberkom</p>
+            <p class="text-xl md:text-2xl text-purple-100 mt-2">Igra sa Kiberkom</p>
         </div>
 
         @if ($finished)
             {{-- Final Results Screen --}}
-            <div class="bg-white/90 backdrop-blur rounded-3xl shadow-2xl p-8 text-center">
+            <div class="bg-white/90 backdrop-blur rounded-3xl shadow-2xl p-8 text-center animate-fade-in-up">
                 <x-mascot variant="thumbsup" class="w-40 h-40 mx-auto mb-4" />
 
                 <h2 class="text-3xl font-extrabold text-purple-700 mb-2">
@@ -163,20 +163,24 @@ class extends Component
 
         @elseif ($lastCorrect !== null)
             {{-- Feedback Screen --}}
-            <div class="bg-white/90 backdrop-blur rounded-3xl shadow-2xl p-8 text-center">
+            <div class="bg-white/90 backdrop-blur rounded-3xl shadow-2xl p-8 text-center animate-fade-in-up">
                 @if ($lastCorrect)
-                    <x-mascot variant="thumbsup" class="w-32 h-32 mx-auto mb-4" />
-                    <h2 class="text-3xl font-extrabold text-green-600 mb-3">
+                    <div class="animate-bounce-in">
+                        <x-mascot variant="thumbsup" class="w-32 h-32 mx-auto mb-4" />
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-green-600 mb-3">
                         Tacno!
                     </h2>
                 @else
-                    <x-mascot variant="warning" class="w-32 h-32 mx-auto mb-4" />
-                    <h2 class="text-3xl font-extrabold text-orange-500 mb-3">
+                    <div class="animate-bounce-in">
+                        <x-mascot variant="warning" class="w-32 h-32 mx-auto mb-4" />
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-orange-500 mb-3">
                         Nije tacno, ali nema veze!
                     </h2>
                 @endif
 
-                <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                <p class="text-xl md:text-2xl text-gray-700 mb-6 leading-relaxed">
                     {{ $feedbackMessage }}
                 </p>
 
@@ -194,19 +198,19 @@ class extends Component
 
         @else
             {{-- Question Screen --}}
-            <div class="bg-white/90 backdrop-blur rounded-3xl shadow-2xl p-8">
+            <div class="bg-white/90 backdrop-blur rounded-3xl shadow-2xl p-8 animate-fade-in-up">
                 {{-- Progress --}}
                 <div class="flex justify-between items-center mb-4">
-                    <span class="text-sm font-semibold text-purple-600">
+                    <span class="text-base md:text-lg font-semibold text-purple-600">
                         Pitanje {{ $current + 1 }} od {{ count($scenarios) }}
                     </span>
-                    <span class="text-sm font-semibold text-green-600">
+                    <span class="text-base md:text-lg font-semibold text-green-600">
                         Poeni: {{ $score }}
                     </span>
                 </div>
-                <div class="w-full bg-purple-100 rounded-full h-3 mb-6">
+                <div class="w-full bg-purple-100 rounded-full h-4 mb-6">
                     <div
-                        class="bg-purple-500 h-3 rounded-full transition-all duration-300"
+                        class="bg-purple-500 h-4 rounded-full transition-all duration-500"
                         style="width: {{ (($current) / count($scenarios)) * 100 }}%"
                     ></div>
                 </div>
