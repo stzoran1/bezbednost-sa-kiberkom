@@ -7,3 +7,4 @@ Route::get('/', function () {
 });
 
 Route::slidewire('/test-slide', 'test-slide');
+Route::slidewire('/prezentacija', 'prezentacija');
