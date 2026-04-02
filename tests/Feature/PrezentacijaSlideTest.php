@@ -95,3 +95,34 @@ it('uses warning mascot on danger slides and thumbsup on action slide', function
     // 1 thumbsup from slide 8 + 1 from slide 4 = 2 total thumbsup
     expect($thumbsupCount)->toBeGreaterThanOrEqual(2);
 });
+
+it('displays recap slide with 4 golden rules', function () {
+    get('/prezentacija')
+        ->assertSee('Kiberkov savet')
+        ->assertSee('4 zlatna pravila')
+        ->assertSee('Ne deli licne podatke')
+        ->assertSee('Cuva lozinke u tajnosti')
+        ->assertSee('Reci odrasloj osobi')
+        ->assertSee('Budi ljubazan na internetu');
+});
+
+it('displays thank you slide with mascot and game teaser', function () {
+    get('/prezentacija')
+        ->assertSee('Hvala!')
+        ->assertSee('Kiberko je ponosan na vas')
+        ->assertSee('vreme je za igru');
+});
+
+it('contains all 10 slide headings', function () {
+    get('/prezentacija')
+        ->assertSee('Digitalna bezbednost sa Kiberkom')
+        ->assertSee('Sta je internet?')
+        ->assertSee('Licni podaci su tajna')
+        ->assertSee('Lozinke su kljucevi')
+        ->assertSee('Drustvene mreze')
+        ->assertSee('Online igre i razgovori')
+        ->assertSee('Prepoznaj opasnost')
+        ->assertSee('Sta raditi?')
+        ->assertSee('Kiberkov savet')
+        ->assertSee('Hvala!');
+});

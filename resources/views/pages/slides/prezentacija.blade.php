@@ -259,4 +259,58 @@ new class extends Component {
             </x-slidewire::fragment>
         </div>
     </x-slidewire::slide>
+
+    {{-- Slide 9: Kiberkov savet — recap of the 4 golden rules --}}
+    <x-slidewire::slide>
+        <div class="mx-auto max-w-4xl space-y-8">
+            <div class="flex items-center gap-4">
+                <x-mascot variant="default" class="w-24 h-24" />
+                <h2 class="text-4xl font-bold text-emerald-50">Kiberkov savet</h2>
+            </div>
+
+            <x-slidewire::fragment :index="1">
+                <p class="text-2xl text-cyan-100">Zapamti ova <strong class="text-yellow-300">4 zlatna pravila</strong>:</p>
+            </x-slidewire::fragment>
+
+            <div class="space-y-4 text-2xl">
+                <x-slidewire::fragment :index="2">
+                    <p class="text-emerald-300">&#9989; <strong>Ne deli licne podatke</strong> sa nepoznatim osobama</p>
+                </x-slidewire::fragment>
+
+                <x-slidewire::fragment :index="3">
+                    <p class="text-emerald-300">&#9989; <strong>Cuva lozinke u tajnosti</strong> — deli ih samo sa roditeljima</p>
+                </x-slidewire::fragment>
+
+                <x-slidewire::fragment :index="4">
+                    <p class="text-emerald-300">&#9989; <strong>Reci odrasloj osobi</strong> ako te nesto uplasi ili bude neprijatno</p>
+                </x-slidewire::fragment>
+
+                <x-slidewire::fragment :index="5">
+                    <p class="text-emerald-300">&#9989; <strong>Budi ljubazan na internetu</strong> — reci lepe reci, ne ruzne</p>
+                </x-slidewire::fragment>
+            </div>
+
+            <x-slidewire::fragment :index="6">
+                <p class="text-xl text-yellow-300 font-bold">
+                    Sa ovim pravilima, internet moze biti zabavno i bezbedno mesto!
+                </p>
+            </x-slidewire::fragment>
+        </div>
+    </x-slidewire::slide>
+
+    {{-- Slide 10: Hvala! — thank you with mascot and game teaser --}}
+    <x-slidewire::slide>
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <x-mascot variant="default" class="w-48 h-48" />
+            <h1 class="text-5xl font-bold text-emerald-50">Hvala!</h1>
+            <p class="text-2xl text-cyan-200">
+                Kiberko je ponosan na vas sto ste naucili kako da budete bezbedni na internetu!
+            </p>
+            <x-slidewire::fragment :index="1">
+                <p class="text-3xl text-yellow-300 font-bold">
+                    A sada... vreme je za igru! 🎮
+                </p>
+            </x-slidewire::fragment>
+        </div>
+    </x-slidewire::slide>
 </x-slidewire::deck>
