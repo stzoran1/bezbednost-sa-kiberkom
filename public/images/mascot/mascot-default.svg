@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" width="200" height="220">
+  <!-- Kiberko the Cyber Hedgehog - Default (waving/friendly) -->
+
+  <!-- Body -->
+  <ellipse cx="100" cy="155" rx="55" ry="50" fill="#8B6914"/>
+
+  <!-- Spines (cyber-styled with gradient) -->
+  <defs>
+    <linearGradient id="spineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00D4FF"/>
+      <stop offset="100%" stop-color="#7B4F1A"/>
+    </linearGradient>
+  </defs>
+  <polygon points="100,10 85,60 115,60" fill="url(#spineGrad)"/>
+  <polygon points="65,20 60,70 90,65" fill="url(#spineGrad)"/>
+  <polygon points="135,20 140,70 110,65" fill="url(#spineGrad)"/>
+  <polygon points="40,40 45,85 75,70" fill="url(#spineGrad)"/>
+  <polygon points="160,40 155,85 125,70" fill="url(#spineGrad)"/>
+  <polygon points="30,65 40,105 65,85" fill="url(#spineGrad)"/>
+  <polygon points="170,65 160,105 135,85" fill="url(#spineGrad)"/>
+
+  <!-- Face (belly area) -->
+  <ellipse cx="100" cy="145" rx="40" ry="38" fill="#F5DEB3"/>
+
+  <!-- Eyes -->
+  <ellipse cx="85" cy="132" rx="10" ry="11" fill="white"/>
+  <ellipse cx="115" cy="132" rx="10" ry="11" fill="white"/>
+  <circle cx="87" cy="131" r="6" fill="#2D1B00"/>
+  <circle cx="117" cy="131" r="6" fill="#2D1B00"/>
+  <!-- Eye shine -->
+  <circle cx="89" cy="128" r="2.5" fill="white"/>
+  <circle cx="119" cy="128" r="2.5" fill="white"/>
+
+  <!-- Nose -->
+  <ellipse cx="100" cy="146" rx="5" ry="4" fill="#2D1B00"/>
+
+  <!-- Smile -->
+  <path d="M88,155 Q100,168 112,155" fill="none" stroke="#2D1B00" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Cheeks (blush) -->
+  <circle cx="72" cy="150" r="7" fill="#FFB6C1" opacity="0.6"/>
+  <circle cx="128" cy="150" r="7" fill="#FFB6C1" opacity="0.6"/>
+
+  <!-- Helmet (cyber shield) -->
+  <path d="M65,115 Q65,85 100,80 Q135,85 135,115" fill="none" stroke="#00D4FF" stroke-width="3"/>
+  <path d="M70,110 Q70,90 100,86 Q130,90 130,110" fill="#00D4FF" opacity="0.15"/>
+  <!-- Helmet antenna -->
+  <circle cx="100" cy="78" r="5" fill="#00D4FF"/>
+  <circle cx="100" cy="78" r="2.5" fill="#FFFFFF"/>
+
+  <!-- Shield icon on helmet -->
+  <path d="M96,95 L100,92 L104,95 L104,101 Q100,104 96,101 Z" fill="#00D4FF" opacity="0.8"/>
+
+  <!-- Left arm (waving!) -->
+  <path d="M55,145 Q30,120 25,95" fill="none" stroke="#8B6914" stroke-width="10" stroke-linecap="round"/>
+  <!-- Hand -->
+  <circle cx="24" cy="92" r="8" fill="#F5DEB3"/>
+  <!-- Fingers spread (waving) -->
+  <line x1="18" y1="85" x2="15" y2="78" stroke="#F5DEB3" stroke-width="3" stroke-linecap="round"/>
+  <line x1="22" y1="83" x2="20" y2="75" stroke="#F5DEB3" stroke-width="3" stroke-linecap="round"/>
+  <line x1="27" y1="83" x2="27" y2="75" stroke="#F5DEB3" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Right arm -->
+  <path d="M145,145 Q160,155 165,165" fill="none" stroke="#8B6914" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="167" cy="168" r="7" fill="#F5DEB3"/>
+
+  <!-- Feet -->
+  <ellipse cx="80" cy="200" rx="18" ry="10" fill="#8B6914"/>
+  <ellipse cx="120" cy="200" rx="18" ry="10" fill="#8B6914"/>
+
+  <!-- Cyber glow effect on spines -->
+  <circle cx="100" cy="15" r="4" fill="#00D4FF" opacity="0.4"/>
+  <circle cx="65" cy="25" r="3" fill="#00D4FF" opacity="0.3"/>
+  <circle cx="135" cy="25" r="3" fill="#00D4FF" opacity="0.3"/>
+</svg>

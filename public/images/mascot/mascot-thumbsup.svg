@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" width="200" height="220">
+  <!-- Kiberko the Cyber Hedgehog - Thumbs Up (approving/happy) -->
+
+  <!-- Body -->
+  <ellipse cx="100" cy="155" rx="55" ry="50" fill="#8B6914"/>
+
+  <!-- Spines (happy, green-tinted for approval) -->
+  <defs>
+    <linearGradient id="spineOk" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2ECC71"/>
+      <stop offset="100%" stop-color="#7B4F1A"/>
+    </linearGradient>
+  </defs>
+  <polygon points="100,10 85,60 115,60" fill="url(#spineOk)"/>
+  <polygon points="65,20 60,70 90,65" fill="url(#spineOk)"/>
+  <polygon points="135,20 140,70 110,65" fill="url(#spineOk)"/>
+  <polygon points="40,40 45,85 75,70" fill="url(#spineOk)"/>
+  <polygon points="160,40 155,85 125,70" fill="url(#spineOk)"/>
+  <polygon points="30,65 40,105 65,85" fill="url(#spineOk)"/>
+  <polygon points="170,65 160,105 135,85" fill="url(#spineOk)"/>
+
+  <!-- Face (belly area) -->
+  <ellipse cx="100" cy="145" rx="40" ry="38" fill="#F5DEB3"/>
+
+  <!-- Eyes (happy, squinted) -->
+  <path d="M76,130 Q85,122 94,130" fill="none" stroke="#2D1B00" stroke-width="3" stroke-linecap="round"/>
+  <path d="M106,130 Q115,122 124,130" fill="none" stroke="#2D1B00" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Nose -->
+  <ellipse cx="100" cy="143" rx="5" ry="4" fill="#2D1B00"/>
+
+  <!-- Big happy smile -->
+  <path d="M82,152 Q100,172 118,152" fill="#2D1B00" stroke="#2D1B00" stroke-width="1"/>
+  <!-- Tongue -->
+  <ellipse cx="100" cy="162" rx="6" ry="4" fill="#E74C3C" opacity="0.7"/>
+  <!-- Smile teeth highlight -->
+  <path d="M88,152 Q100,155 112,152" fill="white" opacity="0.8"/>
+
+  <!-- Cheeks (extra rosy, happy) -->
+  <circle cx="70" cy="148" r="9" fill="#FFB6C1" opacity="0.7"/>
+  <circle cx="130" cy="148" r="9" fill="#FFB6C1" opacity="0.7"/>
+
+  <!-- Helmet (cyber shield - green for approval) -->
+  <path d="M65,115 Q65,85 100,80 Q135,85 135,115" fill="none" stroke="#2ECC71" stroke-width="3"/>
+  <path d="M70,110 Q70,90 100,86 Q130,90 130,110" fill="#2ECC71" opacity="0.15"/>
+  <!-- Helmet antenna -->
+  <circle cx="100" cy="78" r="5" fill="#2ECC71"/>
+  <circle cx="100" cy="78" r="2.5" fill="#FFFFFF"/>
+  <!-- Sparkle effects -->
+  <line x1="88" y1="74" x2="85" y2="68" stroke="#2ECC71" stroke-width="2" stroke-linecap="round"/>
+  <line x1="112" y1="74" x2="115" y2="68" stroke="#2ECC71" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Checkmark shield icon on helmet -->
+  <path d="M96,95 L100,92 L104,95 L104,101 Q100,104 96,101 Z" fill="#2ECC71" opacity="0.8"/>
+  <polyline points="97,98 99,101 103,96" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Left arm (thumbs up!) -->
+  <path d="M55,145 Q30,125 28,105" fill="none" stroke="#8B6914" stroke-width="10" stroke-linecap="round"/>
+  <!-- Fist -->
+  <rect x="20" y="95" rx="5" ry="5" width="16" height="14" fill="#F5DEB3"/>
+  <!-- Thumb pointing up -->
+  <rect x="25" y="78" rx="4" ry="4" width="8" height="20" fill="#F5DEB3"/>
+  <!-- Thumb nail -->
+  <rect x="26" y="78" rx="3" ry="3" width="6" height="5" fill="#F0D5A0"/>
+
+  <!-- Right arm (on hip, confident) -->
+  <path d="M145,145 Q165,150 160,170" fill="none" stroke="#8B6914" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="160" cy="173" r="7" fill="#F5DEB3"/>
+
+  <!-- Feet -->
+  <ellipse cx="80" cy="200" rx="18" ry="10" fill="#8B6914"/>
+  <ellipse cx="120" cy="200" rx="18" ry="10" fill="#8B6914"/>
+
+  <!-- Happy sparkles around -->
+  <polygon points="170,50 173,56 180,56 175,60 177,67 170,63 163,67 165,60 160,56 167,56" fill="#FFD700" opacity="0.6"/>
+  <polygon points="35,50 37,54 42,54 38,57 39,62 35,59 31,62 32,57 28,54 33,54" fill="#FFD700" opacity="0.5"/>
+  <circle cx="100" cy="12" r="4" fill="#2ECC71" opacity="0.4"/>
+</svg>

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" width="200" height="220">
+  <!-- Kiberko the Cyber Hedgehog - Warning (cautious/alert pose) -->
+
+  <!-- Body (slightly hunched) -->
+  <ellipse cx="100" cy="158" rx="55" ry="48" fill="#8B6914"/>
+
+  <!-- Spines (raised/alert - pointing more upward, orange-tinted) -->
+  <defs>
+    <linearGradient id="spineWarn" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF8C00"/>
+      <stop offset="100%" stop-color="#7B4F1A"/>
+    </linearGradient>
+  </defs>
+  <polygon points="100,5 83,58 117,58" fill="url(#spineWarn)"/>
+  <polygon points="62,12 55,65 88,60" fill="url(#spineWarn)"/>
+  <polygon points="138,12 145,65 112,60" fill="url(#spineWarn)"/>
+  <polygon points="35,30 38,80 70,65" fill="url(#spineWarn)"/>
+  <polygon points="165,30 162,80 130,65" fill="url(#spineWarn)"/>
+  <polygon points="25,55 33,100 60,80" fill="url(#spineWarn)"/>
+  <polygon points="175,55 167,100 140,80" fill="url(#spineWarn)"/>
+
+  <!-- Face (belly area) -->
+  <ellipse cx="100" cy="148" rx="40" ry="38" fill="#F5DEB3"/>
+
+  <!-- Eyes (wide open, alert) -->
+  <ellipse cx="85" cy="132" rx="12" ry="13" fill="white"/>
+  <ellipse cx="115" cy="132" rx="12" ry="13" fill="white"/>
+  <circle cx="85" cy="132" r="7" fill="#2D1B00"/>
+  <circle cx="115" cy="132" r="7" fill="#2D1B00"/>
+  <!-- Eye shine -->
+  <circle cx="88" cy="128" r="3" fill="white"/>
+  <circle cx="118" cy="128" r="3" fill="white"/>
+  <!-- Alert eyebrows -->
+  <line x1="76" y1="118" x2="92" y2="121" stroke="#5C3A00" stroke-width="3" stroke-linecap="round"/>
+  <line x1="124" y1="118" x2="108" y2="121" stroke="#5C3A00" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Nose -->
+  <ellipse cx="100" cy="148" rx="5" ry="4" fill="#2D1B00"/>
+
+  <!-- Mouth (small "o" shape - concerned) -->
+  <ellipse cx="100" cy="160" rx="6" ry="5" fill="#2D1B00"/>
+  <ellipse cx="100" cy="159" rx="4" ry="3" fill="#C0392B" opacity="0.6"/>
+
+  <!-- Cheeks (less blush, more alert) -->
+  <circle cx="72" cy="152" r="6" fill="#FFB6C1" opacity="0.4"/>
+  <circle cx="128" cy="152" r="6" fill="#FFB6C1" opacity="0.4"/>
+
+  <!-- Helmet (cyber shield - glowing orange for warning) -->
+  <path d="M65,118 Q65,88 100,82 Q135,88 135,118" fill="none" stroke="#FF8C00" stroke-width="3"/>
+  <path d="M70,113 Q70,93 100,88 Q130,93 130,113" fill="#FF8C00" opacity="0.15"/>
+  <!-- Helmet antenna (pulsing) -->
+  <circle cx="100" cy="80" r="6" fill="#FF8C00"/>
+  <circle cx="100" cy="80" r="3" fill="#FFD700"/>
+  <!-- Alert signal lines -->
+  <line x1="90" y1="72" x2="86" y2="65" stroke="#FF8C00" stroke-width="2" stroke-linecap="round"/>
+  <line x1="110" y1="72" x2="114" y2="65" stroke="#FF8C00" stroke-width="2" stroke-linecap="round"/>
+  <line x1="100" y1="72" x2="100" y2="64" stroke="#FF8C00" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Warning shield icon on helmet -->
+  <path d="M96,97 L100,94 L104,97 L104,103 Q100,106 96,103 Z" fill="#FF8C00" opacity="0.8"/>
+  <!-- Exclamation mark in shield -->
+  <line x1="100" y1="96" x2="100" y2="100" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="100" cy="102" r="0.8" fill="white"/>
+
+  <!-- Left arm (held up, stop gesture) -->
+  <path d="M55,148 Q35,135 30,120" fill="none" stroke="#8B6914" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="28" cy="117" r="8" fill="#F5DEB3"/>
+  <!-- Palm open (stop) -->
+  <line x1="22" y1="110" x2="20" y2="104" stroke="#F5DEB3" stroke-width="3" stroke-linecap="round"/>
+  <line x1="26" y1="108" x2="25" y2="101" stroke="#F5DEB3" stroke-width="3" stroke-linecap="round"/>
+  <line x1="31" y1="108" x2="31" y2="101" stroke="#F5DEB3" stroke-width="3" stroke-linecap="round"/>
+  <line x1="35" y1="110" x2="37" y2="104" stroke="#F5DEB3" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Right arm (pointing at something) -->
+  <path d="M145,148 Q165,135 175,130" fill="none" stroke="#8B6914" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="177" cy="128" r="7" fill="#F5DEB3"/>
+  <!-- Pointing finger -->
+  <line x1="182" y1="125" x2="190" y2="120" stroke="#F5DEB3" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Feet (shifted closer together - defensive stance) -->
+  <ellipse cx="85" cy="202" rx="17" ry="10" fill="#8B6914"/>
+  <ellipse cx="115" cy="202" rx="17" ry="10" fill="#8B6914"/>
+
+  <!-- Warning glow on spines -->
+  <circle cx="100" cy="10" r="5" fill="#FF8C00" opacity="0.4"/>
+  <circle cx="62" cy="18" r="4" fill="#FF8C00" opacity="0.3"/>
+  <circle cx="138" cy="18" r="4" fill="#FF8C00" opacity="0.3"/>
+</svg>
