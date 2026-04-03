@@ -101,7 +101,11 @@ it('displays action slide encouraging talking to trusted adults', function () {
         ->assertSee('Šta raditi?')
         ->assertSee('roditelju, učitelju ili odrasloj osobi od poverenja')
         ->assertSee('nije tvoja krivica')
-        ->assertSee('Nećeš biti u nevolji');
+        ->assertSee('Nećeš biti u nevolji')
+        ->assertSee('vršnjačko nasilje')
+        ->assertSee('maltretira tvog druga ili drugaricu')
+        ->assertSee('Sigurna linija za prijavu digitalnog nasilja')
+        ->assertSee('@bezbednost_dece_na_internetu');
 });
 
 it('uses warning mascot on danger slides and thumbsup on action slide', function () {

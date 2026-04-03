@@ -273,37 +273,55 @@ new class extends Component {
     {{-- Slide 9: Šta raditi? --}}
     <x-slidewire::slide>
         <div class="mx-auto max-w-6xl">
-            <div class="flex items-center gap-5 mb-14">
+            <div class="flex items-center gap-5 mb-10">
                 <x-mascot variant="thumbsup" class="w-32 h-32" />
                 <h2 class="text-6xl font-bold text-white">Šta raditi?</h2>
             </div>
 
-            <x-slidewire::fragment :index="0" class="mb-10">
-                <p class="text-4xl text-lime-300 font-bold">
+            <x-slidewire::fragment :index="0" class="mb-6">
+                <p class="text-3xl text-lime-300 font-bold">
                     &#9989; Uvek reci roditelju, učitelju ili odrasloj osobi od poverenja!
                 </p>
             </x-slidewire::fragment>
 
-            <x-slidewire::fragment :index="1" class="mb-10">
-                <p class="text-4xl text-white">
+            <x-slidewire::fragment :index="1" class="mb-6">
+                <p class="text-3xl text-white">
                     Ako te nešto na internetu uplaši ili ti bude neprijatno — <strong class="text-yellow-300">to nije tvoja krivica</strong>.
                 </p>
             </x-slidewire::fragment>
 
-            <x-slidewire::fragment :index="2" class="mb-10">
-                <p class="text-4xl text-white">
+            <x-slidewire::fragment :index="2" class="mb-6">
+                <p class="text-3xl text-white">
                     <strong class="text-lime-300">Nećeš biti u nevolji</strong> ako pričaš o tome sa odraslima.
                 </p>
             </x-slidewire::fragment>
 
-            <x-slidewire::fragment :index="3" class="mb-10">
-                <p class="text-4xl text-white">
-                    Odrasli su tu da te <strong class="text-yellow-300">zaštite</strong> i pomognu ti!
+            <x-slidewire::fragment :index="3" class="mb-6">
+                <p class="text-3xl text-white">
+                    &#9888; Opasnost ne dolazi samo od stranaca — i <strong class="text-red-300">deca koju poznaješ</strong> mogu da te povrede na internetu. To se zove <strong class="text-red-300">vršnjačko nasilje</strong>.
                 </p>
             </x-slidewire::fragment>
 
-            <x-slidewire::fragment :index="4">
-                <p class="text-4xl text-lime-300 font-bold">
+            <x-slidewire::fragment :index="4" class="mb-6">
+                <p class="text-3xl text-white">
+                    Ako vidiš da neko <strong class="text-yellow-300">maltretira tvog druga ili drugaricu</strong> na internetu — prijavi to! Nije tužakanje, to je <strong class="text-lime-300">hrabrost</strong>.
+                </p>
+            </x-slidewire::fragment>
+
+            <x-slidewire::fragment :index="5" class="mb-6">
+                <p class="text-3xl text-white">
+                    &#128680; Postoji <strong class="text-yellow-300">Sigurna linija za prijavu digitalnog nasilja</strong> — mesto gde možeš bezbedno da prijaviš sve što te brine.
+                </p>
+            </x-slidewire::fragment>
+
+            <x-slidewire::fragment :index="6" class="mb-6">
+                <p class="text-3xl text-white">
+                    &#128241; Tvoji roditelji mogu pratiti <strong class="text-cyan-300">@bezbednost_dece_na_internetu</strong> na Instagramu za korisne savete o bezbednosti na internetu.
+                </p>
+            </x-slidewire::fragment>
+
+            <x-slidewire::fragment :index="7">
+                <p class="text-3xl text-lime-300 font-bold">
                     Zapamti: ti si hrabar/hrabra kad tražiš pomoć! 💪
                 </p>
             </x-slidewire::fragment>
