@@ -68,11 +68,19 @@ new class extends Component {
                 <p class="text-4xl text-red-300">&#10060; U koju <strong>školu</strong> ideš</p>
             </x-slidewire::fragment>
 
-            <x-slidewire::fragment :index="4" class="mb-8">
+            <x-slidewire::fragment :index="4" class="mb-6">
                 <p class="text-4xl text-red-300">&#10060; Broj <strong>telefona</strong></p>
             </x-slidewire::fragment>
 
-            <x-slidewire::fragment :index="5">
+            <x-slidewire::fragment :index="5" class="mb-6">
+                <p class="text-4xl text-red-300">&#10060; Tvoje <strong>fotografije</strong></p>
+            </x-slidewire::fragment>
+
+            <x-slidewire::fragment :index="6" class="mb-8">
+                <p class="text-4xl text-red-300">&#10060; Fotografije tvoje <strong>porodice</strong></p>
+            </x-slidewire::fragment>
+
+            <x-slidewire::fragment :index="7">
                 <p class="text-3xl text-yellow-300 font-bold">Tvoji lični podaci su samo za tebe i tvoju porodicu!</p>
             </x-slidewire::fragment>
         </div>

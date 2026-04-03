@@ -26,7 +26,11 @@ it('displays personal data slide listing what not to share', function () {
         ->assertSee('ime i prezime')
         ->assertSee('adresu')
         ->assertSee('školu')
-        ->assertSee('telefona');
+        ->assertSee('telefona')
+        ->assertSee('Tvoje')
+        ->assertSee('fotografije')
+        ->assertSee('Fotografije tvoje')
+        ->assertSee('porodice');
 });
 
 it('displays password slide with house key metaphor', function () {
