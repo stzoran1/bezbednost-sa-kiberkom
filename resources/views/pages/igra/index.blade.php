@@ -28,6 +28,14 @@ class extends Component
 
     public bool $showLeaderboard = false;
 
+    public string $resetPassword = '';
+
+    public bool $showResetForm = false;
+
+    public ?string $resetError = null;
+
+    public bool $resetSuccess = false;
+
     public array $activeScenarios = [];
 
     public int $questionsPerGame = 10;
@@ -224,6 +232,22 @@ class extends Component
         $this->activeScenarios = [];
         $this->startedAtTimestamp = null;
         $this->finalTimeSeconds = 0;
+    }
+
+    public function resetLeaderboard(): void
+    {
+        if ($this->resetPassword !== '2604') {
+            $this->resetError = 'Pogrešna lozinka!';
+
+            return;
+        }
+
+        GameScore::truncate();
+
+        $this->resetPassword = '';
+        $this->showResetForm = false;
+        $this->resetError = null;
+        $this->resetSuccess = true;
     }
 
     public function getLeaderboardProperty(): \Illuminate\Support\Collection
