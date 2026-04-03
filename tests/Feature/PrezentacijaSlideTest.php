@@ -36,7 +36,11 @@ it('displays personal data slide listing what not to share', function () {
 it('displays password slide with house key metaphor', function () {
     get('/prezentacija')
         ->assertSee('Lozinke su ključevi')
-        ->assertSee('ključ od tvoje kuće');
+        ->assertSee('ključ od tvoje kuće')
+        ->assertSee('duga i jaka')
+        ->assertSee('Saveti za jaku lozinku')
+        ->assertSee('Ne koristi poznate reči')
+        ->assertSee('slova, brojeve i specijalne znakove');
 });
 
 it('uses fragments for progressive content reveal', function () {

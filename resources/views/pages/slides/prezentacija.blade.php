@@ -114,8 +114,14 @@ new class extends Component {
 
             <x-slidewire::fragment :index="3">
                 <p class="text-4xl text-white">
-                    Dobra lozinka je kao jak katanac — neka bude <strong class="text-lime-300">duga i tajna</strong>! 🔒
+                    Dobra lozinka je kao jak katanac — neka bude <strong class="text-lime-300">duga i jaka</strong>! 🔒
                 </p>
+            </x-slidewire::fragment>
+
+            <x-slidewire::fragment :index="4">
+                <p class="text-3xl text-yellow-300 font-bold mb-4">Saveti za jaku lozinku:</p>
+                <p class="text-3xl text-white mb-3">&#10060; Ne koristi poznate reči (ime, nadimak, "lozinka123")</p>
+                <p class="text-3xl text-white">&#9989; Kombinuj <strong class="text-lime-300">slova, brojeve i specijalne znakove</strong> (!@#$)</p>
             </x-slidewire::fragment>
         </div>
     </x-slidewire::slide>
