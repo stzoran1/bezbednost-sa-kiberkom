@@ -61,8 +61,11 @@ it('uses the aurora theme', function () {
 it('displays social media slide explaining stranger danger', function () {
     get('/prezentacija')
         ->assertSee('Društvene mreže')
+        ->assertSee('video zapise, poruke i priče')
         ->assertSee('svako može da se pretvara da je neko drugi')
-        ->assertSee('odrasla osoba');
+        ->assertSee('Iza slatke profilne slike deteta')
+        ->assertSee('odrasla osoba sa lošim namerama')
+        ->assertSee('ne bi lagao da je mlađi');
 });
 
 it('displays online gaming slide covering chat safety', function () {

@@ -134,25 +134,31 @@ new class extends Component {
                 <h2 class="text-6xl font-bold text-white">Društvene mreže</h2>
             </div>
 
-            <x-slidewire::fragment :index="0" class="mb-10">
+            <x-slidewire::fragment :index="0" class="mb-8">
                 <p class="text-4xl text-white">
-                    Društvene mreže su mesta na internetu gde ljudi dele slike, poruke i priče.
+                    Društvene mreže su mesta na internetu gde ljudi dele slike, video zapise, poruke i priče.
                 </p>
             </x-slidewire::fragment>
 
-            <x-slidewire::fragment :index="1" class="mb-10">
+            <x-slidewire::fragment :index="1" class="mb-8">
                 <p class="text-4xl text-white">
                     Ali pažnja! Na internetu <strong class="text-red-300">svako može da se pretvara da je neko drugi</strong>.
                 </p>
             </x-slidewire::fragment>
 
-            <x-slidewire::fragment :index="2" class="mb-10">
-                <p class="text-4xl text-white">
-                    Neko ko kaže da je dete može zapravo biti <strong class="text-red-300">odrasla osoba</strong> koja se predstavlja lažno.
+            <x-slidewire::fragment :index="2" class="mb-8">
+                <p class="text-3xl text-white text-center">
+                    &#128118;&#10145;&#65039;&#129464; <strong class="text-red-300">Iza slatke profilne slike deteta može se kriti odrasla osoba sa lošim namerama!</strong>
                 </p>
             </x-slidewire::fragment>
 
-            <x-slidewire::fragment :index="3">
+            <x-slidewire::fragment :index="3" class="mb-8">
+                <p class="text-3xl text-white">
+                    &#9888; Razmisli: deca ponekad lažu da su starija da bi zaobišla pravila. Zašto onda neko sa lošim namerama <strong class="text-red-300">ne bi lagao da je mlađi</strong>?
+                </p>
+            </x-slidewire::fragment>
+
+            <x-slidewire::fragment :index="4">
                 <p class="text-3xl text-yellow-300 font-bold">
                     Nikada ne veruj nepoznatim osobama na internetu, čak i ako deluju prijateljski!
                 </p>
