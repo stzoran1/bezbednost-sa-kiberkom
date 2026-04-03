@@ -91,10 +91,10 @@ return [
             text: new ThemeFont(font: 'Inter', color: 'text-zinc-600', size: 'text-lg'),
         ),
         'aurora' => new ThemeConfig(
-            background: 'bg-gradient-to-br from-emerald-950 via-cyan-900 to-slate-950 text-emerald-50',
+            background: 'bg-gradient-to-br from-teal-700 via-cyan-600 to-sky-700 text-white',
             highlightTheme: Theme::CatppuccinMocha,
-            title: new ThemeFont(font: 'Inter', color: 'text-emerald-50', size: 'text-4xl'),
-            text: new ThemeFont(font: 'Inter', color: 'text-cyan-100', size: 'text-lg'),
+            title: new ThemeFont(font: 'Inter', color: 'text-white', size: 'text-4xl'),
+            text: new ThemeFont(font: 'Inter', color: 'text-cyan-50', size: 'text-lg'),
         ),
         'sunset' => new ThemeConfig(
             background: 'bg-gradient-to-br from-rose-950 via-orange-900 to-amber-700 text-orange-50',

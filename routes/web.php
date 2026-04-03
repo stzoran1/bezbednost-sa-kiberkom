@@ -8,3 +8,5 @@ Route::get('/', function () {
 
 Route::slidewire('/prezentacija', 'prezentacija');
 Route::livewire('/igra', 'pages::igra.index');
+
+Route::get('/flajer', fn () => view('pdf.flajer'))->name('flajer');

@@ -16,23 +16,23 @@ it('displays the mascot on the title slide', function () {
 
 it('displays internet basics slide with digital playground analogy', function () {
     get('/prezentacija')
-        ->assertSee('Sta je internet?')
-        ->assertSee('digitalno igraliste');
+        ->assertSee('Šta je internet?')
+        ->assertSee('digitalno igralište');
 });
 
 it('displays personal data slide listing what not to share', function () {
     get('/prezentacija')
-        ->assertSee('Licni podaci su tajna')
+        ->assertSee('Lični podaci su tajna')
         ->assertSee('ime i prezime')
         ->assertSee('adresu')
-        ->assertSee('skolu')
+        ->assertSee('školu')
         ->assertSee('telefona');
 });
 
 it('displays password slide with house key metaphor', function () {
     get('/prezentacija')
-        ->assertSee('Lozinke su kljucevi')
-        ->assertSee('kljuc od tvoje kuce');
+        ->assertSee('Lozinke su ključevi')
+        ->assertSee('ključ od tvoje kuće');
 });
 
 it('uses fragments for progressive content reveal', function () {
@@ -41,7 +41,7 @@ it('uses fragments for progressive content reveal', function () {
 
 it('has all text in Serbian Latin', function () {
     $response = get('/prezentacija');
-    $response->assertSee('Naucimo zajedno');
+    $response->assertSee('Naučimo zajedno');
     $response->assertSee('Nikada ne deli');
     $response->assertSee('roditeljima');
 });
@@ -52,33 +52,33 @@ it('uses the aurora theme', function () {
 
 it('displays social media slide explaining stranger danger', function () {
     get('/prezentacija')
-        ->assertSee('Drustvene mreze')
-        ->assertSee('svako moze da se pretvara da je neko drugi')
+        ->assertSee('Društvene mreže')
+        ->assertSee('svako može da se pretvara da je neko drugi')
         ->assertSee('odrasla osoba');
 });
 
 it('displays online gaming slide covering chat safety', function () {
     get('/prezentacija')
         ->assertSee('Online igre i razgovori')
-        ->assertSee('Ne deli licne podatke')
-        ->assertSee('Nikada se ne nalazi uzivo sa nekim koga si upoznao na internetu');
+        ->assertSee('Ne deli lične podatke')
+        ->assertSee('Nikada se ne nalazi uživo sa nekim koga si upoznao na internetu');
 });
 
 it('displays warning signs slide with concrete red flags', function () {
     get('/prezentacija')
         ->assertSee('Prepoznaj opasnost')
         ->assertSee('svoju sliku')
-        ->assertSee('gde zivis')
-        ->assertSee('cuvas tajnu')
-        ->assertSee('nadjete nasamo');
+        ->assertSee('gde živiš')
+        ->assertSee('čuvaš tajnu')
+        ->assertSee('nađete nasamo');
 });
 
 it('displays action slide encouraging talking to trusted adults', function () {
     get('/prezentacija')
-        ->assertSee('Sta raditi?')
-        ->assertSee('roditelju, ucitelju ili odrasloj osobi od poverenja')
+        ->assertSee('Šta raditi?')
+        ->assertSee('roditelju, učitelju ili odrasloj osobi od poverenja')
         ->assertSee('nije tvoja krivica')
-        ->assertSee('Neces biti u nevolji');
+        ->assertSee('Nećeš biti u nevolji');
 });
 
 it('uses warning mascot on danger slides and thumbsup on action slide', function () {
@@ -100,8 +100,8 @@ it('displays recap slide with 4 golden rules', function () {
     get('/prezentacija')
         ->assertSee('Kiberkov savet')
         ->assertSee('4 zlatna pravila')
-        ->assertSee('Ne deli licne podatke')
-        ->assertSee('Cuva lozinke u tajnosti')
+        ->assertSee('Ne deli lične podatke')
+        ->assertSee('Čuvaj lozinke u tajnosti')
         ->assertSee('Reci odrasloj osobi')
         ->assertSee('Budi ljubazan na internetu');
 });
@@ -116,13 +116,13 @@ it('displays thank you slide with mascot and game teaser', function () {
 it('contains all 10 slide headings', function () {
     get('/prezentacija')
         ->assertSee('Digitalna bezbednost sa Kiberkom')
-        ->assertSee('Sta je internet?')
-        ->assertSee('Licni podaci su tajna')
-        ->assertSee('Lozinke su kljucevi')
-        ->assertSee('Drustvene mreze')
+        ->assertSee('Šta je internet?')
+        ->assertSee('Lični podaci su tajna')
+        ->assertSee('Lozinke su ključevi')
+        ->assertSee('Društvene mreže')
         ->assertSee('Online igre i razgovori')
         ->assertSee('Prepoznaj opasnost')
-        ->assertSee('Sta raditi?')
+        ->assertSee('Šta raditi?')
         ->assertSee('Kiberkov savet')
         ->assertSee('Hvala!');
 });

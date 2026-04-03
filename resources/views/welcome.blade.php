@@ -8,7 +8,7 @@
             </h1>
 
             <p class="text-2xl md:text-3xl text-white/90 mb-14 font-medium">
-                Nauci kako da budes siguran na internetu!
+                Nauči kako da budeš siguran na internetu!
             </p>
 
             <div class="flex flex-col sm:flex-row gap-6 justify-center">
@@ -20,6 +20,11 @@
                 <a href="/igra"
                    class="inline-block bg-emerald-400 hover:bg-emerald-300 text-gray-900 font-extrabold text-2xl md:text-3xl px-12 py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
                     Igra
+                </a>
+
+                <a href="/flajer"
+                   class="inline-block bg-white hover:bg-gray-100 text-gray-900 font-extrabold text-2xl md:text-3xl px-12 py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
+                    Flajer
                 </a>
             </div>
         </div>
