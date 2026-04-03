@@ -429,7 +429,7 @@ class extends Component
                         <x-mascot variant="warning" class="w-32 h-32 mx-auto mb-4" />
                     </div>
                     <h2 class="text-3xl md:text-4xl font-extrabold text-orange-500 mb-3">
-                        Nije tačno, ali nema veze!
+                        Nije tačno, ali ne brini — podsetićemo se zajedno!
                     </h2>
                 @endif
 

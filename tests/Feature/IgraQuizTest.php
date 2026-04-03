@@ -181,6 +181,36 @@ test('play again keeps the same player name', function () {
     expect($component->get('startedAtTimestamp'))->toBeFloat()->toBeGreaterThan(0);
 });
 
+test('wrong answer shows encouraging heading without trivializing', function () {
+    $component = Livewire::test('pages::igra.index')
+        ->set('playerName', 'Tim A')
+        ->call('startGame');
+
+    $scenarios = $component->get('activeScenarios');
+    $wrongAnswer = ! $scenarios[0]['answer'];
+
+    $component->call('answer', $wrongAnswer)
+        ->assertSee('Nije tačno, ali ne brini')
+        ->assertDontSee('nema veze');
+});
+
+test('wrong answer explanations do not contain congratulatory words', function () {
+    $component = Livewire::test('pages::igra.index')
+        ->set('playerName', 'Tim A')
+        ->call('startGame');
+
+    $scenarios = $component->get('activeScenarios');
+    $congratulatoryWords = ['Odlično!', 'Bravo!', 'Super!', 'Fantastično!'];
+
+    foreach ($scenarios as $scenario) {
+        if ($scenario['answer'] === false) {
+            foreach ($congratulatoryWords as $word) {
+                expect($scenario['explanation'])->not->toContain($word);
+            }
+        }
+    }
+});
+
 test('new player resets to start screen', function () {
     Livewire::test('pages::igra.index')
         ->set('playerName', 'Tim A')
