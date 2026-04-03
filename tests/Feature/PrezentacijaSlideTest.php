@@ -26,13 +26,21 @@ it('displays personal data slide listing what not to share', function () {
         ->assertSee('ime i prezime')
         ->assertSee('adresu')
         ->assertSee('školu')
-        ->assertSee('telefona');
+        ->assertSee('telefona')
+        ->assertSee('Tvoje')
+        ->assertSee('fotografije')
+        ->assertSee('Fotografije tvoje')
+        ->assertSee('porodice');
 });
 
 it('displays password slide with house key metaphor', function () {
     get('/prezentacija')
         ->assertSee('Lozinke su ključevi')
-        ->assertSee('ključ od tvoje kuće');
+        ->assertSee('ključ od tvoje kuće')
+        ->assertSee('duga i jaka')
+        ->assertSee('Saveti za jaku lozinku')
+        ->assertSee('Ne koristi poznate reči')
+        ->assertSee('slova, brojeve i specijalne znakove');
 });
 
 it('uses fragments for progressive content reveal', function () {
@@ -53,8 +61,11 @@ it('uses the aurora theme', function () {
 it('displays social media slide explaining stranger danger', function () {
     get('/prezentacija')
         ->assertSee('Društvene mreže')
+        ->assertSee('video zapise, poruke i priče')
         ->assertSee('svako može da se pretvara da je neko drugi')
-        ->assertSee('odrasla osoba');
+        ->assertSee('Iza slatke profilne slike deteta')
+        ->assertSee('odrasla osoba sa lošim namerama')
+        ->assertSee('ne bi lagao da je mlađi');
 });
 
 it('displays online gaming slide covering chat safety', function () {
@@ -64,13 +75,25 @@ it('displays online gaming slide covering chat safety', function () {
         ->assertSee('Nikada se ne nalazi uživo sa nekim koga si upoznao na internetu');
 });
 
-it('displays warning signs slide with concrete red flags', function () {
+it('displays warning signs slide part 1 with grooming red flags', function () {
     get('/prezentacija')
         ->assertSee('Prepoznaj opasnost')
-        ->assertSee('svoju sliku')
-        ->assertSee('gde živiš')
-        ->assertSee('čuvaš tajnu')
-        ->assertSee('nađete nasamo');
+        ->assertSee('veoma ozbiljnom')
+        ->assertSee('prevarili decu')
+        ->assertSee('previše ličnih pitanja')
+        ->assertSee('najbolji prijatelj')
+        ->assertSee('neočekivane poklone')
+        ->assertSee('čuvaš tajnu');
+});
+
+it('displays warning signs slide part 2 with additional red flags and emotional emphasis', function () {
+    get('/prezentacija')
+        ->assertSee('Prepoznaj opasnost (2)')
+        ->assertSee('obrišeš poruke')
+        ->assertSee('poseban tajni')
+        ->assertSee('nađete uživo nasamo')
+        ->assertSee('lak novac za fotografije')
+        ->assertSee('ozbiljan crveni alarm');
 });
 
 it('displays action slide encouraging talking to trusted adults', function () {
@@ -78,7 +101,11 @@ it('displays action slide encouraging talking to trusted adults', function () {
         ->assertSee('Šta raditi?')
         ->assertSee('roditelju, učitelju ili odrasloj osobi od poverenja')
         ->assertSee('nije tvoja krivica')
-        ->assertSee('Nećeš biti u nevolji');
+        ->assertSee('Nećeš biti u nevolji')
+        ->assertSee('vršnjačko nasilje')
+        ->assertSee('maltretira tvog druga ili drugaricu')
+        ->assertSee('Sigurna linija za prijavu digitalnog nasilja')
+        ->assertSee('@bezbednost_dece_na_internetu');
 });
 
 it('uses warning mascot on danger slides and thumbsup on action slide', function () {
@@ -90,8 +117,8 @@ it('uses warning mascot on danger slides and thumbsup on action slide', function
     $warningCount = substr_count($content, 'mascot-warning.svg');
     $thumbsupCount = substr_count($content, 'mascot-thumbsup.svg');
 
-    // 3 warning from slides 5,6,7 + 1 from slide 3 = 4 total warning
-    expect($warningCount)->toBeGreaterThanOrEqual(4);
+    // 4 warning from slides 5,6,7,8 + 1 from slide 3 = 5 total warning
+    expect($warningCount)->toBeGreaterThanOrEqual(5);
     // 1 thumbsup from slide 8 + 1 from slide 4 = 2 total thumbsup
     expect($thumbsupCount)->toBeGreaterThanOrEqual(2);
 });
@@ -113,7 +140,7 @@ it('displays thank you slide with mascot and game teaser', function () {
         ->assertSee('vreme je za igru');
 });
 
-it('contains all 10 slide headings', function () {
+it('contains all 11 slide headings', function () {
     get('/prezentacija')
         ->assertSee('Digitalna bezbednost sa Kiberkom')
         ->assertSee('Šta je internet?')
@@ -122,6 +149,7 @@ it('contains all 10 slide headings', function () {
         ->assertSee('Društvene mreže')
         ->assertSee('Online igre i razgovori')
         ->assertSee('Prepoznaj opasnost')
+        ->assertSee('Prepoznaj opasnost (2)')
         ->assertSee('Šta raditi?')
         ->assertSee('Kiberkov savet')
         ->assertSee('Hvala!');

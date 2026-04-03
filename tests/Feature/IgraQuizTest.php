@@ -181,6 +181,71 @@ test('play again keeps the same player name', function () {
     expect($component->get('startedAtTimestamp'))->toBeFloat()->toBeGreaterThan(0);
 });
 
+test('wrong answer shows encouraging heading without trivializing', function () {
+    $component = Livewire::test('pages::igra.index')
+        ->set('playerName', 'Tim A')
+        ->call('startGame');
+
+    $scenarios = $component->get('activeScenarios');
+    $wrongAnswer = ! $scenarios[0]['answer'];
+
+    $component->call('answer', $wrongAnswer)
+        ->assertSee('Nije tačno, ali ne brini')
+        ->assertDontSee('nema veze');
+});
+
+test('wrong answer explanations do not contain congratulatory words', function () {
+    $component = Livewire::test('pages::igra.index')
+        ->set('playerName', 'Tim A')
+        ->call('startGame');
+
+    $scenarios = $component->get('activeScenarios');
+    $congratulatoryWords = ['Odlično!', 'Bravo!', 'Super!', 'Fantastično!'];
+
+    foreach ($scenarios as $scenario) {
+        if ($scenario['answer'] === false) {
+            foreach ($congratulatoryWords as $word) {
+                expect($scenario['explanation'])->not->toContain($word);
+            }
+        }
+    }
+});
+
+test('leaderboard shows reset button', function () {
+    Livewire::test('pages::igra.index')
+        ->call('toggleLeaderboard')
+        ->assertSee('Obriši tabelu rezultata');
+});
+
+test('reset leaderboard rejects wrong password', function () {
+    GameScore::factory()->create(['player_name' => 'Tim A', 'score' => 10]);
+
+    Livewire::test('pages::igra.index')
+        ->call('toggleLeaderboard')
+        ->set('showResetForm', true)
+        ->set('resetPassword', '0000')
+        ->call('resetLeaderboard')
+        ->assertSee('Pogrešna lozinka!');
+
+    expect(GameScore::count())->toBe(1);
+});
+
+test('reset leaderboard clears all scores with correct password', function () {
+    GameScore::factory()->count(3)->create();
+
+    expect(GameScore::count())->toBe(3);
+
+    Livewire::test('pages::igra.index')
+        ->call('toggleLeaderboard')
+        ->set('showResetForm', true)
+        ->set('resetPassword', '2604')
+        ->call('resetLeaderboard')
+        ->assertSet('resetSuccess', true)
+        ->assertSee('Tabela rezultata je uspešno obrisana!');
+
+    expect(GameScore::count())->toBe(0);
+});
+
 test('new player resets to start screen', function () {
     Livewire::test('pages::igra.index')
         ->set('playerName', 'Tim A')

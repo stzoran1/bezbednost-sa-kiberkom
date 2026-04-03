@@ -41,4 +41,36 @@
             </tbody>
         </table>
     @endif
+
+    {{-- Reset Leaderboard --}}
+    <div class="mt-4 pt-4 border-t border-purple-200">
+        @if ($this->resetSuccess)
+            <p class="text-green-600 font-semibold text-base">Tabela rezultata je uspešno obrisana!</p>
+        @elseif ($this->showResetForm)
+            <form wire:submit="resetLeaderboard" class="flex flex-col sm:flex-row items-center gap-2">
+                <input
+                    wire:model="resetPassword"
+                    type="password"
+                    placeholder="Unesite lozinku..."
+                    class="px-3 py-2 text-base rounded-lg border border-purple-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none"
+                >
+                <button
+                    type="submit"
+                    class="px-4 py-2 bg-red-500 text-white text-base font-bold rounded-lg hover:bg-red-600 transition-colors"
+                >
+                    Potvrdi
+                </button>
+                @if ($this->resetError)
+                    <p class="text-red-500 text-sm font-semibold">{{ $this->resetError }}</p>
+                @endif
+            </form>
+        @else
+            <button
+                wire:click="$set('showResetForm', true)"
+                class="text-red-500 hover:text-red-700 text-sm font-semibold underline transition-colors"
+            >
+                Obriši tabelu rezultata
+            </button>
+        @endif
+    </div>
 </div>
