@@ -55,7 +55,7 @@
                 <div class="flex-shrink-0 w-10 h-10 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold text-lg">1</div>
                 <div>
                     <h3 class="font-bold text-gray-800 text-sm leading-tight">Ne deli lične podatke sa nepoznatim osobama</h3>
-                    <p class="text-xs text-gray-600 mt-1 leading-relaxed">Tvoje ime, adresa, škola i broj telefona su samo za tebe i tvoju porodicu.</p>
+                    <p class="text-xs text-gray-600 mt-1 leading-relaxed">Tvoje ime, adresa, škola, broj telefona, fotografije i video zapisi su samo za tebe i tvoju porodicu.</p>
                 </div>
             </div>
 
@@ -64,7 +64,7 @@
                 <div class="flex-shrink-0 w-10 h-10 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold text-lg">2</div>
                 <div>
                     <h3 class="font-bold text-gray-800 text-sm leading-tight">Čuvaj lozinke u tajnosti</h3>
-                    <p class="text-xs text-gray-600 mt-1 leading-relaxed">Lozinka je kao ključ od tvoje kuće. Deli je samo sa roditeljima. Neka bude duga i tajna!</p>
+                    <p class="text-xs text-gray-600 mt-1 leading-relaxed">Lozinka je kao ključ od tvoje kuće. Deli je samo sa roditeljima. Neka bude duga i jaka! Koristi slova, brojeve i specijalne znakove.</p>
                 </div>
             </div>
 
@@ -97,10 +97,10 @@
                 <x-mascot variant="warning" class="w-12 h-12" />
                 <h2 class="text-lg font-bold text-red-600">Prepoznaj opasnost!</h2>
             </div>
-            <div class="space-y-2">
+            <div class="space-y-1.5">
                 <p class="text-xs text-gray-700 flex items-start gap-1.5">
                     <span class="text-red-500 font-bold text-sm leading-none mt-px">&#10007;</span>
-                    Neko traži od tebe da pošalješ svoju sliku
+                    Neko traži od tebe da pošalješ svoju sliku ili video
                 </p>
                 <p class="text-xs text-gray-700 flex items-start gap-1.5">
                     <span class="text-red-500 font-bold text-sm leading-none mt-px">&#10007;</span>
@@ -112,9 +112,21 @@
                 </p>
                 <p class="text-xs text-gray-700 flex items-start gap-1.5">
                     <span class="text-red-500 font-bold text-sm leading-none mt-px">&#10007;</span>
+                    Neko te preterano hvali ili ti nudi poklone
+                </p>
+                <p class="text-xs text-gray-700 flex items-start gap-1.5">
+                    <span class="text-red-500 font-bold text-sm leading-none mt-px">&#10007;</span>
                     Neko želi da se nađete nasamo
                 </p>
-                <p class="text-xs text-red-600 font-bold flex items-start gap-1.5 mt-2 pt-2 border-t border-red-200">
+                <p class="text-xs text-gray-700 flex items-start gap-1.5">
+                    <span class="text-red-500 font-bold text-sm leading-none mt-px">&#10007;</span>
+                    Neko te traži da obrišeš poruke
+                </p>
+                <p class="text-xs text-gray-700 flex items-start gap-1.5">
+                    <span class="text-red-500 font-bold text-sm leading-none mt-px">&#10007;</span>
+                    Vršnjačko nasilje na internetu (ruganje, pretnje, isključivanje)
+                </p>
+                <p class="text-xs text-red-600 font-bold flex items-start gap-1.5 mt-1.5 pt-1.5 border-t border-red-200">
                     <span class="text-sm leading-none mt-px">&#10007;</span>
                     Nikada se ne nalazi uživo sa nekim koga si upoznao na internetu!
                 </p>
@@ -127,15 +139,21 @@
                 <x-mascot variant="thumbsup" class="w-12 h-12" />
                 <h2 class="text-lg font-bold text-emerald-600">Šta da radiš?</h2>
             </div>
-            <div class="space-y-3">
-                <p class="text-sm text-gray-700 leading-relaxed">
+            <div class="space-y-2">
+                <p class="text-xs text-gray-700 leading-relaxed">
                     Uvek reci <strong class="text-emerald-600">roditelju, učitelju ili odrasloj osobi od poverenja</strong>.
                 </p>
-                <p class="text-sm text-gray-700 leading-relaxed">
-                    Odrasli su tu da te <strong class="text-emerald-600">zaštite</strong> i pomognu ti.
+                <p class="text-xs text-gray-700 leading-relaxed">
+                    Odrasli su tu da te <strong class="text-emerald-600">zaštite</strong> i pomognu ti. Prijavljivanje nije tužakanje &#8212; to je hrabrost!
                 </p>
-                <div class="bg-emerald-100 rounded-xl p-3 mt-2">
-                    <p class="text-sm text-emerald-800 font-bold text-center">
+                <p class="text-xs text-gray-700 leading-relaxed">
+                    &#128222; <strong class="text-emerald-600">Sigurna linija za prijavu digitalnog nasilja</strong>
+                </p>
+                <p class="text-xs text-gray-700 leading-relaxed">
+                    &#128241; <strong class="text-emerald-600">@bezbednost_dece_na_internetu</strong> na Instagramu
+                </p>
+                <div class="bg-emerald-100 rounded-xl p-2.5 mt-1">
+                    <p class="text-xs text-emerald-800 font-bold text-center">
                         Zapamti: ti si hrabar/hrabra kad tražiš pomoć! &#x1F4AA;
                     </p>
                 </div>
