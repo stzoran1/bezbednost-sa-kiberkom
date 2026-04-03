@@ -102,7 +102,7 @@ new class extends Component {
 
             <x-slidewire::fragment :index="1" class="mb-10">
                 <p class="text-4xl text-white">
-                    Da li bi dao ključ od kuće nekom koga ne poznaješ? <strong class="text-red-300">Naravno da ne!</strong>
+                    Da li bi dao ključ od kuće nekom koga ne poznaješ? <strong class="text-red-300 animate-scale-up-shake">Naravno da ne!</strong>
                 </p>
             </x-slidewire::fragment>
 
