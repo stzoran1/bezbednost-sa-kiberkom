@@ -105,7 +105,7 @@ it('displays action slide encouraging talking to trusted adults', function () {
         ->assertSee('vršnjačko nasilje')
         ->assertSee('maltretira tvog druga ili drugaricu')
         ->assertSee('Sigurna linija za prijavu digitalnog nasilja')
-        ->assertSee('@bezbednost_dece_na_internetu');
+        ->assertSee('19833');
 });
 
 it('uses warning mascot on danger slides and thumbsup on action slide', function () {

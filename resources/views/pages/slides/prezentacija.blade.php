@@ -11,15 +11,15 @@ new class extends Component {
     <x-slidewire::slide>
         <div class="flex flex-col items-center justify-center h-full space-y-10">
             <x-mascot variant="default" class="w-44 h-44" />
-            <h1 class="text-8xl font-bold text-white leading-tight">Digitalna bezbednost sa Kiberkom</h1>
-            <p class="text-4xl text-cyan-50">Naučimo zajedno kako da budemo bezbedni na internetu!</p>
+            <h1 class="text-8xl font-bold text-white leading-tight text-center">Digitalna bezbednost sa Kiberkom</h1>
+            <p class="text-4xl text-cyan-50 text-center">Naučimo zajedno kako da budemo bezbedni na internetu!</p>
         </div>
     </x-slidewire::slide>
 
     {{-- Slide 2: Šta je internet? --}}
     <x-slidewire::slide>
         <div class="mx-auto max-w-6xl">
-            <div class="flex items-center gap-5 mb-14">
+            <div class="flex items-center justify-center gap-5 mb-14">
                 <x-mascot variant="default" class="w-32 h-32" />
                 <h2 class="text-6xl font-bold text-white">Šta je internet?</h2>
             </div>
@@ -47,7 +47,7 @@ new class extends Component {
     {{-- Slide 3: Lični podaci su tajna --}}
     <x-slidewire::slide>
         <div class="mx-auto max-w-6xl">
-            <div class="flex items-center gap-5 mb-14">
+            <div class="flex items-center justify-center gap-5 mb-14">
                 <x-mascot variant="warning" class="w-32 h-32" />
                 <h2 class="text-6xl font-bold text-white">Lični podaci su tajna!</h2>
             </div>
@@ -89,7 +89,7 @@ new class extends Component {
     {{-- Slide 4: Lozinke su ključevi --}}
     <x-slidewire::slide>
         <div class="mx-auto max-w-6xl">
-            <div class="flex items-center gap-5 mb-14">
+            <div class="flex items-center justify-center gap-5 mb-14">
                 <x-mascot variant="thumbsup" class="w-32 h-32" />
                 <h2 class="text-6xl font-bold text-white">Lozinke su ključevi!</h2>
             </div>
@@ -102,23 +102,29 @@ new class extends Component {
 
             <x-slidewire::fragment :index="1" class="mb-10">
                 <p class="text-4xl text-white">
-                    Da li bi dao ključ od kuće nekom koga ne poznaješ? <strong class="text-red-300 animate-scale-up-shake">Naravno da ne!</strong>
+                    Da li bi dao ključ od kuće nekom koga ne poznaješ?
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="2" class="mb-10">
+                <p class="text-4xl text-red-300 font-bold animate-scale-up-shake">
+                    Naravno da ne!
+                </p>
+            </x-slidewire::fragment>
+
+            <x-slidewire::fragment :index="3" class="mb-10">
                 <p class="text-4xl text-white">
                     Isto tako, svoju lozinku <strong class="text-yellow-300">nikada ne deli</strong> ni sa kim osim sa roditeljima.
                 </p>
             </x-slidewire::fragment>
 
-            <x-slidewire::fragment :index="3">
+            <x-slidewire::fragment :index="4">
                 <p class="text-4xl text-white">
                     Dobra lozinka je kao jak katanac — neka bude <strong class="text-lime-300">duga i jaka</strong>! 🔒
                 </p>
             </x-slidewire::fragment>
 
-            <x-slidewire::fragment :index="4">
+            <x-slidewire::fragment :index="5">
                 <p class="text-3xl text-yellow-300 font-bold mb-4">Saveti za jaku lozinku:</p>
                 <p class="text-3xl text-white mb-3">&#10060; Ne koristi poznate reči (ime, nadimak, "lozinka123")</p>
                 <p class="text-3xl text-white">&#9989; Kombinuj <strong class="text-lime-300">slova, brojeve i specijalne znakove</strong> (!@#$)</p>
@@ -129,7 +135,7 @@ new class extends Component {
     {{-- Slide 5: Društvene mreže --}}
     <x-slidewire::slide>
         <div class="mx-auto max-w-6xl">
-            <div class="flex items-center gap-5 mb-14">
+            <div class="flex items-center justify-center gap-5 mb-14">
                 <x-mascot variant="warning" class="w-32 h-32" />
                 <h2 class="text-6xl font-bold text-white">Društvene mreže</h2>
             </div>
@@ -169,7 +175,7 @@ new class extends Component {
     {{-- Slide 6: Online igre i razgovori --}}
     <x-slidewire::slide>
         <div class="mx-auto max-w-6xl">
-            <div class="flex items-center gap-5 mb-14">
+            <div class="flex items-center justify-center gap-5 mb-14">
                 <x-mascot variant="warning" class="w-32 h-32" />
                 <h2 class="text-6xl font-bold text-white">Online igre i razgovori</h2>
             </div>
@@ -310,17 +316,11 @@ new class extends Component {
 
             <x-slidewire::fragment :index="5" class="mb-6">
                 <p class="text-3xl text-white">
-                    &#128680; Postoji <strong class="text-yellow-300">Sigurna linija za prijavu digitalnog nasilja</strong> — mesto gde možeš bezbedno da prijaviš sve što te brine.
+                    &#128680; Postoji <strong class="text-yellow-300">Sigurna linija za prijavu digitalnog nasilja</strong> — pozovi <strong class="text-yellow-300">19833</strong> i bezbedno prijavi sve što te brine.
                 </p>
             </x-slidewire::fragment>
 
-            <x-slidewire::fragment :index="6" class="mb-6">
-                <p class="text-3xl text-white">
-                    &#128241; Tvoji roditelji mogu pratiti <strong class="text-cyan-300">@bezbednost_dece_na_internetu</strong> na Instagramu za korisne savete o bezbednosti na internetu.
-                </p>
-            </x-slidewire::fragment>
-
-            <x-slidewire::fragment :index="7">
+            <x-slidewire::fragment :index="6">
                 <p class="text-3xl text-lime-300 font-bold">
                     Zapamti: ti si hrabar/hrabra kad tražiš pomoć! 💪
                 </p>
@@ -331,7 +331,7 @@ new class extends Component {
     {{-- Slide 10: Kiberkov savet — recap of the 4 golden rules --}}
     <x-slidewire::slide>
         <div class="mx-auto max-w-6xl">
-            <div class="flex items-center gap-5 mb-14">
+            <div class="flex items-center justify-center gap-5 mb-14">
                 <x-mascot variant="default" class="w-32 h-32" />
                 <h2 class="text-6xl font-bold text-white">Kiberkov savet</h2>
             </div>
