@@ -8,6 +8,7 @@
     @livewireStyles
 </head>
 <body>
+    <x-language-switcher />
     {{ $slot }}
 
     @livewireScripts

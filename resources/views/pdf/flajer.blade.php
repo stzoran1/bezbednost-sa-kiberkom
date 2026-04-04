@@ -16,6 +16,8 @@
 </head>
 <body class="bg-gray-100">
 
+<x-language-switcher />
+
 {{-- Toolbar --}}
 <div class="no-print sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200 py-3 px-6 flex items-center justify-between">
     <a href="/" class="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 font-semibold transition-colors">

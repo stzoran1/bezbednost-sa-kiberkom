@@ -17,6 +17,7 @@
     </style>
 </head>
 <body>
+    <x-language-switcher position="left" />
     {{ $slot }}
 
     <a href="/" style="position:fixed;top:1rem;right:1rem;z-index:9999;padding:0.5rem 1rem;background:rgba(255,255,255,0.25);color:#fff;font-size:0.875rem;font-weight:600;border-radius:9999px;text-decoration:none;backdrop-filter:blur(8px);transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.45)'" onmouseout="this.style.background='rgba(255,255,255,0.25)'" title="Početna strana">
