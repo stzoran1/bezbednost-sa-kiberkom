@@ -21,7 +21,7 @@ Route::prefix('{locale}')
             return view('welcome');
         })->name('locale.home');
 
-        Route::slidewire('/prezentacija', 'prezentacija');
+        Route::slidewire('/prezentacija', 'prezentacija')->name('locale.slidewire.prezentacija');
         Route::livewire('/igra', 'pages::igra.index');
 
         Route::get('/flajer', fn () => view('pdf.flajer'))->name('locale.flajer');
