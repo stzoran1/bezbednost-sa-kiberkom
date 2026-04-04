@@ -11,8 +11,8 @@ new class extends Component {
     <x-slidewire::slide>
         <div class="flex flex-col items-center justify-center h-full space-y-10">
             <x-mascot variant="default" class="w-44 h-44" />
-            <h1 class="text-8xl font-bold text-white leading-tight text-center">Digitalna bezbednost sa Kiberkom</h1>
-            <p class="text-4xl text-cyan-50 text-center">Naučimo zajedno kako da budemo bezbedni na internetu!</p>
+            <h1 class="text-8xl font-bold text-white leading-tight text-center">{!! __('presentation.slide1.title') !!}</h1>
+            <p class="text-4xl text-cyan-50 text-center">{!! __('presentation.slide1.subtitle') !!}</p>
         </div>
     </x-slidewire::slide>
 
@@ -21,24 +21,24 @@ new class extends Component {
         <div class="mx-auto max-w-6xl">
             <div class="flex items-center justify-center gap-5 mb-14">
                 <x-mascot variant="default" class="w-32 h-32" />
-                <h2 class="text-6xl font-bold text-white">Šta je internet?</h2>
+                <h2 class="text-6xl font-bold text-white">{!! __('presentation.slide2.title') !!}</h2>
             </div>
 
             <x-slidewire::fragment :index="0" class="mb-10">
                 <p class="text-4xl text-white">
-                    Internet je kao jedno veliko <strong class="text-yellow-300">digitalno igralište</strong> gde ljudi iz celog sveta mogu da se igraju, uče i razgovaraju! 🌍
+                    {!! __('presentation.slide2.paragraph1') !!}
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="1" class="mb-10">
                 <p class="text-4xl text-white">
-                    Možemo da gledamo crtane filmove, igramo igrice i učimo nove stvari.
+                    {!! __('presentation.slide2.paragraph2') !!}
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="2">
                 <p class="text-4xl text-white">
-                    Ali, baš kao i na pravom igralištu, moramo da znamo <strong class="text-yellow-300">pravila bezbednosti</strong>!
+                    {!! __('presentation.slide2.paragraph3') !!}
                 </p>
             </x-slidewire::fragment>
         </div>
@@ -49,39 +49,21 @@ new class extends Component {
         <div class="mx-auto max-w-6xl">
             <div class="flex items-center justify-center gap-5 mb-14">
                 <x-mascot variant="warning" class="w-32 h-32" />
-                <h2 class="text-6xl font-bold text-white">Lični podaci su tajna!</h2>
+                <h2 class="text-6xl font-bold text-white">{!! __('presentation.slide3.title') !!}</h2>
             </div>
 
             <x-slidewire::fragment :index="0" class="mb-8">
-                <p class="text-4xl text-white">Nikada ne deli sa nepoznatim osobama na internetu:</p>
+                <p class="text-4xl text-white">{!! __('presentation.slide3.intro') !!}</p>
             </x-slidewire::fragment>
 
-            <x-slidewire::fragment :index="1" class="mb-6">
-                <p class="text-4xl text-red-300">&#10060; Tvoje <strong>ime i prezime</strong></p>
+            @foreach(__('presentation.slide3.items') as $index => $item)
+            <x-slidewire::fragment :index="$index + 1" class="mb-6">
+                <p class="text-4xl text-red-300">{!! $item !!}</p>
             </x-slidewire::fragment>
-
-            <x-slidewire::fragment :index="2" class="mb-6">
-                <p class="text-4xl text-red-300">&#10060; Gde <strong>živiš</strong> (adresu)</p>
-            </x-slidewire::fragment>
-
-            <x-slidewire::fragment :index="3" class="mb-6">
-                <p class="text-4xl text-red-300">&#10060; U koju <strong>školu</strong> ideš</p>
-            </x-slidewire::fragment>
-
-            <x-slidewire::fragment :index="4" class="mb-6">
-                <p class="text-4xl text-red-300">&#10060; Broj <strong>telefona</strong></p>
-            </x-slidewire::fragment>
-
-            <x-slidewire::fragment :index="5" class="mb-6">
-                <p class="text-4xl text-red-300">&#10060; Tvoje <strong>fotografije</strong></p>
-            </x-slidewire::fragment>
-
-            <x-slidewire::fragment :index="6" class="mb-8">
-                <p class="text-4xl text-red-300">&#10060; Fotografije tvoje <strong>porodice</strong></p>
-            </x-slidewire::fragment>
+            @endforeach
 
             <x-slidewire::fragment :index="7">
-                <p class="text-3xl text-yellow-300 font-bold">Tvoji lični podaci su samo za tebe i tvoju porodicu!</p>
+                <p class="text-3xl text-yellow-300 font-bold">{!! __('presentation.slide3.conclusion') !!}</p>
             </x-slidewire::fragment>
         </div>
     </x-slidewire::slide>
@@ -91,43 +73,43 @@ new class extends Component {
         <div class="mx-auto max-w-6xl">
             <div class="flex items-center justify-center gap-5 mb-14">
                 <x-mascot variant="thumbsup" class="w-32 h-32" />
-                <h2 class="text-6xl font-bold text-white">Lozinke su ključevi!</h2>
+                <h2 class="text-6xl font-bold text-white">{!! __('presentation.slide4.title') !!}</h2>
             </div>
 
             <x-slidewire::fragment :index="0" class="mb-10">
                 <p class="text-4xl text-white">
-                    Zamisli da je tvoja lozinka kao <strong class="text-yellow-300">ključ od tvoje kuće</strong>. 🔑
+                    {!! __('presentation.slide4.paragraph1') !!}
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="1" class="mb-10">
                 <p class="text-4xl text-white">
-                    Da li bi dao ključ od kuće nekom koga ne poznaješ?
+                    {!! __('presentation.slide4.paragraph2') !!}
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="2" class="mb-10">
                 <p class="text-4xl text-red-300 font-bold animate-scale-up-shake">
-                    Naravno da ne!
+                    {!! __('presentation.slide4.paragraph3') !!}
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="3" class="mb-10">
                 <p class="text-4xl text-white">
-                    Isto tako, svoju lozinku <strong class="text-yellow-300">nikada ne deli</strong> ni sa kim osim sa roditeljima.
+                    {!! __('presentation.slide4.paragraph4') !!}
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="4">
                 <p class="text-4xl text-white">
-                    Dobra lozinka je kao jak katanac — neka bude <strong class="text-lime-300">duga i jaka</strong>! 🔒
+                    {!! __('presentation.slide4.paragraph5') !!}
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="5">
-                <p class="text-3xl text-yellow-300 font-bold mb-4">Saveti za jaku lozinku:</p>
-                <p class="text-3xl text-white mb-3">&#10060; Ne koristi poznate reči (ime, nadimak, "lozinka123")</p>
-                <p class="text-3xl text-white">&#9989; Kombinuj <strong class="text-lime-300">slova, brojeve i specijalne znakove</strong> (!@#$)</p>
+                <p class="text-3xl text-yellow-300 font-bold mb-4">{!! __('presentation.slide4.tips_title') !!}</p>
+                <p class="text-3xl text-white mb-3">{!! __('presentation.slide4.tips_bad') !!}</p>
+                <p class="text-3xl text-white">{!! __('presentation.slide4.tips_good') !!}</p>
             </x-slidewire::fragment>
         </div>
     </x-slidewire::slide>
@@ -137,36 +119,36 @@ new class extends Component {
         <div class="mx-auto max-w-6xl">
             <div class="flex items-center justify-center gap-5 mb-14">
                 <x-mascot variant="warning" class="w-32 h-32" />
-                <h2 class="text-6xl font-bold text-white">Društvene mreže</h2>
+                <h2 class="text-6xl font-bold text-white">{!! __('presentation.slide5.title') !!}</h2>
             </div>
 
             <x-slidewire::fragment :index="0" class="mb-8">
                 <p class="text-4xl text-white">
-                    Društvene mreže su mesta na internetu gde ljudi dele slike, video zapise, poruke i priče.
+                    {!! __('presentation.slide5.paragraph1') !!}
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="1" class="mb-8">
                 <p class="text-4xl text-white">
-                    Ali pažnja! Na internetu <strong class="text-red-300">svako može da se pretvara da je neko drugi</strong>.
+                    {!! __('presentation.slide5.paragraph2') !!}
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="2" class="mb-8">
                 <p class="text-3xl text-white text-center">
-                    &#128118;&#10145;&#65039;&#129464; <strong class="text-red-300">Iza slatke profilne slike deteta može se kriti odrasla osoba sa lošim namerama!</strong>
+                    {!! __('presentation.slide5.paragraph3') !!}
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="3" class="mb-8">
                 <p class="text-3xl text-white">
-                    &#9888; Razmisli: deca ponekad lažu da su starija da bi zaobišla pravila. Zašto onda neko sa lošim namerama <strong class="text-red-300">ne bi lagao da je mlađi</strong>?
+                    {!! __('presentation.slide5.paragraph4') !!}
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="4">
                 <p class="text-3xl text-yellow-300 font-bold">
-                    Nikada ne veruj nepoznatim osobama na internetu, čak i ako deluju prijateljski!
+                    {!! __('presentation.slide5.conclusion') !!}
                 </p>
             </x-slidewire::fragment>
         </div>
@@ -177,30 +159,30 @@ new class extends Component {
         <div class="mx-auto max-w-6xl">
             <div class="flex items-center justify-center gap-5 mb-14">
                 <x-mascot variant="warning" class="w-32 h-32" />
-                <h2 class="text-6xl font-bold text-white">Online igre i razgovori</h2>
+                <h2 class="text-6xl font-bold text-white">{!! __('presentation.slide6.title') !!}</h2>
             </div>
 
             <x-slidewire::fragment :index="0" class="mb-10">
                 <p class="text-4xl text-white">
-                    Mnoge igrice imaju <strong class="text-yellow-300">chat</strong> gde možeš da pričaš sa drugim igračima.
+                    {!! __('presentation.slide6.paragraph1') !!}
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="1" class="mb-10">
                 <p class="text-4xl text-white">
-                    Budi oprezan! <strong class="text-red-300">Ne deli lične podatke</strong> u chatu igrica.
+                    {!! __('presentation.slide6.paragraph2') !!}
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="2" class="mb-10">
                 <p class="text-4xl text-red-300 font-bold">
-                    &#9888; Nikada se ne nalazi uživo sa nekim koga si upoznao na internetu!
+                    {!! __('presentation.slide6.paragraph3') !!}
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="3">
                 <p class="text-4xl text-white">
-                    Ako želiš da se vidiš sa online prijateljem, <strong class="text-yellow-300">uvek povedi roditelja</strong> sa sobom.
+                    {!! __('presentation.slide6.paragraph4') !!}
                 </p>
             </x-slidewire::fragment>
         </div>
@@ -211,34 +193,24 @@ new class extends Component {
         <div class="mx-auto max-w-6xl">
             <div class="flex items-center gap-5 mb-10">
                 <x-mascot variant="warning" class="w-32 h-32" />
-                <h2 class="text-6xl font-bold text-white">Prepoznaj opasnost</h2>
+                <h2 class="text-6xl font-bold text-white">{!! __('presentation.slide7.title') !!}</h2>
             </div>
 
             <x-slidewire::fragment :index="0" class="mb-6">
                 <p class="text-3xl text-white">
-                    Sada ćemo pričati o nečemu <strong class="text-red-300">veoma ozbiljnom</strong>. Postoje odrasli koji koriste internet da bi <strong class="text-red-300">prevarili decu</strong>. Evo kako da ih prepoznaš:
+                    {!! __('presentation.slide7.intro') !!}
                 </p>
             </x-slidewire::fragment>
 
-            <x-slidewire::fragment :index="1" class="mb-5">
-                <p class="text-3xl text-red-300">&#9888; Postavlja ti <strong>previše ličnih pitanja</strong> — gde živiš, u koju školu ideš, da li si sam/sama kod kuće</p>
+            @foreach(__('presentation.slide7.items') as $index => $item)
+            <x-slidewire::fragment :index="$index + 1" class="mb-5">
+                <p class="text-3xl text-red-300">{!! $item !!}</p>
             </x-slidewire::fragment>
-
-            <x-slidewire::fragment :index="2" class="mb-5">
-                <p class="text-3xl text-red-300">&#9888; Previše te teši i razume — pravi se da je tvoj <strong>najbolji prijatelj</strong> iako ga ne poznaješ</p>
-            </x-slidewire::fragment>
-
-            <x-slidewire::fragment :index="3" class="mb-5">
-                <p class="text-3xl text-red-300">&#9888; Šalje ti <strong>neočekivane poklone</strong> ili nudi poklone bez razloga</p>
-            </x-slidewire::fragment>
-
-            <x-slidewire::fragment :index="4" class="mb-5">
-                <p class="text-3xl text-red-300">&#9888; Traži da <strong>čuvaš tajnu</strong> od roditelja — kaže "ovo je samo između nas"</p>
-            </x-slidewire::fragment>
+            @endforeach
 
             <x-slidewire::fragment :index="5">
                 <p class="text-3xl text-yellow-300 font-bold">
-                    Ako prepoznaš bilo šta od ovoga — stani i reci odrasloj osobi odmah!
+                    {!! __('presentation.slide7.conclusion') !!}
                 </p>
             </x-slidewire::fragment>
         </div>
@@ -249,28 +221,18 @@ new class extends Component {
         <div class="mx-auto max-w-6xl">
             <div class="flex items-center gap-5 mb-10">
                 <x-mascot variant="warning" class="w-32 h-32" />
-                <h2 class="text-6xl font-bold text-white">Prepoznaj opasnost (2)</h2>
+                <h2 class="text-6xl font-bold text-white">{!! __('presentation.slide8.title') !!}</h2>
             </div>
 
-            <x-slidewire::fragment :index="0" class="mb-5">
-                <p class="text-3xl text-red-300">&#9888; Kaže ti da <strong>obrišeš poruke</strong> ili sakriješ razgovore</p>
+            @foreach(__('presentation.slide8.items') as $index => $item)
+            <x-slidewire::fragment :index="$index" class="mb-5">
+                <p class="text-3xl text-red-300">{!! $item !!}</p>
             </x-slidewire::fragment>
-
-            <x-slidewire::fragment :index="1" class="mb-5">
-                <p class="text-3xl text-red-300">&#9888; Pokušava da izgradi <strong>"poseban tajni" odnos</strong> samo sa tobom</p>
-            </x-slidewire::fragment>
-
-            <x-slidewire::fragment :index="2" class="mb-5">
-                <p class="text-3xl text-red-300">&#9888; Želi da se <strong>nađete uživo nasamo</strong> — bez tvojih roditelja</p>
-            </x-slidewire::fragment>
-
-            <x-slidewire::fragment :index="3" class="mb-5">
-                <p class="text-3xl text-red-300">&#9888; Nudi ti <strong>lak novac za fotografije</strong> ili intimne sadržaje</p>
-            </x-slidewire::fragment>
+            @endforeach
 
             <x-slidewire::fragment :index="4">
                 <p class="text-3xl text-yellow-300 font-bold">
-                    &#128680; Sve ovo je <strong class="text-red-400">ozbiljan crveni alarm</strong>! Niko ko te voli neće tražiti da kriješ bilo šta od roditelja. Odmah reci nekome od poverenja!
+                    {!! __('presentation.slide8.conclusion') !!}
                 </p>
             </x-slidewire::fragment>
         </div>
@@ -281,48 +243,60 @@ new class extends Component {
         <div class="mx-auto max-w-6xl">
             <div class="flex items-center gap-5 mb-10">
                 <x-mascot variant="thumbsup" class="w-32 h-32" />
-                <h2 class="text-6xl font-bold text-white">Šta raditi?</h2>
+                <h2 class="text-6xl font-bold text-white">{!! __('presentation.slide9.title') !!}</h2>
             </div>
 
             <x-slidewire::fragment :index="0" class="mb-6">
                 <p class="text-3xl text-lime-300 font-bold">
-                    &#9989; Uvek reci roditelju, učitelju ili odrasloj osobi od poverenja!
+                    {!! __('presentation.slide9.paragraph1') !!}
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="1" class="mb-6">
                 <p class="text-3xl text-white">
-                    Ako te nešto na internetu uplaši ili ti bude neprijatno — <strong class="text-yellow-300">to nije tvoja krivica</strong>.
+                    {!! __('presentation.slide9.paragraph2') !!}
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="2" class="mb-6">
                 <p class="text-3xl text-white">
-                    <strong class="text-lime-300">Nećeš biti u nevolji</strong> ako pričaš o tome sa odraslima.
+                    {!! __('presentation.slide9.paragraph3') !!}
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="3" class="mb-6">
                 <p class="text-3xl text-white">
-                    &#9888; Opasnost ne dolazi samo od stranaca — i <strong class="text-red-300">deca koju poznaješ</strong> mogu da te povrede na internetu. To se zove <strong class="text-red-300">vršnjačko nasilje</strong>.
+                    {!! __('presentation.slide9.paragraph4') !!}
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="4" class="mb-6">
                 <p class="text-3xl text-white">
-                    Ako vidiš da neko <strong class="text-yellow-300">maltretira tvog druga ili drugaricu</strong> na internetu — prijavi to! Nije tužakanje, to je <strong class="text-lime-300">hrabrost</strong>.
+                    {!! __('presentation.slide9.paragraph5') !!}
                 </p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="5" class="mb-6">
                 <p class="text-3xl text-white">
-                    &#128680; Postoji <strong class="text-yellow-300">Sigurna linija za prijavu digitalnog nasilja</strong> — pozovi <strong class="text-yellow-300">19833</strong> i bezbedno prijavi sve što te brine.
+                    {!! __('presentation.slide9.paragraph6') !!}
                 </p>
             </x-slidewire::fragment>
 
-            <x-slidewire::fragment :index="6">
+            <x-slidewire::fragment :index="6" class="mb-6">
+                <p class="text-3xl text-white">
+                    {!! __('presentation.slide9.paragraph7') !!}
+                </p>
+            </x-slidewire::fragment>
+
+            <x-slidewire::fragment :index="7" class="mb-6">
+                <p class="text-3xl text-white">
+                    {!! __('presentation.slide9.paragraph8') !!}
+                </p>
+            </x-slidewire::fragment>
+
+            <x-slidewire::fragment :index="8">
                 <p class="text-3xl text-lime-300 font-bold">
-                    Zapamti: ti si hrabar/hrabra kad tražiš pomoć! 💪
+                    {!! __('presentation.slide9.paragraph9') !!}
                 </p>
             </x-slidewire::fragment>
         </div>
@@ -333,32 +307,22 @@ new class extends Component {
         <div class="mx-auto max-w-6xl">
             <div class="flex items-center justify-center gap-5 mb-14">
                 <x-mascot variant="default" class="w-32 h-32" />
-                <h2 class="text-6xl font-bold text-white">Kiberkov savet</h2>
+                <h2 class="text-6xl font-bold text-white">{!! __('presentation.slide10.title') !!}</h2>
             </div>
 
             <x-slidewire::fragment :index="0" class="mb-8">
-                <p class="text-4xl text-white">Zapamti ova <strong class="text-yellow-300">4 zlatna pravila</strong>:</p>
+                <p class="text-4xl text-white">{!! __('presentation.slide10.intro') !!}</p>
             </x-slidewire::fragment>
 
-            <x-slidewire::fragment :index="1" class="mb-6">
-                <p class="text-4xl text-lime-300">&#9989; <strong>Ne deli lične podatke</strong> sa nepoznatim osobama</p>
+            @foreach(__('presentation.slide10.rules') as $index => $rule)
+            <x-slidewire::fragment :index="$index + 1" class="mb-6">
+                <p class="text-4xl text-lime-300">{!! $rule !!}</p>
             </x-slidewire::fragment>
-
-            <x-slidewire::fragment :index="2" class="mb-6">
-                <p class="text-4xl text-lime-300">&#9989; <strong>Čuvaj lozinke u tajnosti</strong> — deli ih samo sa roditeljima</p>
-            </x-slidewire::fragment>
-
-            <x-slidewire::fragment :index="3" class="mb-6">
-                <p class="text-4xl text-lime-300">&#9989; <strong>Reci odrasloj osobi</strong> ako te nešto uplaši ili bude neprijatno</p>
-            </x-slidewire::fragment>
-
-            <x-slidewire::fragment :index="4" class="mb-8">
-                <p class="text-4xl text-lime-300">&#9989; <strong>Budi ljubazan na internetu</strong> — reci lepe reči, ne ružne</p>
-            </x-slidewire::fragment>
+            @endforeach
 
             <x-slidewire::fragment :index="5">
                 <p class="text-3xl text-yellow-300 font-bold">
-                    Sa ovim pravilima, internet će biti zabavno i bezbedno mesto!
+                    {!! __('presentation.slide10.conclusion') !!}
                 </p>
             </x-slidewire::fragment>
         </div>
@@ -368,13 +332,13 @@ new class extends Component {
     <x-slidewire::slide>
         <div class="flex flex-col items-center justify-center h-full space-y-10">
             <x-mascot variant="default" class="w-52 h-52" />
-            <h1 class="text-8xl font-bold text-white">Hvala!</h1>
+            <h1 class="text-8xl font-bold text-white">{!! __('presentation.slide11.title') !!}</h1>
             <p class="text-4xl text-cyan-50">
-                Kiberko je ponosan na vas što ste naučili kako da budete bezbedni na internetu!
+                {!! __('presentation.slide11.subtitle') !!}
             </p>
             <x-slidewire::fragment :index="0">
                 <p class="text-5xl text-yellow-300 font-bold">
-                    A sada... vreme je za igru! 🎮
+                    {!! __('presentation.slide11.game_teaser') !!}
                 </p>
             </x-slidewire::fragment>
         </div>

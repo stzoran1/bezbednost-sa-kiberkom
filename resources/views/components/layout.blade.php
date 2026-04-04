@@ -8,11 +8,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title }}</title>
+    <meta property="og:title" content="{{ $title }}">
+    <meta property="og:description" content="{{ __('welcome.subtitle') }}">
+    <meta property="og:image" content="{{ url('/og-image.png') }}">
+    <meta property="og:type" content="website">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
 <body>
+    <x-language-switcher />
     {{ $slot }}
 
     @livewireScripts

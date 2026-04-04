@@ -154,3 +154,75 @@ it('contains all 11 slide headings', function () {
         ->assertSee('Kiberkov savet')
         ->assertSee('Hvala!');
 });
+
+it('contains zero hardcoded user-facing text in blade file', function () {
+    $bladeContent = file_get_contents(resource_path('views/pages/slides/prezentacija.blade.php'));
+
+    // Strip Blade comments before checking for hardcoded text
+    $withoutComments = preg_replace('/\{\{--.*?--\}\}/s', '', $bladeContent);
+
+    // Should not contain any hardcoded Serbian strings — all text via __() calls
+    expect($withoutComments)->not->toContain('Digitalna bezbednost sa Kiberkom');
+    expect($withoutComments)->not->toContain('Naučimo zajedno');
+    expect($withoutComments)->not->toContain('Šta je internet?');
+    expect($withoutComments)->not->toContain('Lični podaci su tajna');
+    expect($withoutComments)->not->toContain('Lozinke su ključevi');
+    expect($withoutComments)->not->toContain('Društvene mreže');
+    expect($withoutComments)->not->toContain('Prepoznaj opasnost');
+    expect($withoutComments)->not->toContain('Kiberkov savet');
+    expect($withoutComments)->not->toContain('Hvala!');
+
+    // Should contain __() translation calls
+    expect($bladeContent)->toContain("__('presentation.slide1.title')");
+    expect($bladeContent)->toContain("__('presentation.slide11.title')");
+});
+
+it('renders presentation in sr-Cyrl with Cyrillic text', function () {
+    get('/sr-Cyrl/prezentacija')
+        ->assertOk()
+        ->assertSee('Дигитална безбедност са Киберком')
+        ->assertSee('Шта је интернет?')
+        ->assertSee('Лични подаци су тајна!')
+        ->assertSee('Лозинке су кључеви!')
+        ->assertSee('Друштвене мреже')
+        ->assertSee('Онлајн игре и разговори')
+        ->assertSee('Препознај опасност')
+        ->assertSee('Препознај опасност (2)')
+        ->assertSee('Шта радити?')
+        ->assertSee('Киберков савет')
+        ->assertSee('Хвала!');
+});
+
+it('renders presentation in ru with Russian text', function () {
+    get('/ru/prezentacija')
+        ->assertOk()
+        ->assertSee('Цифровая безопасность с Киберко')
+        ->assertSee('Что такое интернет?')
+        ->assertSee('Личные данные — это тайна!')
+        ->assertSee('Пароли — это ключи!')
+        ->assertSee('Социальные сети')
+        ->assertSee('Онлайн-игры и чаты')
+        ->assertSee('Распознай опасность')
+        ->assertSee('Распознай опасность (2)')
+        ->assertSee('Что делать?')
+        ->assertSee('Совет Киберко')
+        ->assertSee('Спасибо!');
+});
+
+it('preserves phone number 19833 across all locales', function () {
+    get('/prezentacija')->assertSee('19833');
+    get('/sr-Cyrl/prezentacija')->assertSee('19833');
+    get('/ru/prezentacija')->assertSee('19833');
+});
+
+it('preserves fragments and navigation in sr-Cyrl locale', function () {
+    get('/sr-Cyrl/prezentacija')
+        ->assertOk()
+        ->assertSee('data-fragment');
+});
+
+it('preserves fragments and navigation in ru locale', function () {
+    get('/ru/prezentacija')
+        ->assertOk()
+        ->assertSee('data-fragment');
+});
