@@ -47,3 +47,112 @@ test('flyer includes reporting hotline number', function () {
 
     $response->assertSee('19833');
 });
+
+test('flyer contains zero hardcoded user-facing text', function () {
+    $content = file_get_contents(resource_path('views/pdf/flajer.blade.php'));
+    // Strip Blade comments
+    $content = preg_replace('/\{\{--.*?--\}\}/s', '', $content);
+
+    // All user-facing text should use __() or translation helpers
+    // Check that no Serbian Latin sentences remain as hardcoded text
+    $hardcodedStrings = [
+        'Kiberkov vodič za bezbednost',
+        'Saveti za pametne',
+        'zlatna pravila',
+        'Ne deli lične podatke',
+        'Čuvaj lozinke',
+        'Reci odrasloj osobi',
+        'Budi ljubazan',
+        'Prepoznaj opasnost',
+        'Šta da radiš',
+        'Nazad na početnu',
+        'Skini PDF',
+    ];
+
+    foreach ($hardcodedStrings as $string) {
+        expect($content)->not->toContain($string, "Found hardcoded text: $string");
+    }
+});
+
+test('flyer renders correctly in sr-Cyrl locale', function () {
+    app()->setLocale('sr-Cyrl');
+    $response = $this->get('/sr-Cyrl/flajer');
+
+    $response->assertStatus(200);
+    $response->assertSee('Киберков водич за безбедност');
+    $response->assertSee('4 златна правила');
+    $response->assertSee('Не дели личне податке');
+    $response->assertSee('Чувај лозинке у тајности');
+    $response->assertSee('Реци одраслој особи');
+    $response->assertSee('Буди љубазан на интернету');
+    $response->assertSee('Препознај опасност!');
+    $response->assertSee('Шта да радиш?');
+    $response->assertSee('19833');
+});
+
+test('flyer renders correctly in ru locale', function () {
+    app()->setLocale('ru');
+    $response = $this->get('/ru/flajer');
+
+    $response->assertStatus(200);
+    $response->assertSee('Руководство Киберко по безопасности');
+    $response->assertSee('4 золотых правила');
+    $response->assertSee('Не делись личными данными');
+    $response->assertSee('Храни пароли в тайне');
+    $response->assertSee('Расскажи взрослому');
+    $response->assertSee('Будь вежливым в интернете');
+    $response->assertSee('Распознай опасность!');
+    $response->assertSee('Что делать?');
+    $response->assertSee('19833');
+});
+
+test('phone number 19833 is present in all three locales', function () {
+    // sr-Latn (default)
+    $this->get('/flajer')->assertSee('19833');
+
+    // sr-Cyrl
+    app()->setLocale('sr-Cyrl');
+    $this->get('/sr-Cyrl/flajer')->assertSee('19833');
+
+    // ru
+    app()->setLocale('ru');
+    $this->get('/ru/flajer')->assertSee('19833');
+});
+
+test('flyer danger signs render in all locales', function () {
+    // sr-Latn: 7 danger signs
+    $response = $this->get('/flajer');
+    $response->assertSee('Neko traži od tebe da pošalješ svoju sliku ili video');
+    $response->assertSee('Nikada se ne nalazi uživo');
+
+    // sr-Cyrl
+    app()->setLocale('sr-Cyrl');
+    $response = $this->get('/sr-Cyrl/flajer');
+    $response->assertSee('Неко тражи од тебе да пошаљеш своју слику или видео');
+    $response->assertSee('Никада се не налази уживо');
+
+    // ru
+    app()->setLocale('ru');
+    $response = $this->get('/ru/flajer');
+    $response->assertSee('Кто-то просит тебя отправить свою фотографию или видео');
+    $response->assertSee('Никогда не встречайся лично');
+});
+
+test('flyer action section renders in all locales', function () {
+    // sr-Latn
+    $response = $this->get('/flajer');
+    $response->assertSee('Uvek reci');
+    $response->assertSee('Zapamti: ti si hrabar/hrabra');
+
+    // sr-Cyrl
+    app()->setLocale('sr-Cyrl');
+    $response = $this->get('/sr-Cyrl/flajer');
+    $response->assertSee('Увек реци');
+    $response->assertSee('Запамти: ти си храбар/храбра');
+
+    // ru
+    app()->setLocale('ru');
+    $response = $this->get('/ru/flajer');
+    $response->assertSee('Всегда расскажи');
+    $response->assertSee('Запомни: ты смелый/смелая');
+});
