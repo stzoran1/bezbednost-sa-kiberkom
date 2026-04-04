@@ -1,18 +1,18 @@
 <div class="bg-purple-50 rounded-2xl p-6">
     <h3 class="text-xl md:text-2xl font-extrabold text-purple-700 mb-4">
-        Tabela rezultata
+        {{ __('game.leaderboard.title') }}
     </h3>
 
     @if ($scores->isEmpty())
-        <p class="text-lg text-gray-500">Još nema rezultata. Budi prvi!</p>
+        <p class="text-lg text-gray-500">{{ __('game.leaderboard.empty') }}</p>
     @else
         <table class="w-full text-left">
             <thead>
                 <tr class="border-b-2 border-purple-200">
                     <th class="py-2 px-2 text-base font-bold text-purple-600">#</th>
-                    <th class="py-2 px-2 text-base font-bold text-purple-600">Igrač / Tim</th>
-                    <th class="py-2 px-2 text-base font-bold text-purple-600 text-right">Rezultat</th>
-                    <th class="py-2 px-2 text-base font-bold text-purple-600 text-right">Vreme</th>
+                    <th class="py-2 px-2 text-base font-bold text-purple-600">{{ __('game.leaderboard.player') }}</th>
+                    <th class="py-2 px-2 text-base font-bold text-purple-600 text-right">{{ __('game.leaderboard.result') }}</th>
+                    <th class="py-2 px-2 text-base font-bold text-purple-600 text-right">{{ __('game.leaderboard.time') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,20 +45,20 @@
     {{-- Reset Leaderboard --}}
     <div class="mt-4 pt-4 border-t border-purple-200">
         @if ($this->resetSuccess)
-            <p class="text-green-600 font-semibold text-base">Tabela rezultata je uspešno obrisana!</p>
+            <p class="text-green-600 font-semibold text-base">{{ __('game.leaderboard.reset_success') }}</p>
         @elseif ($this->showResetForm)
             <form wire:submit="resetLeaderboard" class="flex flex-col sm:flex-row items-center gap-2">
                 <input
                     wire:model="resetPassword"
                     type="password"
-                    placeholder="Unesite lozinku..."
+                    placeholder="{{ __('game.leaderboard.reset_placeholder') }}"
                     class="px-3 py-2 text-base rounded-lg border border-purple-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none"
                 >
                 <button
                     type="submit"
                     class="px-4 py-2 bg-red-500 text-white text-base font-bold rounded-lg hover:bg-red-600 transition-colors"
                 >
-                    Potvrdi
+                    {{ __('game.leaderboard.reset_confirm') }}
                 </button>
                 @if ($this->resetError)
                     <p class="text-red-500 text-sm font-semibold">{{ $this->resetError }}</p>
@@ -69,7 +69,7 @@
                 wire:click="$set('showResetForm', true)"
                 class="text-red-500 hover:text-red-700 text-sm font-semibold underline transition-colors"
             >
-                Obriši tabelu rezultata
+                {{ __('game.leaderboard.reset_button') }}
             </button>
         @endif
     </div>

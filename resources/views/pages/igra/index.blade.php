@@ -2,13 +2,11 @@
 
 use App\Models\GameScore;
 use Livewire\Attributes\Layout;
-use Livewire\Attributes\Title;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 new
 #[Layout('layouts.app')]
-#[Title('Dobro ili Loše? - Igra sa Kiberkom')]
 class extends Component
 {
     #[Validate('required|min:2|max:30')]
@@ -44,114 +42,25 @@ class extends Component
 
     public int $finalTimeSeconds = 0;
 
-    private static array $allScenarios = [
-        [
-            'text' => 'Davanje kućne adrese nepoznatoj osobi na internetu',
-            'answer' => false,
-            'explanation' => 'Adresa je lični podatak! Nikada je ne deli sa nepoznatim osobama na internetu.',
-        ],
-        [
-            'text' => 'Prijavljivanje čudne poruke mami ili tati',
-            'answer' => true,
-            'explanation' => 'Odlično! Uvek reci odrasloj osobi ako dobiješ čudnu poruku.',
-        ],
-        [
-            'text' => 'Prihvatanje zahteva za prijateljstvo od nepoznate osobe',
-            'answer' => false,
-            'explanation' => 'Ne prihvataj zahteve od nepoznatih osoba! Ne znamo ko se krije iza ekrana.',
-        ],
-        [
-            'text' => 'Korišćenje jake lozinke sa slovima i brojevima',
-            'answer' => true,
-            'explanation' => 'Super! Jake lozinke čuvaju tvoje naloge bezbednim.',
-        ],
-        [
-            'text' => 'Slanje svoje fotografije nepoznatoj osobi na internetu',
-            'answer' => false,
-            'explanation' => 'Nikada ne šalji svoje fotografije nepoznatim osobama! To nije bezbedno.',
-        ],
-        [
-            'text' => 'Pitanje roditelja pre instaliranja nove aplikacije',
-            'answer' => true,
-            'explanation' => 'Bravo! Uvek pitaj roditelje pre nego što instaliraš nešto novo.',
-        ],
-        [
-            'text' => 'Deljenje lozinke sa drugom iz škole',
-            'answer' => false,
-            'explanation' => 'Lozinka je kao ključ od kuće — ne deli je ni sa kim osim sa roditeljima!',
-        ],
-        [
-            'text' => 'Ljubazno ponašanje prema drugima u online igrama',
-            'answer' => true,
-            'explanation' => 'Fantastično! Lepo ponašanje na internetu je jednako važno kao i uživo.',
-        ],
-        [
-            'text' => 'Odlazak na susret sa internet poznanikom bez roditelja',
-            'answer' => false,
-            'explanation' => 'Nikada ne idi sam na susret sa osobama sa interneta! Uvek povedi roditelja.',
-        ],
-        [
-            'text' => 'Javljanje odrasloj osobi kad te nešto uplaši na internetu',
-            'answer' => true,
-            'explanation' => 'Tačno! Odrasli su tu da ti pomognu i nećeš biti u nevolji.',
-        ],
-        [
-            'text' => 'Otvaranje linkova od nepoznatih osoba',
-            'answer' => false,
-            'explanation' => 'Nepoznati linkovi mogu biti opasni! Mogu da sadrže viruse ili prevare.',
-        ],
-        [
-            'text' => 'Pisanje ružnih komentara drugom detetu na internetu',
-            'answer' => false,
-            'explanation' => 'Ružni komentari na internetu su sajber nasilje. Budi ljubazan kao i uživo!',
-        ],
-        [
-            'text' => 'Upozoravanje druga da prestane sa ružnim porukama',
-            'answer' => true,
-            'explanation' => 'Bravo! Kada vidiš sajber nasilje, važno je da reaguješ i pomogneš.',
-        ],
-        [
-            'text' => 'Korišćenje iste lozinke za sve naloge',
-            'answer' => false,
-            'explanation' => 'Svaki nalog treba da ima svoju lozinku. Ako neko sazna jednu, sve su u opasnosti!',
-        ],
-        [
-            'text' => 'Pitanje roditelja pre igranja nove online igre',
-            'answer' => true,
-            'explanation' => 'Odlično! Roditelji ti mogu pomoći da proveriš da li je igra bezbedna za tebe.',
-        ],
-        [
-            'text' => 'Objavljivanje slike na kojoj se vidi ime škole',
-            'answer' => false,
-            'explanation' => 'Slike mogu otkriti tvoju lokaciju! Pazi šta se vidi na fotografijama koje deliš.',
-        ],
-        [
-            'text' => 'Isključivanje lokacije na telefonu prilikom slikanja',
-            'answer' => true,
-            'explanation' => 'Pametno! Lokacija na slikama može otkriti gde se nalaziš.',
-        ],
-        [
-            'text' => 'Davanje ličnih podataka za besplatan poklon na internetu',
-            'answer' => false,
-            'explanation' => 'Besplatni pokloni na internetu su često prevare! Nikada ne daj lične podatke.',
-        ],
-        [
-            'text' => 'Ćutanje o uznemiravanju na internetu',
-            'answer' => false,
-            'explanation' => 'Nemoj ćutati! Uvek reci odrasloj osobi ako te neko uznemirava na internetu.',
-        ],
-        [
-            'text' => 'Blokiranje osobe koja šalje neprijatne poruke',
-            'answer' => true,
-            'explanation' => 'Tačno! Blokiranje je dobar prvi korak, a zatim reci odrasloj osobi.',
-        ],
-    ];
+    public function title(): string
+    {
+        return __('game.title');
+    }
+
+    public function messages(): array
+    {
+        return [
+            'playerName.required' => __('game.validation.player_name_required'),
+            'playerName.min' => __('game.validation.player_name_min'),
+            'playerName.max' => __('game.validation.player_name_max'),
+        ];
+    }
 
     public function startGame(): void
     {
         $this->validate();
 
-        $scenarios = self::$allScenarios;
+        $scenarios = __('game.scenarios');
         shuffle($scenarios);
         $this->activeScenarios = array_slice($scenarios, 0, $this->questionsPerGame);
 
@@ -205,7 +114,7 @@ class extends Component
 
     public function playAgain(): void
     {
-        $scenarios = self::$allScenarios;
+        $scenarios = __('game.scenarios');
         shuffle($scenarios);
         $this->activeScenarios = array_slice($scenarios, 0, $this->questionsPerGame);
 
@@ -237,7 +146,7 @@ class extends Component
     public function resetLeaderboard(): void
     {
         if ($this->resetPassword !== '2604') {
-            $this->resetError = 'Pogrešna lozinka!';
+            $this->resetError = __('game.leaderboard.reset_error');
 
             return;
         }
@@ -259,6 +168,10 @@ class extends Component
     }
 };
 ?>
+
+@php
+    $localePrefix = app()->getLocale() === config('app.fallback_locale') ? '' : '/' . app()->getLocale();
+@endphp
 
 <div
     class="min-h-screen bg-gradient-to-br from-purple-600 via-blue-500 to-cyan-400 flex items-center justify-center p-4"
@@ -297,16 +210,16 @@ class extends Component
     <div class="max-w-2xl w-full">
 
         {{-- Home Button --}}
-        <a href="/" style="position:fixed;top:3rem;right:1rem;z-index:9999;padding:0.5rem 1rem;background:rgba(255,255,255,0.25);color:#fff;font-size:0.875rem;font-weight:600;border-radius:9999px;text-decoration:none;backdrop-filter:blur(8px);transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.45)'" onmouseout="this.style.background='rgba(255,255,255,0.25)'" title="Početna strana">
-            &#8962; Početna
+        <a href="{{ $localePrefix }}/" style="position:fixed;top:3rem;right:1rem;z-index:9999;padding:0.5rem 1rem;background:rgba(255,255,255,0.25);color:#fff;font-size:0.875rem;font-weight:600;border-radius:9999px;text-decoration:none;backdrop-filter:blur(8px);transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.45)'" onmouseout="this.style.background='rgba(255,255,255,0.25)'" title="{{ __('game.home_title') }}">
+            &#8962; {{ __('game.home') }}
         </a>
 
         {{-- Header --}}
         <div class="text-center mb-8">
             <h1 class="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg">
-                Dobro ili Loše?
+                {{ __('game.heading') }}
             </h1>
-            <p class="text-xl md:text-2xl text-purple-100 mt-2">Igra sa Kiberkom</p>
+            <p class="text-xl md:text-2xl text-purple-100 mt-2">{{ __('game.subheading') }}</p>
         </div>
 
         @if (! $started)
@@ -315,10 +228,10 @@ class extends Component
                 <x-mascot variant="default" class="w-36 h-36 mx-auto mb-6" />
 
                 <h2 class="text-2xl md:text-3xl font-extrabold text-purple-700 mb-2">
-                    Dobrodošli u igru!
+                    {{ __('game.start.welcome') }}
                 </h2>
                 <p class="text-lg md:text-xl text-gray-600 mb-8">
-                    Unesite ime igrača ili tima da započnete.
+                    {{ __('game.start.instructions') }}
                 </p>
 
                 <form wire:submit="startGame" class="space-y-6">
@@ -326,7 +239,7 @@ class extends Component
                         <input
                             wire:model="playerName"
                             type="text"
-                            placeholder="Ime igrača ili tima..."
+                            placeholder="{{ __('game.start.placeholder') }}"
                             class="w-full text-xl md:text-2xl text-center font-bold px-6 py-4 rounded-2xl border-2 border-purple-300 focus:border-purple-500 focus:ring-4 focus:ring-purple-200 outline-none transition-all"
                             autofocus
                         >
@@ -339,7 +252,7 @@ class extends Component
                         type="submit"
                         class="w-full px-8 py-5 bg-purple-600 text-white text-2xl font-bold rounded-2xl hover:bg-purple-700 hover:scale-105 transition-all duration-200 shadow-lg"
                     >
-                        Započni igru
+                        {{ __('game.start.button') }}
                     </button>
                 </form>
 
@@ -349,9 +262,9 @@ class extends Component
                         class="text-purple-600 hover:text-purple-800 font-semibold text-lg underline transition-colors"
                     >
                         @if ($showLeaderboard)
-                            Sakrij tabelu rezultata
+                            {{ __('game.hide_leaderboard') }}
                         @else
-                            Pogledaj tabelu rezultata
+                            {{ __('game.show_leaderboard') }}
                         @endif
                     </button>
                 </div>
@@ -371,28 +284,28 @@ class extends Component
                 </div>
 
                 <h2 class="text-3xl font-extrabold text-purple-700 mb-2">
-                    Bravo, {{ $playerName }}!
+                    {{ __('game.results.bravo', ['name' => $playerName]) }}
                 </h2>
 
                 <p class="text-2xl font-bold text-gray-700 mb-2">
-                    Tvoj rezultat: <span class="text-green-600">{{ $score }}</span> / {{ count($activeScenarios) }}
+                    {{ __('game.results.score') }} <span class="text-green-600">{{ $score }}</span> / {{ count($activeScenarios) }}
                 </p>
 
                 <p class="text-lg text-gray-500 mb-4">
-                    Vreme: {{ floor($finalTimeSeconds / 60) }}:{{ str_pad($finalTimeSeconds % 60, 2, '0', STR_PAD_LEFT) }}
+                    {{ __('game.results.time') }} {{ floor($finalTimeSeconds / 60) }}:{{ str_pad($finalTimeSeconds % 60, 2, '0', STR_PAD_LEFT) }}
                 </p>
 
                 @if ($score === count($activeScenarios))
                     <p class="text-xl text-green-600 font-semibold mb-6">
-                        Savršeno! Ti si pravi internet heroj!
+                        {{ __('game.results.perfect') }}
                     </p>
                 @elseif ($score >= count($activeScenarios) * 0.7)
                     <p class="text-xl text-blue-600 font-semibold mb-6">
-                        Odlično! Znaš mnogo o bezbednosti na internetu!
+                        {{ __('game.results.good') }}
                     </p>
                 @else
                     <p class="text-xl text-orange-600 font-semibold mb-6">
-                        Dobar početak! Pogledaj prezentaciju da naučiš još više!
+                        {{ __('game.results.low') }}
                     </p>
                 @endif
 
@@ -401,19 +314,19 @@ class extends Component
                         wire:click="playAgain"
                         class="px-8 py-4 bg-purple-600 text-white text-xl font-bold rounded-full hover:bg-purple-700 hover:scale-105 transition-all duration-200 shadow-lg"
                     >
-                        Igraj ponovo
+                        {{ __('game.results.play_again') }}
                     </button>
                     <button
                         wire:click="newPlayer"
                         class="px-8 py-4 bg-cyan-500 text-white text-xl font-bold rounded-full hover:bg-cyan-600 hover:scale-105 transition-all duration-200 shadow-lg"
                     >
-                        Novi igrač
+                        {{ __('game.results.new_player') }}
                     </button>
                     <a
-                        href="/"
+                        href="{{ $localePrefix }}/"
                         class="px-8 py-4 bg-gray-400 text-white text-xl font-bold rounded-full hover:bg-gray-500 hover:scale-105 transition-all duration-200 shadow-lg text-center"
                     >
-                        Početna strana
+                        {{ __('game.results.home') }}
                     </a>
                 </div>
 
@@ -424,9 +337,9 @@ class extends Component
                         class="text-purple-600 hover:text-purple-800 font-semibold text-lg underline transition-colors"
                     >
                         @if ($showLeaderboard)
-                            Sakrij tabelu rezultata
+                            {{ __('game.hide_leaderboard') }}
                         @else
-                            Pogledaj tabelu rezultata
+                            {{ __('game.show_leaderboard') }}
                         @endif
                     </button>
                 </div>
@@ -446,14 +359,14 @@ class extends Component
                         <x-mascot variant="thumbsup" class="w-32 h-32 mx-auto mb-4" />
                     </div>
                     <h2 class="text-3xl md:text-4xl font-extrabold text-green-600 mb-3">
-                        Tačno!
+                        {{ __('game.feedback.correct') }}
                     </h2>
                 @else
                     <div class="animate-bounce-in">
                         <x-mascot variant="warning" class="w-32 h-32 mx-auto mb-4" />
                     </div>
                     <h2 class="text-3xl md:text-4xl font-extrabold text-orange-500 mb-3">
-                        Nije tačno, ali ne brini — podsetićemo se zajedno!
+                        {{ __('game.feedback.incorrect') }}
                     </h2>
                 @endif
 
@@ -466,9 +379,9 @@ class extends Component
                     class="px-8 py-4 bg-blue-500 text-white text-xl font-bold rounded-full hover:bg-blue-600 hover:scale-105 transition-all duration-200 shadow-lg"
                 >
                     @if ($current + 1 >= count($activeScenarios))
-                        Pogledaj rezultat
+                        {{ __('game.feedback.view_result') }}
                     @else
-                        Sledeće pitanje
+                        {{ __('game.feedback.next_question') }}
                     @endif
                 </button>
             </div>
@@ -479,14 +392,14 @@ class extends Component
                 {{-- Progress + Timer --}}
                 <div class="flex justify-between items-center mb-4">
                     <span class="text-base md:text-lg font-semibold text-purple-600">
-                        Pitanje {{ $current + 1 }} od {{ count($activeScenarios) }}
+                        {{ __('game.question.progress', ['current' => $current + 1, 'total' => count($activeScenarios)]) }}
                     </span>
                     <span
                         class="text-base md:text-lg font-mono font-bold text-purple-700 bg-purple-100 px-3 py-1 rounded-full"
                         x-text="formatTime(elapsed)"
                     >00:00</span>
                     <span class="text-base md:text-lg font-semibold text-green-600">
-                        Poeni: {{ $score }}
+                        {{ __('game.question.points') }} {{ $score }}
                     </span>
                 </div>
                 <div class="w-full bg-purple-100 rounded-full h-4 mb-6">
@@ -512,13 +425,13 @@ class extends Component
                         wire:click="answer(true)"
                         class="flex-1 flex items-center justify-center gap-3 px-8 py-6 bg-green-500 text-white text-2xl font-extrabold rounded-2xl hover:bg-green-600 hover:scale-105 transition-all duration-200 shadow-lg"
                     >
-                        <span class="text-4xl">&#128077;</span> Dobro
+                        <span class="text-4xl">&#128077;</span> {{ __('game.question.good') }}
                     </button>
                     <button
                         wire:click="answer(false)"
                         class="flex-1 flex items-center justify-center gap-3 px-8 py-6 bg-red-500 text-white text-2xl font-extrabold rounded-2xl hover:bg-red-600 hover:scale-105 transition-all duration-200 shadow-lg"
                     >
-                        <span class="text-4xl">&#128078;</span> Loše
+                        <span class="text-4xl">&#128078;</span> {{ __('game.question.bad') }}
                     </button>
                 </div>
             </div>
