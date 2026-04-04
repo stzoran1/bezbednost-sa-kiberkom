@@ -96,7 +96,9 @@ return [
         'paragraph4' => '&#9888; Opasnost ne dolazi samo od stranaca — i <strong class="text-red-300">deca koju poznaješ</strong> mogu da te povrede na internetu. To se zove <strong class="text-red-300">vršnjačko nasilje</strong>.',
         'paragraph5' => 'Ako vidiš da neko <strong class="text-yellow-300">maltretira tvog druga ili drugaricu</strong> na internetu — prijavi to! Nije tužakanje, to je <strong class="text-lime-300">hrabrost</strong>.',
         'paragraph6' => '&#128680; Postoji <strong class="text-yellow-300">Sigurna linija za prijavu digitalnog nasilja</strong> — pozovi <strong class="text-yellow-300">19833</strong> i bezbedno prijavi sve što te brine.',
-        'paragraph7' => 'Zapamti: ti si hrabar/hrabra kad tražiš pomoć! 💪',
+        'paragraph7' => '&#128275; Nasilje, uznemiravanje i ružno ponašanje možeš da <strong class="text-yellow-300">prijaviš direktno u aplikaciji</strong> — svaka mreža i igrica ima dugme "Prijavi".',
+        'paragraph8' => '&#128683; Možeš i da <strong class="text-yellow-300">blokiraš nasilnika</strong> — tako više neće moći da ti šalje poruke niti da te kontaktira.',
+        'paragraph9' => 'Zapamti: ti si hrabar/hrabra kad tražiš pomoć! 💪',
     ],
 
     // Slide 10: Kiberkov savet

@@ -282,9 +282,21 @@ new class extends Component {
                 </p>
             </x-slidewire::fragment>
 
-            <x-slidewire::fragment :index="6">
-                <p class="text-3xl text-lime-300 font-bold">
+            <x-slidewire::fragment :index="6" class="mb-6">
+                <p class="text-3xl text-white">
                     {!! __('presentation.slide9.paragraph7') !!}
+                </p>
+            </x-slidewire::fragment>
+
+            <x-slidewire::fragment :index="7" class="mb-6">
+                <p class="text-3xl text-white">
+                    {!! __('presentation.slide9.paragraph8') !!}
+                </p>
+            </x-slidewire::fragment>
+
+            <x-slidewire::fragment :index="8">
+                <p class="text-3xl text-lime-300 font-bold">
+                    {!! __('presentation.slide9.paragraph9') !!}
                 </p>
             </x-slidewire::fragment>
         </div>

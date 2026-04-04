@@ -49,6 +49,8 @@ return [
         'tell' => 'Uvek reci <strong class="text-emerald-600">roditelju, učitelju ili odrasloj osobi od poverenja</strong>.',
         'protect' => 'Odrasli su tu da te <strong class="text-emerald-600">zaštite</strong> i pomognu ti. Prijavljivanje nije tužakanje &#8212; to je hrabrost!',
         'hotline' => '&#128222; <strong class="text-emerald-600">Sigurna linija za prijavu digitalnog nasilja</strong> — pozovi <strong class="text-emerald-600">19833</strong>',
+        'report_in_app' => '&#128275; Nasilje i uznemiravanje možeš <strong class="text-emerald-600">prijaviti direktno u aplikaciji</strong> — svaka mreža i igrica ima dugme "Prijavi".',
+        'block' => '&#128683; Možeš i da <strong class="text-emerald-600">blokiraš nasilnika</strong> — tako više neće moći da ti šalje poruke.',
         'brave' => 'Zapamti: ti si hrabar/hrabra kad tražiš pomoć! &#x1F4AA;',
     ],
 

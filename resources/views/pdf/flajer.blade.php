@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ __('flyer.title') }}</title>
+    <meta property="og:title" content="{{ __('flyer.title') }}">
+    <meta property="og:description" content="{{ __('welcome.subtitle') }}">
+    <meta property="og:image" content="{{ url('/og-image.png') }}">
+    <meta property="og:type" content="website">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +22,6 @@
     </style>
 </head>
 <body class="bg-gray-100">
-
-<x-language-switcher />
 
 @php
     $localePrefix = app()->getLocale() === config('app.fallback_locale') ? '' : '/' . app()->getLocale();
@@ -109,6 +111,12 @@
                 </p>
                 <p class="text-xs text-gray-700 leading-relaxed">
                     {!! __('flyer.action.hotline') !!}
+                </p>
+                <p class="text-xs text-gray-700 leading-relaxed">
+                    {!! __('flyer.action.report_in_app') !!}
+                </p>
+                <p class="text-xs text-gray-700 leading-relaxed">
+                    {!! __('flyer.action.block') !!}
                 </p>
                 <div class="bg-emerald-100 rounded-xl p-2.5 mt-1">
                     <p class="text-xs text-emerald-800 font-bold text-center">

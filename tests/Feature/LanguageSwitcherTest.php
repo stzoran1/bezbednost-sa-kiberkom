@@ -47,28 +47,16 @@ test('language switcher on ru welcome page links back to other locales', functio
     $response->assertSee('href="/ru"', false);
 });
 
-test('language switcher preserves path when switching locale on flajer page', function () {
+test('language switcher is only on welcome page, not on flajer', function () {
     $response = $this->get('/flajer');
 
     $response->assertStatus(200);
-    $response->assertSee('language-switcher', false);
-    $response->assertSee('href="/flajer"', false);
-    $response->assertSee('href="/sr-Cyrl/flajer"', false);
-    $response->assertSee('href="/ru/flajer"', false);
+    $response->assertDontSee('language-switcher', false);
 });
 
-test('language switcher preserves path from locale-prefixed flajer page', function () {
-    $response = $this->get('/ru/flajer');
-
-    $response->assertStatus(200);
-    $response->assertSee('href="/flajer"', false);
-    $response->assertSee('href="/sr-Cyrl/flajer"', false);
-    $response->assertSee('href="/ru/flajer"', false);
-});
-
-test('language switcher is visible on game page', function () {
+test('language switcher is only on welcome page, not on game', function () {
     $response = $this->get('/igra');
 
     $response->assertStatus(200);
-    $response->assertSee('language-switcher', false);
+    $response->assertDontSee('language-switcher', false);
 });
