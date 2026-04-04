@@ -42,8 +42,8 @@ test('flyer includes reporting hotline', function () {
     $response->assertSee('Sigurna linija za prijavu digitalnog nasilja');
 });
 
-test('flyer references instagram account', function () {
+test('flyer includes reporting hotline number', function () {
     $response = $this->get('/flajer');
 
-    $response->assertSee('@bezbednost_dece_na_internetu');
+    $response->assertSee('19833');
 });

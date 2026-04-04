@@ -147,10 +147,7 @@
                     Odrasli su tu da te <strong class="text-emerald-600">zaštite</strong> i pomognu ti. Prijavljivanje nije tužakanje &#8212; to je hrabrost!
                 </p>
                 <p class="text-xs text-gray-700 leading-relaxed">
-                    &#128222; <strong class="text-emerald-600">Sigurna linija za prijavu digitalnog nasilja</strong>
-                </p>
-                <p class="text-xs text-gray-700 leading-relaxed">
-                    &#128241; <strong class="text-emerald-600">@bezbednost_dece_na_internetu</strong> na Instagramu
+                    &#128222; <strong class="text-emerald-600">Sigurna linija za prijavu digitalnog nasilja</strong> — pozovi <strong class="text-emerald-600">19833</strong>
                 </p>
                 <div class="bg-emerald-100 rounded-xl p-2.5 mt-1">
                     <p class="text-xs text-emerald-800 font-bold text-center">
