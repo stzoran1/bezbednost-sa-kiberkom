@@ -30,7 +30,7 @@ Klonirajte repozitorijum i pokrenite setup komandu koja instalira zavisnosti, kr
 
 ```bash
 git clone <repo-url>
-cd nimble-toucan
+cd project-path
 composer run setup
 ```
 
