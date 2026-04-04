@@ -118,4 +118,7 @@ return [
         'subtitle' => 'Kiberko je ponosan na vas što ste naučili kako da budete bezbedni na internetu!',
         'game_teaser' => 'A sada... vreme je za igru! 🎮',
     ],
+
+    'home' => 'Početna',
+    'home_title' => 'Početna strana',
 ];
