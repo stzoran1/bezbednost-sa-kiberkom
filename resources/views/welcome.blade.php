@@ -19,6 +19,13 @@
             <div class="welcome-sparkle welcome-sparkle--4"></div>
             <div class="welcome-sparkle welcome-sparkle--5"></div>
             <div class="welcome-sparkle welcome-sparkle--6"></div>
+
+            {{-- Security-themed floating symbols --}}
+            <x-security-symbols symbol="shield" size="24" class="absolute top-[10%] left-[8%] opacity-30" />
+            <x-security-symbols symbol="lock" size="20" class="absolute top-[25%] right-[12%] opacity-25" />
+            <x-security-symbols symbol="phone" size="18" class="absolute bottom-[20%] left-[15%] opacity-20" />
+            <x-security-symbols symbol="globe" size="22" class="absolute top-[60%] right-[8%] opacity-25" />
+            <x-security-symbols symbol="key" size="20" class="absolute bottom-[12%] right-[25%] opacity-30" />
         </div>
         <div class="text-center max-w-3xl mx-auto relative z-10">
             <x-mascot variant="default" class="w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 mx-auto mb-4 sm:mb-8 drop-shadow-lg animate-gentle-float" />
