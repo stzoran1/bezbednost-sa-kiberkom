@@ -699,7 +699,6 @@
     .animate-btn-fun,
     .welcome-bg-shape,
     .welcome-sparkle,
-    .welcome-security-icon,
     .welcome-animated-bg,
     .slide-attention,
     .slide-highlight,
@@ -717,6 +716,11 @@
 
     .welcome-animated-bg {
         background-size: 100% 100%;
+    }
+
+    .welcome-security-icon {
+        opacity: 0.2;
+        translate: none;
     }
 
 }
