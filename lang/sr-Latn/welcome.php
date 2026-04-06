@@ -6,4 +6,6 @@ return [
     'presentation' => 'Prezentacija',
     'game' => 'Igra',
     'flyer' => 'Flajer',
+    'developed_by' => 'Razvio: Zoran Stanković',
+    'credits' => 'Zahvalnica: Staša Vujičić Stanković · Irina Drozdova · Mihal Stanković · Aleksandar Petrović',
 ];
