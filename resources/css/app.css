@@ -450,6 +450,33 @@
     animation: sparkle 5s ease-in-out 0.8s infinite;
 }
 
+/* Security icon floating symbols */
+.welcome-security-icon {
+    position: absolute;
+    opacity: 0.2;
+    animation: float-security 8s ease-in-out infinite;
+}
+
+@keyframes float-security {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(6deg);
+    }
+}
+
+.welcome-security-icon--1 { animation-duration: 7s; animation-delay: 0s; }
+.welcome-security-icon--2 { animation-duration: 9s; animation-delay: 1.2s; }
+.welcome-security-icon--3 { animation-duration: 8s; animation-delay: 0.6s; }
+.welcome-security-icon--4 { animation-duration: 10s; animation-delay: 2s; }
+.welcome-security-icon--5 { animation-duration: 7.5s; animation-delay: 1.5s; }
+.welcome-security-icon--6 { animation-duration: 9.5s; animation-delay: 0.3s; }
+.welcome-security-icon--7 { animation-duration: 8.5s; animation-delay: 1.8s; }
+.welcome-security-icon--8 { animation-duration: 11s; animation-delay: 0.9s; }
+.welcome-security-icon--9 { animation-duration: 7.8s; animation-delay: 2.5s; }
+.welcome-security-icon--10 { animation-duration: 10.5s; animation-delay: 1s; }
+
 /* Credits fade-in */
 .animate-credits {
     animation: fade-in-up 0.6s ease-out both;
