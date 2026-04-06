@@ -23,16 +23,6 @@ class extends Component
 
     public bool $finished = false;
 
-    public bool $showLeaderboard = false;
-
-    public string $resetPassword = '';
-
-    public bool $showResetForm = false;
-
-    public ?string $resetError = null;
-
-    public bool $resetSuccess = false;
-
     public array $activeScenarios = [];
 
     public int $questionsPerGame = 10;
@@ -77,7 +67,6 @@ class extends Component
         $this->lastCorrect = null;
         $this->feedbackMessage = '';
         $this->finished = false;
-        $this->showLeaderboard = false;
         $this->startedAtTimestamp = microtime(true);
         $this->finalTimeSeconds = 0;
     }
@@ -114,11 +103,6 @@ class extends Component
         }
     }
 
-    public function toggleLeaderboard(): void
-    {
-        $this->showLeaderboard = ! $this->showLeaderboard;
-    }
-
     public function playAgain(): void
     {
         $scenarios = __('game.scenarios');
@@ -130,7 +114,6 @@ class extends Component
         $this->lastCorrect = null;
         $this->feedbackMessage = '';
         $this->finished = false;
-        $this->showLeaderboard = false;
         $this->startedAtTimestamp = microtime(true);
         $this->finalTimeSeconds = 0;
     }
@@ -144,35 +127,12 @@ class extends Component
         $this->lastCorrect = null;
         $this->feedbackMessage = '';
         $this->finished = false;
-        $this->showLeaderboard = false;
         $this->activeScenarios = [];
         $this->startedAtTimestamp = null;
         $this->finalTimeSeconds = 0;
     }
 
-    public function resetLeaderboard(): void
-    {
-        if ($this->resetPassword !== '2604') {
-            $this->resetError = __('game.leaderboard.reset_error');
 
-            return;
-        }
-
-        GameScore::truncate();
-
-        $this->resetPassword = '';
-        $this->showResetForm = false;
-        $this->resetError = null;
-        $this->resetSuccess = true;
-    }
-
-    public function getLeaderboardProperty(): \Illuminate\Support\Collection
-    {
-        return GameScore::orderByDesc('score')
-            ->orderBy('time_seconds')
-            ->limit(10)
-            ->get();
-    }
 };
 ?>
 
@@ -264,23 +224,13 @@ class extends Component
                 </form>
 
                 <div class="mt-6">
-                    <button
-                        wire:click="toggleLeaderboard"
+                    <a
+                        href="{{ $localePrefix }}/igra/leaderboard"
                         class="text-purple-600 hover:text-purple-800 font-semibold text-lg underline transition-colors"
                     >
-                        @if ($showLeaderboard)
-                            {{ __('game.hide_leaderboard') }}
-                        @else
-                            {{ __('game.show_leaderboard') }}
-                        @endif
-                    </button>
+                        {{ __('game.show_leaderboard') }}
+                    </a>
                 </div>
-
-                @if ($showLeaderboard)
-                    <div class="mt-6 animate-fade-in-up">
-                        @include('pages.igra._leaderboard', ['scores' => $this->leaderboard])
-                    </div>
-                @endif
             </div>
 
         @elseif ($finished)
@@ -337,25 +287,15 @@ class extends Component
                     </a>
                 </div>
 
-                {{-- Leaderboard --}}
+                {{-- Leaderboard Link --}}
                 <div class="mt-4">
-                    <button
-                        wire:click="toggleLeaderboard"
+                    <a
+                        href="{{ $localePrefix }}/igra/leaderboard"
                         class="text-purple-600 hover:text-purple-800 font-semibold text-lg underline transition-colors"
                     >
-                        @if ($showLeaderboard)
-                            {{ __('game.hide_leaderboard') }}
-                        @else
-                            {{ __('game.show_leaderboard') }}
-                        @endif
-                    </button>
+                        {{ __('game.show_leaderboard') }}
+                    </a>
                 </div>
-
-                @if ($showLeaderboard)
-                    <div class="mt-6 animate-fade-in-up">
-                        @include('pages.igra._leaderboard', ['scores' => $this->leaderboard])
-                    </div>
-                @endif
             </div>
 
         @elseif ($lastCorrect !== null)

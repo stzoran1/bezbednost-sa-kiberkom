@@ -16,6 +16,7 @@ return [
 
     'show_leaderboard' => 'Погледај табелу резултата',
     'hide_leaderboard' => 'Сакриј табелу резултата',
+    'back_to_game' => 'Назад на игру',
 
     'results' => [
         'bravo' => 'Браво, :name!',

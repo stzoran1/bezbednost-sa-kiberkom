@@ -248,6 +248,13 @@ test('leaderboard table hidden when only top 3 players exist', function () {
         ->toContain('data-testid="empty-state"');
 });
 
+test('leaderboard page has back to game button linking to igra', function () {
+    $html = Livewire::test('pages::igra.leaderboard')->html();
+
+    expect($html)->toContain('/igra');
+    expect($html)->toContain(__('game.back_to_game'));
+});
+
 test('leaderboard table shows formatted played at date', function () {
     // 3 scores for the podium
     GameScore::factory()->create(['score' => 10, 'time_seconds' => 10]);

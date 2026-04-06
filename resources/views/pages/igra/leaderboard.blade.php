@@ -192,5 +192,15 @@ class extends Component
                 @endif
             </div>
         </div>
+
+        {{-- Back to Game --}}
+        <div class="text-center mt-6">
+            <a
+                href="{{ $localePrefix }}/igra"
+                class="inline-block px-8 py-4 bg-purple-600 text-white text-xl font-bold rounded-full hover:bg-purple-700 hover:scale-105 transition-all duration-200 shadow-lg"
+            >
+                {{ __('game.back_to_game') }}
+            </a>
+        </div>
     </div>
 </div>
