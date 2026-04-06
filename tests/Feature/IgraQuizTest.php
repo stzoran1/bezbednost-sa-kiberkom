@@ -279,6 +279,20 @@ test('no duplicate questions after playAgain', function () {
     expect(array_unique($texts))->toHaveCount(count($texts));
 });
 
+test('all locales have the same scenario count', function () {
+    $locales = ['sr-Latn', 'sr-Cyrl', 'ru'];
+    $counts = [];
+
+    foreach ($locales as $locale) {
+        $game = require lang_path("{$locale}/game.php");
+        $counts[$locale] = count($game['scenarios']);
+    }
+
+    expect($counts['sr-Latn'])->toBeGreaterThan(0);
+    expect($counts['sr-Cyrl'])->toBe($counts['sr-Latn']);
+    expect($counts['ru'])->toBe($counts['sr-Latn']);
+});
+
 test('new player resets to start screen', function () {
     Livewire::test('pages::igra.index')
         ->set('playerName', 'Tim A')
