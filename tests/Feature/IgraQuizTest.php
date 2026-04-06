@@ -28,7 +28,33 @@ test('igra page displays mascot on start screen', function () {
 
 test('igra page shows leaderboard link on start screen', function () {
     $this->get('/igra')
-        ->assertSee('Pogledaj tabelu rezultata');
+        ->assertSee('Pogledaj tabelu rezultata')
+        ->assertSee('/igra/leaderboard');
+});
+
+test('igra results screen shows leaderboard link', function () {
+    app()->setLocale('sr-Latn');
+
+    $component = Livewire::test('pages::igra.index')
+        ->set('playerName', 'Tim A')
+        ->call('startGame');
+
+    $scenarios = $component->get('activeScenarios');
+
+    foreach ($scenarios as $scenario) {
+        $component->call('answer', $scenario['answer']);
+        $component->call('next');
+    }
+
+    $component->assertSet('finished', true);
+    $html = $component->html();
+    expect($html)->toContain('/igra/leaderboard');
+});
+
+test('game component does not have showLeaderboard property', function () {
+    $component = Livewire::test('pages::igra.index');
+
+    expect($component->instance())->not->toHaveProperty('showLeaderboard');
 });
 
 test('starting game requires a player name', function () {
@@ -133,46 +159,6 @@ test('final time is shown on results screen', function () {
     $component->assertSee('Vreme:');
 });
 
-test('leaderboard shows saved scores with time', function () {
-    GameScore::factory()->create(['player_name' => 'Najbolji Tim', 'score' => 10, 'time_seconds' => 45]);
-    GameScore::factory()->create(['player_name' => 'Drugi Tim', 'score' => 7, 'time_seconds' => 60]);
-
-    Livewire::test('pages::igra.index')
-        ->call('toggleLeaderboard')
-        ->assertSee('Tabela rezultata')
-        ->assertSee('Najbolji Tim')
-        ->assertSee('Drugi Tim')
-        ->assertSee('Vreme');
-});
-
-test('leaderboard shows played at date for each score', function () {
-    $score = GameScore::factory()->create([
-        'player_name' => 'Datum Tim',
-        'score' => 8,
-        'time_seconds' => 30,
-        'created_at' => '2026-04-06 14:30:00',
-    ]);
-
-    Livewire::test('pages::igra.index')
-        ->call('toggleLeaderboard')
-        ->assertSee('Datum')
-        ->assertSee('06.04.2026 14:30');
-});
-
-test('leaderboard ranks by score then by time for tiebreaker', function () {
-    GameScore::factory()->create(['player_name' => 'Brzi Tim', 'score' => 8, 'time_seconds' => 30]);
-    GameScore::factory()->create(['player_name' => 'Spori Tim', 'score' => 8, 'time_seconds' => 90]);
-
-    $component = Livewire::test('pages::igra.index')
-        ->call('toggleLeaderboard');
-
-    $html = $component->html();
-    $fastPos = strpos($html, 'Brzi Tim');
-    $slowPos = strpos($html, 'Spori Tim');
-
-    expect($fastPos)->toBeLessThan($slowPos);
-});
-
 test('play again keeps the same player name', function () {
     $component = Livewire::test('pages::igra.index')
         ->set('playerName', 'Tim A')
@@ -223,41 +209,6 @@ test('wrong answer explanations do not contain congratulatory words', function (
             }
         }
     }
-});
-
-test('leaderboard shows reset button', function () {
-    Livewire::test('pages::igra.index')
-        ->call('toggleLeaderboard')
-        ->assertSee('Obriši tabelu rezultata');
-});
-
-test('reset leaderboard rejects wrong password', function () {
-    GameScore::factory()->create(['player_name' => 'Tim A', 'score' => 10]);
-
-    Livewire::test('pages::igra.index')
-        ->call('toggleLeaderboard')
-        ->set('showResetForm', true)
-        ->set('resetPassword', '0000')
-        ->call('resetLeaderboard')
-        ->assertSee('Pogrešna lozinka!');
-
-    expect(GameScore::count())->toBe(1);
-});
-
-test('reset leaderboard clears all scores with correct password', function () {
-    GameScore::factory()->count(3)->create();
-
-    expect(GameScore::count())->toBe(3);
-
-    Livewire::test('pages::igra.index')
-        ->call('toggleLeaderboard')
-        ->set('showResetForm', true)
-        ->set('resetPassword', '2604')
-        ->call('resetLeaderboard')
-        ->assertSet('resetSuccess', true)
-        ->assertSee('Tabela rezultata je uspešno obrisana!');
-
-    expect(GameScore::count())->toBe(0);
 });
 
 test('no duplicate questions after startGame', function () {

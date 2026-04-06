@@ -14,8 +14,8 @@ return [
         'button' => 'Започни игру',
     ],
 
-    'show_leaderboard' => 'Погледај табелу резултата',
-    'hide_leaderboard' => 'Сакриј табелу резултата',
+    'back_to_game' => 'Назад на игру',
+    'view_leaderboard' => 'Погледај табелу резултата',
 
     'results' => [
         'bravo' => 'Браво, :name!',
@@ -55,6 +55,7 @@ return [
         'reset_confirm' => 'Потврди',
         'reset_button' => 'Обриши табелу резултата',
         'reset_error' => 'Погрешна лозинка!',
+        'more_players_needed' => 'Још играча треба да се придружи! Играј и освоји место на табели.',
     ],
 
     'validation' => [

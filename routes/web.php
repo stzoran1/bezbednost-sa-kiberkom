@@ -9,6 +9,7 @@ Route::get('/', function () {
 
 Route::slidewire('/prezentacija', 'prezentacija');
 Route::livewire('/igra', 'pages::igra.index');
+Route::livewire('/igra/leaderboard', 'pages::igra.leaderboard');
 
 Route::get('/flajer', fn () => view('pdf.flajer'))->name('flajer');
 
@@ -23,6 +24,7 @@ Route::prefix('{locale}')
 
         Route::slidewire('/prezentacija', 'prezentacija')->name('locale.slidewire.prezentacija');
         Route::livewire('/igra', 'pages::igra.index');
+        Route::livewire('/igra/leaderboard', 'pages::igra.leaderboard');
 
         Route::get('/flajer', fn () => view('pdf.flajer'))->name('locale.flajer');
     });
