@@ -99,9 +99,9 @@ class extends Component
             </div>
         @endif
 
-        {{-- Full Leaderboard Table (4th place onward) --}}
+        {{-- Full Leaderboard Table --}}
         @php
-            $remainingScores = $this->leaderboard->slice(3)->values();
+            $allScores = $this->leaderboard;
         @endphp
 
         <div class="bg-white/90 backdrop-blur rounded-3xl shadow-2xl p-6 md:p-8 animate-fade-in-up" data-testid="leaderboard-table">
@@ -110,7 +110,7 @@ class extends Component
                 {{ __('game.leaderboard.title') }}
             </h2>
 
-            @if ($remainingScores->isEmpty() && $this->leaderboard->count() <= 3)
+            @if ($allScores->isEmpty())
                 <div class="text-center py-10" data-testid="empty-state">
                     <x-mascot variant="default" class="w-24 h-24 mx-auto mb-4 opacity-80" />
                     <p class="text-lg text-purple-400 font-semibold">{{ __('game.leaderboard.more_players_needed') }}</p>
@@ -128,9 +128,9 @@ class extends Component
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($remainingScores as $index => $entry)
+                            @foreach ($allScores as $index => $entry)
                                 @php
-                                    $rank = $index + 4;
+                                    $rank = $index + 1;
                                     $scoreRatio = $entry->total_questions > 0 ? $entry->score / $entry->total_questions : 0;
                                     $tierClass = match(true) {
                                         $scoreRatio >= 0.9 => 'border-l-4 border-l-green-400',

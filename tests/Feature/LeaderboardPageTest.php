@@ -137,29 +137,26 @@ test('leaderboard podium cards use entrance animations', function () {
     expect($html)->toContain('animate-fade-in-up');
 });
 
-test('leaderboard table shows scores from 4th place onward', function () {
-    // Create 5 players with distinct scores
+test('leaderboard table shows all scores with correct ranking', function () {
     GameScore::factory()->create(['player_name' => 'First', 'score' => 10, 'time_seconds' => 30]);
     GameScore::factory()->create(['player_name' => 'Second', 'score' => 9, 'time_seconds' => 30]);
     GameScore::factory()->create(['player_name' => 'Third', 'score' => 8, 'time_seconds' => 30]);
-    GameScore::factory()->create(['player_name' => 'Fourth', 'score' => 7, 'time_seconds' => 30]);
-    GameScore::factory()->create(['player_name' => 'Fifth', 'score' => 6, 'time_seconds' => 30]);
 
     $html = Livewire::test('pages::igra.leaderboard')->html();
 
-    // Table should contain 4th and 5th place players
-    expect($html)
-        ->toContain('data-testid="leaderboard-table"')
-        ->toContain('data-testid="score-row"')
-        ->toContain('Fourth')
-        ->toContain('Fifth');
-
-    // Podium has the top 3, table starts at rank 4
     $tableStart = strpos($html, 'data-testid="leaderboard-table"');
-    $fourthPos = strpos($html, 'Fourth', $tableStart);
-    $fifthPos = strpos($html, 'Fifth', $tableStart);
+    $tableHtml = substr($html, $tableStart);
 
-    expect($fourthPos)->toBeLessThan($fifthPos);
+    expect($tableHtml)
+        ->toContain('data-testid="score-row"')
+        ->toContain('First')
+        ->toContain('Second')
+        ->toContain('Third');
+
+    // Ranks start at 1
+    expect($tableHtml)->toContain('>1<');
+    expect($tableHtml)->toContain('>2<');
+    expect($tableHtml)->toContain('>3<');
 });
 
 test('leaderboard table rows have alternating backgrounds', function () {
@@ -180,29 +177,22 @@ test('leaderboard table rows have hover effects', function () {
     expect($html)->toContain('hover:bg-purple-100/60');
 });
 
-test('leaderboard table shows rank numbers starting at 4', function () {
-    GameScore::factory()->count(5)->create();
+test('leaderboard table shows rank numbers starting at 1', function () {
+    GameScore::factory()->count(3)->create();
 
     $html = Livewire::test('pages::igra.leaderboard')->html();
 
-    // Rank numbers should be visible (4, 5 for 4th and 5th place)
     $tableStart = strpos($html, 'data-testid="leaderboard-table"');
     $tableHtml = substr($html, $tableStart);
 
-    // Should not contain rank 1, 2, 3 in the table rows (those are in podium)
-    // But should have ranks starting at 4
-    expect($tableHtml)->toContain('>4<');
-    expect($tableHtml)->toContain('>5<');
+    expect($tableHtml)->toContain('>1<');
+    expect($tableHtml)->toContain('>2<');
+    expect($tableHtml)->toContain('>3<');
 });
 
 test('leaderboard table has score tier color styling', function () {
-    // Top 3 go to podium, so we need scores that land in the table (4th+)
-    GameScore::factory()->create(['score' => 10, 'total_questions' => 10, 'time_seconds' => 10]); // 1st - podium
-    GameScore::factory()->create(['score' => 9, 'total_questions' => 10, 'time_seconds' => 10]);  // 2nd - podium
-    GameScore::factory()->create(['score' => 8, 'total_questions' => 10, 'time_seconds' => 10]);  // 3rd - podium
-    // These go to the table:
-    GameScore::factory()->create(['score' => 7, 'total_questions' => 10, 'time_seconds' => 10]);  // 4th - blue tier (>=70%)
-    GameScore::factory()->create(['score' => 3, 'total_questions' => 10, 'time_seconds' => 10]);  // 5th - gray tier (<50%)
+    GameScore::factory()->create(['score' => 7, 'total_questions' => 10, 'time_seconds' => 10]);  // blue tier (>=70%)
+    GameScore::factory()->create(['score' => 3, 'total_questions' => 10, 'time_seconds' => 10]);  // gray tier (<50%)
 
     $html = Livewire::test('pages::igra.leaderboard')->html();
 
@@ -219,15 +209,14 @@ test('leaderboard table is responsive with overflow scroll', function () {
     expect($html)->toContain('overflow-x-auto');
 });
 
-test('leaderboard empty state shows mascot and encouraging message when 3 or fewer scores', function () {
-    // With exactly 3 scores, table section should show empty state
+test('leaderboard table shows scores even with 3 or fewer players', function () {
     GameScore::factory()->count(3)->create();
 
     $html = Livewire::test('pages::igra.leaderboard')->html();
 
     expect($html)
-        ->toContain('data-testid="empty-state"')
-        ->toContain('mascot-default.svg');
+        ->toContain('data-testid="score-row"')
+        ->not->toContain('data-testid="empty-state"');
 });
 
 test('leaderboard empty state shows when no scores exist', function () {
@@ -238,14 +227,17 @@ test('leaderboard empty state shows when no scores exist', function () {
         ->toContain('mascot-default.svg');
 });
 
-test('leaderboard table hidden when only top 3 players exist', function () {
-    GameScore::factory()->count(2)->create();
+test('leaderboard table shows single player', function () {
+    GameScore::factory()->create(['player_name' => 'Solo Player']);
 
     $html = Livewire::test('pages::igra.leaderboard')->html();
 
-    expect($html)
-        ->not->toContain('data-testid="score-row"')
-        ->toContain('data-testid="empty-state"');
+    $tableStart = strpos($html, 'data-testid="leaderboard-table"');
+    $tableHtml = substr($html, $tableStart);
+
+    expect($tableHtml)
+        ->toContain('data-testid="score-row"')
+        ->toContain('Solo Player');
 });
 
 test('leaderboard page has back to game button linking to igra', function () {
@@ -256,11 +248,6 @@ test('leaderboard page has back to game button linking to igra', function () {
 });
 
 test('leaderboard table shows formatted played at date', function () {
-    // 3 scores for the podium
-    GameScore::factory()->create(['score' => 10, 'time_seconds' => 10]);
-    GameScore::factory()->create(['score' => 9, 'time_seconds' => 10]);
-    GameScore::factory()->create(['score' => 8, 'time_seconds' => 10]);
-    // 4th place goes to the table
     GameScore::factory()->create([
         'player_name' => 'Datum Tim',
         'score' => 7,
