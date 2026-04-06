@@ -246,6 +246,39 @@ test('reset leaderboard clears all scores with correct password', function () {
     expect(GameScore::count())->toBe(0);
 });
 
+test('no duplicate questions after startGame', function () {
+    $component = Livewire::test('pages::igra.index')
+        ->set('playerName', 'Tim A')
+        ->call('startGame');
+
+    $scenarios = $component->get('activeScenarios');
+    $texts = array_column($scenarios, 'text');
+
+    expect($texts)->toHaveCount(10);
+    expect(array_unique($texts))->toHaveCount(count($texts));
+});
+
+test('no duplicate questions after playAgain', function () {
+    $component = Livewire::test('pages::igra.index')
+        ->set('playerName', 'Tim A')
+        ->call('startGame');
+
+    $scenarios = $component->get('activeScenarios');
+
+    foreach ($scenarios as $scenario) {
+        $component->call('answer', $scenario['answer']);
+        $component->call('next');
+    }
+
+    $component->call('playAgain');
+
+    $scenarios = $component->get('activeScenarios');
+    $texts = array_column($scenarios, 'text');
+
+    expect($texts)->toHaveCount(10);
+    expect(array_unique($texts))->toHaveCount(count($texts));
+});
+
 test('new player resets to start screen', function () {
     Livewire::test('pages::igra.index')
         ->set('playerName', 'Tim A')
