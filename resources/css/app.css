@@ -284,14 +284,23 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .welcome-bg-shape,
-    .animate-gentle-float,
-    .animate-bounce-in,
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        animation-delay: 0ms !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+    }
+
     .animate-fade-in-up,
+    .animate-bounce-in,
     .animate-scale-up-shake,
+    .animate-gentle-float,
+    .welcome-bg-shape,
     .slide-attention,
     .slide-highlight {
-        animation: none;
         opacity: 1;
         transform: none;
     }
