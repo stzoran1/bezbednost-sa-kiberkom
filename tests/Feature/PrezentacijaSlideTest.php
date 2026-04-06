@@ -229,30 +229,37 @@ it('has highlight animation on the safe line number in slide 9', function () {
     expect($highlightCount)->toBeGreaterThanOrEqual(1);
 });
 
-it('has subtle emphasis animations on golden rules in slide 10', function () {
+it('has golden rule reveal animations on slide 10', function () {
     $content = get('/prezentacija')->getContent();
 
-    // Golden rules in slide 10 should have slide-highlight class
-    // 4 golden rules + 1 from slide 9 paragraph9 = at least 5 slide-highlight instances
-    $highlightCount = substr_count($content, 'slide-highlight');
-    expect($highlightCount)->toBeGreaterThanOrEqual(5);
+    // Golden rules in slide 10 should have slide-rule class for reveal + glow
+    $ruleCount = substr_count($content, 'slide-rule');
+    expect($ruleCount)->toBeGreaterThanOrEqual(4);
 });
 
-it('limits animated elements to 5 or fewer types across all slides', function () {
+
+
+
+it('has conclusion pop-in animations on takeaway messages', function () {
     $content = get('/prezentacija')->getContent();
 
-    // Count distinct animation class usages (slide-attention and slide-highlight)
-    $hasAttention = str_contains($content, 'slide-attention');
-    $hasHighlight = str_contains($content, 'slide-highlight');
-
-    // We use exactly 2 animation types across 4 target areas
-    expect($hasAttention)->toBeTrue();
-    expect($hasHighlight)->toBeTrue();
-
-    // Total animated element groups should not exceed 5
-    // Slide 7 red items (1 group), slide 8 red items (1 group),
-    // slide 9 phone number (1), slide 10 golden rules (1 group) = 4 groups
+    // Yellow conclusion/takeaway text should have slide-conclusion
+    $conclusionCount = substr_count($content, 'slide-conclusion');
+    expect($conclusionCount)->toBeGreaterThanOrEqual(4);
 });
+
+it('has shimmer effect on title and thank-you slides', function () {
+    $content = get('/prezentacija')->getContent();
+
+    expect($content)->toContain('slide-title-shimmer');
+});
+
+it('has celebrate animation on game teaser', function () {
+    $content = get('/prezentacija')->getContent();
+
+    expect($content)->toContain('slide-celebrate');
+});
+
 
 it('preserves phone number 19833 across all locales', function () {
     get('/prezentacija')->assertSee('19833');
