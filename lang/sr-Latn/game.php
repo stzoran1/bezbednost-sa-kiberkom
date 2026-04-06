@@ -163,5 +163,109 @@ return [
             'answer' => true,
             'explanation' => 'Tačno! Blokiranje je dobar prvi korak, a zatim reci odrasloj osobi.',
         ],
+        // Phishing / scam recognition
+        [
+            'text' => 'Klikanje na poruku koja kaže da si osvojio telefon u nagradnoj igri',
+            'answer' => false,
+            'explanation' => 'To je prevara! Niko ne poklanja telefone preko poruka. Obriši takvu poruku.',
+        ],
+        [
+            'text' => 'Ignorisanje mejla koji traži lozinku i izgleda kao da je od banke',
+            'answer' => true,
+            'explanation' => 'Odlično! Banke nikada ne traže lozinke preko mejla. To se zove fišing prevara.',
+        ],
+        [
+            'text' => 'Popunjavanje ankete koja obećava besplatnu igru ako uneseš podatke roditelja',
+            'answer' => false,
+            'explanation' => 'To je trik za krađu podataka! Nikada ne unosite tuđe podatke bez dozvole.',
+        ],
+        // Safe browsing habits
+        [
+            'text' => 'Proveravanje da li sajt ima katanac (https) pre unošenja podataka',
+            'answer' => true,
+            'explanation' => 'Bravo! Katanac u adresi znači da je veza sa sajtom zaštićena.',
+        ],
+        [
+            'text' => 'Preuzimanje programa sa nepoznatog sajta umesto iz zvanične prodavnice',
+            'answer' => false,
+            'explanation' => 'Programi sa nepoznatih sajtova mogu sadržati viruse! Koristi samo zvanične prodavnice.',
+        ],
+        // Wi-Fi security
+        [
+            'text' => 'Povezivanje na besplatni Wi-Fi u tržnom centru bez pitanja roditelja',
+            'answer' => false,
+            'explanation' => 'Javne Wi-Fi mreže mogu biti opasne! Neko može da prati šta radiš na internetu.',
+        ],
+        [
+            'text' => 'Korišćenje kućnog Wi-Fi-ja sa lozinkom za pristup internetu',
+            'answer' => true,
+            'explanation' => 'Tačno! Zaštićena kućna mreža je najbezbedniji način za korišćenje interneta.',
+        ],
+        // App permissions
+        [
+            'text' => 'Dozvoliti aplikaciji za crtanje pristup kontaktima i kameri',
+            'answer' => false,
+            'explanation' => 'Aplikacija za crtanje ne treba da vidi tvoje kontakte! Dozvoli samo ono što je potrebno.',
+        ],
+        [
+            'text' => 'Proveravanje koje dozvole aplikacija traži pre instaliranja',
+            'answer' => true,
+            'explanation' => 'Pametno! Uvek proveri šta aplikacija traži — ako traži previše, bolje je ne instalirati.',
+        ],
+        // Screen time awareness
+        [
+            'text' => 'Pravljenje pauze od ekrana posle svakog sata igranja',
+            'answer' => true,
+            'explanation' => 'Super! Pauze su važne za tvoje oči, telo i mozak. Izađi napolje i igraj se!',
+        ],
+        [
+            'text' => 'Igranje igrica cele noći umesto spavanja',
+            'answer' => false,
+            'explanation' => 'San je veoma važan za tvoje zdravlje! Ugasi ekran na vreme i dobro se naspavaj.',
+        ],
+        // Digital footprint
+        [
+            'text' => 'Razmišljanje o tome da li će ti biti neprijatno ako učiteljica vidi tvoju objavu',
+            'answer' => true,
+            'explanation' => 'Odlično pravilo! Sve što postaviš na internet može ostati zauvek. Razmisli pre nego što objaviš.',
+        ],
+        [
+            'text' => 'Objavljivanje video snimka druga bez njegovog znanja',
+            'answer' => false,
+            'explanation' => 'Uvek pitaj za dozvolu pre nego što objaviš nešto o drugima! To je pitanje poštovanja.',
+        ],
+        // Reporting mechanisms (Safe Line 19833)
+        [
+            'text' => 'Pozivanje broja 19833 (Siguran kontakt) kada ti treba pomoć na internetu',
+            'answer' => true,
+            'explanation' => 'Tačno! Broj 19833 je besplatna linija gde možeš da prijaviš probleme i dobiješ pomoć.',
+        ],
+        [
+            'text' => 'Korišćenje dugmeta „Prijavi" kada vidiš uvredljiv sadržaj na internetu',
+            'answer' => true,
+            'explanation' => 'Bravo! Prijavljivanje lošeg sadržaja pomaže da internet bude bezbednije mesto za sve.',
+        ],
+        // Peer pressure online
+        [
+            'text' => 'Odbijanje izazova na internetu koji može biti opasan, čak i kada te drugari nagovaraju',
+            'answer' => true,
+            'explanation' => 'Hrabro! Pravi prijatelji te neće terati da radiš opasne stvari. Tvoja bezbednost je najvažnija.',
+        ],
+        [
+            'text' => 'Slanje neprimerene poruke jer su svi drugari to uradili',
+            'answer' => false,
+            'explanation' => 'Samo zato što drugi to rade ne znači da je ispravno! Uvek razmisli svojom glavom.',
+        ],
+        // Age-appropriate social media use
+        [
+            'text' => 'Čekanje da napuniš dovoljno godina pre otvaranja naloga na društvenoj mreži',
+            'answer' => true,
+            'explanation' => 'Odlično! Većina društvenih mreža zahteva najmanje 13 godina. Ta pravila postoje da te zaštite.',
+        ],
+        [
+            'text' => 'Laganje o godinama da bi otvorio nalog na društvenoj mreži',
+            'answer' => false,
+            'explanation' => 'Laganje o godinama te izlaže sadržaju koji nije za tvoj uzrast. Pravila postoje sa razlogom!',
+        ],
     ],
 ];
