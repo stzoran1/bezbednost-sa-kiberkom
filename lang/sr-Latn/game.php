@@ -49,6 +49,7 @@ return [
         'player' => 'Igrač / Tim',
         'result' => 'Rezultat',
         'time' => 'Vreme',
+        'played_at' => 'Datum',
         'reset_success' => 'Tabela rezultata je uspešno obrisana!',
         'reset_placeholder' => 'Unesite lozinku...',
         'reset_confirm' => 'Potvrdi',

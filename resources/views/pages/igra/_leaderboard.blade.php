@@ -13,6 +13,7 @@
                     <th class="py-2 px-2 text-base font-bold text-purple-600">{{ __('game.leaderboard.player') }}</th>
                     <th class="py-2 px-2 text-base font-bold text-purple-600 text-right">{{ __('game.leaderboard.result') }}</th>
                     <th class="py-2 px-2 text-base font-bold text-purple-600 text-right">{{ __('game.leaderboard.time') }}</th>
+                    <th class="py-2 px-2 text-base font-bold text-purple-600 text-right">{{ __('game.leaderboard.played_at') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +36,9 @@
                         </td>
                         <td class="py-2 px-2 text-base text-right text-gray-500 font-mono">
                             {{ floor($entry->time_seconds / 60) }}:{{ str_pad($entry->time_seconds % 60, 2, '0', STR_PAD_LEFT) }}
+                        </td>
+                        <td class="py-2 px-2 text-base text-right text-gray-500 font-mono text-sm">
+                            {{ $entry->created_at->format('d.m.Y H:i') }}
                         </td>
                     </tr>
                 @endforeach
