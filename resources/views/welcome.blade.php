@@ -3,8 +3,13 @@
 @endphp
 
 <x-layout :title="__('welcome.title')">
-    <div class="min-h-screen bg-gradient-to-br from-purple-600 via-blue-500 to-cyan-400 flex items-center justify-center p-4 sm:p-6">
-        <div class="text-center max-w-3xl mx-auto">
+    <div class="min-h-screen bg-gradient-to-br from-purple-600 via-blue-500 to-cyan-400 flex items-center justify-center p-4 sm:p-6 welcome-bg-shapes">
+        <div class="welcome-bg-shape welcome-bg-shape--1" aria-hidden="true"></div>
+        <div class="welcome-bg-shape welcome-bg-shape--2" aria-hidden="true"></div>
+        <div class="welcome-bg-shape welcome-bg-shape--3" aria-hidden="true"></div>
+        <div class="welcome-bg-shape welcome-bg-shape--4" aria-hidden="true"></div>
+        <div class="welcome-bg-shape welcome-bg-shape--5" aria-hidden="true"></div>
+        <div class="text-center max-w-3xl mx-auto relative z-10">
             <x-mascot variant="default" class="w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 mx-auto mb-4 sm:mb-8 drop-shadow-lg animate-gentle-float" />
 
             <h1 class="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white drop-shadow-md mb-3 sm:mb-6 leading-tight animate-fade-in-up animate-delay-200">
