@@ -99,9 +99,98 @@ class extends Component
             </div>
         @endif
 
-        {{-- Full Leaderboard Table --}}
-        <div class="bg-white/90 backdrop-blur rounded-3xl shadow-2xl p-8 animate-fade-in-up">
-            @include('pages.igra._leaderboard', ['scores' => $this->leaderboard])
+        {{-- Full Leaderboard Table (4th place onward) --}}
+        @php
+            $remainingScores = $this->leaderboard->slice(3)->values();
+        @endphp
+
+        <div class="bg-white/90 backdrop-blur rounded-3xl shadow-2xl p-6 md:p-8 animate-fade-in-up" data-testid="leaderboard-table">
+            <h2 class="text-xl md:text-2xl font-extrabold text-purple-700 mb-5 flex items-center gap-2">
+                <span class="inline-block w-1.5 h-6 bg-gradient-to-b from-purple-500 to-cyan-400 rounded-full"></span>
+                {{ __('game.leaderboard.title') }}
+            </h2>
+
+            @if ($remainingScores->isEmpty() && $this->leaderboard->count() <= 3)
+                <div class="text-center py-10" data-testid="empty-state">
+                    <x-mascot variant="default" class="w-24 h-24 mx-auto mb-4 opacity-80" />
+                    <p class="text-lg text-purple-400 font-semibold">{{ __('game.leaderboard.more_players_needed') }}</p>
+                </div>
+            @else
+                <div class="overflow-x-auto -mx-6 md:-mx-8 px-6 md:px-8">
+                    <table class="w-full text-left min-w-[500px]">
+                        <thead>
+                            <tr class="border-b-2 border-purple-200 bg-purple-50/50">
+                                <th class="py-3 px-3 text-xs font-bold text-purple-500 uppercase tracking-wider">#</th>
+                                <th class="py-3 px-3 text-xs font-bold text-purple-500 uppercase tracking-wider">{{ __('game.leaderboard.player') }}</th>
+                                <th class="py-3 px-3 text-xs font-bold text-purple-500 uppercase tracking-wider text-right">{{ __('game.leaderboard.result') }}</th>
+                                <th class="py-3 px-3 text-xs font-bold text-purple-500 uppercase tracking-wider text-right">{{ __('game.leaderboard.time') }}</th>
+                                <th class="py-3 px-3 text-xs font-bold text-purple-500 uppercase tracking-wider text-right">{{ __('game.leaderboard.played_at') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($remainingScores as $index => $entry)
+                                @php
+                                    $rank = $index + 4;
+                                    $scoreRatio = $entry->total_questions > 0 ? $entry->score / $entry->total_questions : 0;
+                                    $tierClass = match(true) {
+                                        $scoreRatio >= 0.9 => 'border-l-4 border-l-green-400',
+                                        $scoreRatio >= 0.7 => 'border-l-4 border-l-blue-400',
+                                        $scoreRatio >= 0.5 => 'border-l-4 border-l-yellow-400',
+                                        default => 'border-l-4 border-l-gray-200',
+                                    };
+                                @endphp
+                                <tr class="{{ $index % 2 === 0 ? 'bg-white' : 'bg-purple-50/40' }} {{ $tierClass }} hover:bg-purple-100/60 transition-colors duration-150" data-testid="score-row">
+                                    <td class="py-3 px-3 text-sm font-bold text-purple-400">{{ $rank }}</td>
+                                    <td class="py-3 px-3 text-sm font-semibold text-gray-800 truncate max-w-[160px]">{{ $entry->player_name }}</td>
+                                    <td class="py-3 px-3 text-sm text-right">
+                                        <span class="inline-flex items-center gap-1 font-bold {{ $scoreRatio >= 0.9 ? 'text-green-600' : ($scoreRatio >= 0.7 ? 'text-blue-600' : ($scoreRatio >= 0.5 ? 'text-yellow-600' : 'text-gray-500')) }}">
+                                            {{ $entry->score }}<span class="text-gray-400 font-normal">/</span>{{ $entry->total_questions }}
+                                        </span>
+                                    </td>
+                                    <td class="py-3 px-3 text-sm text-right text-gray-500 font-mono">
+                                        {{ floor($entry->time_seconds / 60) }}:{{ str_pad($entry->time_seconds % 60, 2, '0', STR_PAD_LEFT) }}
+                                    </td>
+                                    <td class="py-3 px-3 text-sm text-right text-gray-400 font-mono">
+                                        {{ $entry->created_at->format('d.m.Y H:i') }}
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            @endif
+
+            {{-- Reset Leaderboard --}}
+            <div class="mt-6 pt-4 border-t border-purple-100">
+                @if ($this->resetSuccess)
+                    <p class="text-green-600 font-semibold text-base">{{ __('game.leaderboard.reset_success') }}</p>
+                @elseif ($this->showResetForm)
+                    <form wire:submit="resetLeaderboard" class="flex flex-col sm:flex-row items-center gap-2">
+                        <input
+                            wire:model="resetPassword"
+                            type="password"
+                            placeholder="{{ __('game.leaderboard.reset_placeholder') }}"
+                            class="px-3 py-2 text-base rounded-lg border border-purple-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none"
+                        >
+                        <button
+                            type="submit"
+                            class="px-4 py-2 bg-red-500 text-white text-base font-bold rounded-lg hover:bg-red-600 transition-colors"
+                        >
+                            {{ __('game.leaderboard.reset_confirm') }}
+                        </button>
+                        @if ($this->resetError)
+                            <p class="text-red-500 text-sm font-semibold">{{ $this->resetError }}</p>
+                        @endif
+                    </form>
+                @else
+                    <button
+                        wire:click="$set('showResetForm', true)"
+                        class="text-red-500 hover:text-red-700 text-sm font-semibold underline transition-colors"
+                    >
+                        {{ __('game.leaderboard.reset_button') }}
+                    </button>
+                @endif
+            </div>
         </div>
     </div>
 </div>

@@ -55,6 +55,7 @@ return [
         'reset_confirm' => 'Potvrdi',
         'reset_button' => 'Obriši tabelu rezultata',
         'reset_error' => 'Pogrešna lozinka!',
+        'more_players_needed' => 'Još igrača treba da se pridruži! Igraj i osvoji mesto na tabeli.',
     ],
 
     'validation' => [
