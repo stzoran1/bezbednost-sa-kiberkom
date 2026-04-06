@@ -271,3 +271,54 @@ test('leaderboard table shows formatted played at date', function () {
     Livewire::test('pages::igra.leaderboard')
         ->assertSee('06.04.2026 14:30');
 });
+
+test('leaderboard route returns 200 status', function () {
+    $this->withoutVite();
+
+    $this->get('/igra/leaderboard')->assertStatus(200);
+});
+
+test('leaderboard locale-prefixed route works', function () {
+    $this->withoutVite();
+
+    $this->get('/sr-Cyrl/igra/leaderboard')->assertStatus(200);
+});
+
+test('leaderboard reset clears resetError after successful reset', function () {
+    GameScore::factory()->create();
+
+    Livewire::test('pages::igra.leaderboard')
+        ->set('showResetForm', true)
+        ->set('resetPassword', '0000')
+        ->call('resetLeaderboard')
+        ->assertSet('resetError', __('game.leaderboard.reset_error'))
+        ->set('resetPassword', '2604')
+        ->call('resetLeaderboard')
+        ->assertSet('resetSuccess', true)
+        ->assertSet('resetError', null);
+});
+
+test('game page start screen links to leaderboard', function () {
+    $html = Livewire::test('pages::igra.index')->html();
+
+    expect($html)->toContain('/igra/leaderboard');
+});
+
+test('game page results screen links to leaderboard', function () {
+    app()->setLocale('sr-Latn');
+
+    $component = Livewire::test('pages::igra.index')
+        ->set('playerName', 'Leaderboard Linker')
+        ->call('startGame');
+
+    $scenarios = $component->get('activeScenarios');
+
+    foreach ($scenarios as $scenario) {
+        $component->call('answer', $scenario['answer']);
+        $component->call('next');
+    }
+
+    $component->assertSet('finished', true);
+    $html = $component->html();
+    expect($html)->toContain('/igra/leaderboard');
+});
