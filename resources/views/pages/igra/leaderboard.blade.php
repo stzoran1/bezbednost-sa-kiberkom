@@ -81,17 +81,19 @@ class extends Component
                 @foreach ($topScores as $i => $player)
                     @php $style = $podiumStyles[$i]; @endphp
                     <div
-                        class="w-full sm:w-1/3 {{ $style['bg'] }} {{ $style['order'] }} {{ $style['scale'] }} border-2 {{ $style['border'] }} ring-2 {{ $style['ring'] }} rounded-2xl p-4 text-center shadow-lg animate-fade-in-up"
+                        class="w-full sm:w-1/3 {{ $style['bg'] }} {{ $style['order'] }} {{ $style['scale'] }} border-2 {{ $style['border'] }} ring-2 {{ $style['ring'] }} rounded-2xl p-3 sm:p-4 text-center shadow-lg animate-fade-in-up flex flex-row sm:flex-col items-center sm:items-stretch gap-3 sm:gap-0"
                         style="animation-delay: {{ $i * 0.15 }}s"
                     >
-                        <span class="text-4xl inline-block animate-scale-up-shake" style="animation-delay: {{ 0.3 + $i * 0.15 }}s">
+                        <span class="text-3xl sm:text-4xl inline-block animate-scale-up-shake shrink-0" style="animation-delay: {{ 0.3 + $i * 0.15 }}s">
                             {{ $style['medal'] }}
                         </span>
-                        <p class="text-lg font-extrabold {{ $style['text'] }} mt-2 truncate">{{ $player->player_name }}</p>
-                        <p class="text-sm font-bold text-gray-600">
-                            {{ $player->score }} / {{ $player->total_questions }}
-                        </p>
-                        <p class="text-xs text-gray-400 font-mono">
+                        <div class="flex-1 sm:flex-none text-left sm:text-center min-w-0">
+                            <p class="text-base sm:text-lg font-extrabold {{ $style['text'] }} sm:mt-2 truncate">{{ $player->player_name }}</p>
+                            <p class="text-sm font-bold text-gray-600">
+                                {{ $player->score }} / {{ $player->total_questions }}
+                            </p>
+                        </div>
+                        <p class="text-xs text-gray-400 font-mono shrink-0">
                             {{ floor($player->time_seconds / 60) }}:{{ str_pad($player->time_seconds % 60, 2, '0', STR_PAD_LEFT) }}
                         </p>
                     </div>
@@ -117,14 +119,14 @@ class extends Component
                 </div>
             @else
                 <div class="overflow-x-auto -mx-6 md:-mx-8 px-6 md:px-8">
-                    <table class="w-full text-left min-w-[500px]">
+                    <table class="w-full text-left">
                         <thead>
                             <tr class="border-b-2 border-purple-200 bg-purple-50/50">
-                                <th class="py-3 px-3 text-xs font-bold text-purple-500 uppercase tracking-wider">#</th>
-                                <th class="py-3 px-3 text-xs font-bold text-purple-500 uppercase tracking-wider">{{ __('game.leaderboard.player') }}</th>
-                                <th class="py-3 px-3 text-xs font-bold text-purple-500 uppercase tracking-wider text-right">{{ __('game.leaderboard.result') }}</th>
-                                <th class="py-3 px-3 text-xs font-bold text-purple-500 uppercase tracking-wider text-right">{{ __('game.leaderboard.time') }}</th>
-                                <th class="py-3 px-3 text-xs font-bold text-purple-500 uppercase tracking-wider text-right">{{ __('game.leaderboard.played_at') }}</th>
+                                <th class="py-2 px-2 sm:py-3 sm:px-3 text-xs font-bold text-purple-500 uppercase tracking-wider">#</th>
+                                <th class="py-2 px-2 sm:py-3 sm:px-3 text-xs font-bold text-purple-500 uppercase tracking-wider">{{ __('game.leaderboard.player') }}</th>
+                                <th class="py-2 px-2 sm:py-3 sm:px-3 text-xs font-bold text-purple-500 uppercase tracking-wider text-right">{{ __('game.leaderboard.result') }}</th>
+                                <th class="py-2 px-2 sm:py-3 sm:px-3 text-xs font-bold text-purple-500 uppercase tracking-wider text-right">{{ __('game.leaderboard.time') }}</th>
+                                <th class="hidden sm:table-cell py-2 px-2 sm:py-3 sm:px-3 text-xs font-bold text-purple-500 uppercase tracking-wider text-right">{{ __('game.leaderboard.played_at') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -140,17 +142,17 @@ class extends Component
                                     };
                                 @endphp
                                 <tr class="{{ $index % 2 === 0 ? 'bg-white' : 'bg-purple-50/40' }} {{ $tierClass }} hover:bg-purple-100/60 transition-colors duration-150" data-testid="score-row">
-                                    <td class="py-3 px-3 text-sm font-bold text-purple-400">{{ $rank }}</td>
-                                    <td class="py-3 px-3 text-sm font-semibold text-gray-800 truncate max-w-[160px]">{{ $entry->player_name }}</td>
-                                    <td class="py-3 px-3 text-sm text-right">
+                                    <td class="py-2 px-2 sm:py-3 sm:px-3 text-sm font-bold text-purple-400">{{ $rank }}</td>
+                                    <td class="py-2 px-2 sm:py-3 sm:px-3 text-sm font-semibold text-gray-800 truncate max-w-[120px] sm:max-w-[160px]">{{ $entry->player_name }}</td>
+                                    <td class="py-2 px-2 sm:py-3 sm:px-3 text-sm text-right">
                                         <span class="inline-flex items-center gap-1 font-bold {{ $scoreRatio >= 0.9 ? 'text-green-600' : ($scoreRatio >= 0.7 ? 'text-blue-600' : ($scoreRatio >= 0.5 ? 'text-yellow-600' : 'text-gray-500')) }}">
                                             {{ $entry->score }}<span class="text-gray-400 font-normal">/</span>{{ $entry->total_questions }}
                                         </span>
                                     </td>
-                                    <td class="py-3 px-3 text-sm text-right text-gray-500 font-mono">
+                                    <td class="py-2 px-2 sm:py-3 sm:px-3 text-sm text-right text-gray-500 font-mono">
                                         {{ floor($entry->time_seconds / 60) }}:{{ str_pad($entry->time_seconds % 60, 2, '0', STR_PAD_LEFT) }}
                                     </td>
-                                    <td class="py-3 px-3 text-sm text-right text-gray-400 font-mono">
+                                    <td class="hidden sm:table-cell py-2 px-2 sm:py-3 sm:px-3 text-sm text-right text-gray-400 font-mono">
                                         {{ $entry->created_at->format('d.m.Y H:i') }}
                                     </td>
                                 </tr>
