@@ -102,3 +102,40 @@ test('welcome page CTA buttons retain hover scale effect alongside animations', 
     preg_match_all('/class="[^"]*hover:scale-105[^"]*animate-fade-in-up[^"]*"/', $content, $matches);
     expect($matches[0])->toHaveCount(3);
 });
+
+test('welcome page security icons render as img tags', function () {
+    $response = $this->get('/');
+
+    $response->assertStatus(200);
+    $content = $response->getContent();
+
+    // Security icons should be <img> elements, not inline <svg>
+    preg_match_all('/<img[^>]*welcome-security-icon[^>]*>/', $content, $matches);
+    expect($matches[0])->toHaveCount(10);
+
+    // Should not contain inline SVG security symbols
+    expect($content)->not->toContain('<svg class="welcome-security-icon');
+});
+
+test('welcome page security icons reference correct SVG asset paths', function () {
+    $response = $this->get('/');
+
+    $response->assertStatus(200);
+    $content = $response->getContent();
+
+    $icons = ['shield', 'lock', 'phone', 'globe', 'key'];
+
+    foreach ($icons as $icon) {
+        $response->assertSee("images/icons/{$icon}.svg", false);
+    }
+});
+
+test('welcome page security icons have animation classes for all 10 instances', function () {
+    $response = $this->get('/');
+
+    $response->assertStatus(200);
+
+    for ($i = 1; $i <= 10; $i++) {
+        $response->assertSee("welcome-security-icon--{$i}", false);
+    }
+});
