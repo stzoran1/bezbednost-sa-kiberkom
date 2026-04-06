@@ -100,3 +100,15 @@
 .animate-delay-400 {
     animation-delay: 400ms;
 }
+
+.animate-delay-600 {
+    animation-delay: 600ms;
+}
+
+.animate-delay-800 {
+    animation-delay: 800ms;
+}
+
+.animate-delay-1000 {
+    animation-delay: 1000ms;
+}

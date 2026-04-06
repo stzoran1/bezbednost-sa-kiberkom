@@ -30,3 +30,23 @@ test('welcome page subtitle has fade-in-up animation with longer delay', functio
     $response->assertStatus(200);
     $response->assertSee('animate-fade-in-up animate-delay-400', false);
 });
+
+test('welcome page CTA buttons have staggered entrance animations', function () {
+    $response = $this->get('/');
+
+    $response->assertStatus(200);
+    $response->assertSee('animate-fade-in-up animate-delay-600', false);
+    $response->assertSee('animate-fade-in-up animate-delay-800', false);
+    $response->assertSee('animate-fade-in-up animate-delay-1000', false);
+});
+
+test('welcome page CTA buttons retain hover scale effect alongside animations', function () {
+    $response = $this->get('/');
+
+    $response->assertStatus(200);
+    $content = $response->getContent();
+
+    // All three buttons should have both hover:scale-105 and animate-fade-in-up
+    preg_match_all('/class="[^"]*hover:scale-105[^"]*animate-fade-in-up[^"]*"/', $content, $matches);
+    expect($matches[0])->toHaveCount(3);
+});
