@@ -204,7 +204,7 @@ new class extends Component {
 
             @foreach(__('presentation.slide7.items') as $index => $item)
             <x-slidewire::fragment :index="$index + 1" class="mb-3 md:mb-5">
-                <p class="text-base md:text-3xl text-red-300">{!! $item !!}</p>
+                <p class="text-base md:text-3xl text-red-300 slide-attention">{!! $item !!}</p>
             </x-slidewire::fragment>
             @endforeach
 
@@ -226,7 +226,7 @@ new class extends Component {
 
             @foreach(__('presentation.slide8.items') as $index => $item)
             <x-slidewire::fragment :index="$index" class="mb-3 md:mb-5">
-                <p class="text-base md:text-3xl text-red-300">{!! $item !!}</p>
+                <p class="text-base md:text-3xl text-red-300 slide-attention">{!! $item !!}</p>
             </x-slidewire::fragment>
             @endforeach
 
@@ -295,7 +295,7 @@ new class extends Component {
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="8">
-                <p class="text-base md:text-3xl text-lime-300 font-bold">
+                <p class="text-base md:text-3xl text-lime-300 font-bold slide-highlight">
                     {!! __('presentation.slide9.paragraph9') !!}
                 </p>
             </x-slidewire::fragment>
@@ -316,7 +316,7 @@ new class extends Component {
 
             @foreach(__('presentation.slide10.rules') as $index => $rule)
             <x-slidewire::fragment :index="$index + 1" class="mb-3 md:mb-6">
-                <p class="text-lg md:text-4xl text-lime-300">{!! $rule !!}</p>
+                <p class="text-lg md:text-4xl text-lime-300 slide-highlight">{!! $rule !!}</p>
             </x-slidewire::fragment>
             @endforeach
 

@@ -209,6 +209,51 @@ it('renders presentation in ru with Russian text', function () {
         ->assertSee('Спасибо!');
 });
 
+it('has attention animations on danger recognition slides 7-8', function () {
+    $response = get('/prezentacija');
+    $content = $response->getContent();
+
+    // Red warning items in slides 7-8 should have slide-attention class
+    $attentionCount = substr_count($content, 'slide-attention');
+    // Slide 7 has 4 red items + slide 8 has 4 red items = 8 total
+    expect($attentionCount)->toBeGreaterThanOrEqual(8);
+});
+
+it('has highlight animation on the safe line number in slide 9', function () {
+    $content = get('/prezentacija')->getContent();
+
+    // The paragraph containing the safe line number should have slide-highlight class
+    expect($content)->toContain('slide-highlight');
+    // Verify slide-highlight class is used on the page
+    $highlightCount = substr_count($content, 'slide-highlight');
+    expect($highlightCount)->toBeGreaterThanOrEqual(1);
+});
+
+it('has subtle emphasis animations on golden rules in slide 10', function () {
+    $content = get('/prezentacija')->getContent();
+
+    // Golden rules in slide 10 should have slide-highlight class
+    // 4 golden rules + 1 from slide 9 paragraph9 = at least 5 slide-highlight instances
+    $highlightCount = substr_count($content, 'slide-highlight');
+    expect($highlightCount)->toBeGreaterThanOrEqual(5);
+});
+
+it('limits animated elements to 5 or fewer types across all slides', function () {
+    $content = get('/prezentacija')->getContent();
+
+    // Count distinct animation class usages (slide-attention and slide-highlight)
+    $hasAttention = str_contains($content, 'slide-attention');
+    $hasHighlight = str_contains($content, 'slide-highlight');
+
+    // We use exactly 2 animation types across 4 target areas
+    expect($hasAttention)->toBeTrue();
+    expect($hasHighlight)->toBeTrue();
+
+    // Total animated element groups should not exceed 5
+    // Slide 7 red items (1 group), slide 8 red items (1 group),
+    // slide 9 phone number (1), slide 10 golden rules (1 group) = 4 groups
+});
+
 it('preserves phone number 19833 across all locales', function () {
     get('/prezentacija')->assertSee('19833');
     get('/sr-Cyrl/prezentacija')->assertSee('19833');

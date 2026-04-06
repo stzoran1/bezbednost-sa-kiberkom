@@ -229,12 +229,68 @@
     animation: float-shape-1 13s ease-in-out infinite reverse;
 }
 
+/* Presentation slide attention animations — triggered when fragment becomes visible */
+@keyframes attention-pulse {
+    0% {
+        transform: scale(1);
+        text-shadow: 0 0 0 transparent;
+    }
+    25% {
+        transform: scale(1.05);
+        text-shadow: 0 0 8px rgba(252, 165, 165, 0.4);
+    }
+    50% {
+        transform: scale(1);
+        text-shadow: 0 0 0 transparent;
+    }
+    75% {
+        transform: scale(1.03);
+        text-shadow: 0 0 6px rgba(252, 165, 165, 0.3);
+    }
+    100% {
+        transform: scale(1);
+        text-shadow: 0 0 0 transparent;
+    }
+}
+
+@keyframes highlight-glow {
+    0% {
+        text-shadow: 0 0 0 transparent;
+    }
+    50% {
+        text-shadow: 0 0 12px rgba(190, 242, 100, 0.6), 0 0 24px rgba(190, 242, 100, 0.3);
+    }
+    100% {
+        text-shadow: 0 0 0 transparent;
+    }
+}
+
+.slide-attention {
+    display: inline-block;
+    animation: none;
+}
+
+.slidewire-fragment-visible .slide-attention {
+    animation: attention-pulse 1.2s ease-in-out 0.3s 2;
+}
+
+.slide-highlight {
+    display: inline-block;
+    animation: none;
+}
+
+.slidewire-fragment-visible .slide-highlight {
+    animation: highlight-glow 1.5s ease-in-out 0.3s 2;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .welcome-bg-shape,
     .animate-gentle-float,
     .animate-bounce-in,
     .animate-fade-in-up,
-    .animate-scale-up-shake {
+    .animate-scale-up-shake,
+    .slide-attention,
+    .slide-highlight {
         animation: none;
         opacity: 1;
         transform: none;
