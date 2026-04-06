@@ -49,6 +49,7 @@ return [
         'player' => 'Игрок / Команда',
         'result' => 'Результат',
         'time' => 'Время',
+        'played_at' => 'Дата',
         'reset_success' => 'Таблица результатов успешно очищена!',
         'reset_placeholder' => 'Введите пароль...',
         'reset_confirm' => 'Подтвердить',

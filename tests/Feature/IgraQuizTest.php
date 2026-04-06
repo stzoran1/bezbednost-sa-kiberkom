@@ -145,6 +145,20 @@ test('leaderboard shows saved scores with time', function () {
         ->assertSee('Vreme');
 });
 
+test('leaderboard shows played at date for each score', function () {
+    $score = GameScore::factory()->create([
+        'player_name' => 'Datum Tim',
+        'score' => 8,
+        'time_seconds' => 30,
+        'created_at' => '2026-04-06 14:30:00',
+    ]);
+
+    Livewire::test('pages::igra.index')
+        ->call('toggleLeaderboard')
+        ->assertSee('Datum')
+        ->assertSee('06.04.2026 14:30');
+});
+
 test('leaderboard ranks by score then by time for tiebreaker', function () {
     GameScore::factory()->create(['player_name' => 'Brzi Tim', 'score' => 8, 'time_seconds' => 30]);
     GameScore::factory()->create(['player_name' => 'Spori Tim', 'score' => 8, 'time_seconds' => 90]);
