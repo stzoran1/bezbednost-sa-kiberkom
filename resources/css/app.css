@@ -513,6 +513,22 @@
 .welcome-security-icon--9  { animation: symbol-sparkle 3.3s ease-in-out 2.8s infinite, symbol-drift-2 7s ease-in-out 2.8s infinite; }
 .welcome-security-icon--10 { animation: symbol-sparkle 5.2s ease-in-out 0.9s infinite, symbol-drift-5 10s ease-in-out 0.9s infinite; }
 
+/* Mobile responsiveness — reduce symbol size and hide some on small screens */
+@media (max-width: 639px) {
+    .welcome-security-icon {
+        transform-origin: center center;
+        scale: 0.65;
+    }
+
+    /* Hide 4 of the 10 symbols to reduce visual density on mobile */
+    .welcome-security-icon--4,
+    .welcome-security-icon--7,
+    .welcome-security-icon--8,
+    .welcome-security-icon--10 {
+        display: none;
+    }
+}
+
 /* Credits fade-in */
 .animate-credits {
     animation: fade-in-up 0.6s ease-out both;
