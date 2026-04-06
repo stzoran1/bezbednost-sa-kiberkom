@@ -470,22 +470,48 @@
     }
 }
 
+/* Drift keyframes — each variant moves in a different direction for visual variety */
+@keyframes symbol-drift-1 {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 12px -15px; }
+}
+
+@keyframes symbol-drift-2 {
+    0%, 100% { translate: 0 0; }
+    50% { translate: -10px 14px; }
+}
+
+@keyframes symbol-drift-3 {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 15px 10px; }
+}
+
+@keyframes symbol-drift-4 {
+    0%, 100% { translate: 0 0; }
+    50% { translate: -14px -12px; }
+}
+
+@keyframes symbol-drift-5 {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 8px 18px; }
+}
+
 .welcome-security-icon {
     position: absolute;
     opacity: 0;
     animation: symbol-sparkle 4s ease-in-out infinite;
 }
 
-.welcome-security-icon--1 { animation-duration: 3s; animation-delay: 0s; }
-.welcome-security-icon--2 { animation-duration: 4.2s; animation-delay: 1.4s; }
-.welcome-security-icon--3 { animation-duration: 3.5s; animation-delay: 0.7s; }
-.welcome-security-icon--4 { animation-duration: 5s; animation-delay: 2.1s; }
-.welcome-security-icon--5 { animation-duration: 3.8s; animation-delay: 1.8s; }
-.welcome-security-icon--6 { animation-duration: 5.5s; animation-delay: 0.4s; }
-.welcome-security-icon--7 { animation-duration: 4.5s; animation-delay: 2.5s; }
-.welcome-security-icon--8 { animation-duration: 6s; animation-delay: 1.1s; }
-.welcome-security-icon--9 { animation-duration: 3.3s; animation-delay: 2.8s; }
-.welcome-security-icon--10 { animation-duration: 5.2s; animation-delay: 0.9s; }
+.welcome-security-icon--1  { animation: symbol-sparkle 3s ease-in-out 0s infinite, symbol-drift-1 7s ease-in-out 0s infinite; }
+.welcome-security-icon--2  { animation: symbol-sparkle 4.2s ease-in-out 1.4s infinite, symbol-drift-2 9s ease-in-out 1.4s infinite; }
+.welcome-security-icon--3  { animation: symbol-sparkle 3.5s ease-in-out 0.7s infinite, symbol-drift-3 8s ease-in-out 0.7s infinite; }
+.welcome-security-icon--4  { animation: symbol-sparkle 5s ease-in-out 2.1s infinite, symbol-drift-4 10s ease-in-out 2.1s infinite; }
+.welcome-security-icon--5  { animation: symbol-sparkle 3.8s ease-in-out 1.8s infinite, symbol-drift-5 7.5s ease-in-out 1.8s infinite; }
+.welcome-security-icon--6  { animation: symbol-sparkle 5.5s ease-in-out 0.4s infinite, symbol-drift-3 9.5s ease-in-out 0.4s infinite; }
+.welcome-security-icon--7  { animation: symbol-sparkle 4.5s ease-in-out 2.5s infinite, symbol-drift-1 8.5s ease-in-out 2.5s infinite; }
+.welcome-security-icon--8  { animation: symbol-sparkle 6s ease-in-out 1.1s infinite, symbol-drift-4 11s ease-in-out 1.1s infinite; }
+.welcome-security-icon--9  { animation: symbol-sparkle 3.3s ease-in-out 2.8s infinite, symbol-drift-2 7s ease-in-out 2.8s infinite; }
+.welcome-security-icon--10 { animation: symbol-sparkle 5.2s ease-in-out 0.9s infinite, symbol-drift-5 10s ease-in-out 0.9s infinite; }
 
 /* Credits fade-in */
 .animate-credits {
