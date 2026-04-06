@@ -5,13 +5,13 @@
 <x-layout :title="__('welcome.title')">
     <div class="min-h-screen bg-gradient-to-br from-purple-600 via-blue-500 to-cyan-400 flex items-center justify-center p-4 sm:p-6">
         <div class="text-center max-w-3xl mx-auto">
-            <x-mascot variant="default" class="w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 mx-auto mb-4 sm:mb-8 drop-shadow-lg" />
+            <x-mascot variant="default" class="w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 mx-auto mb-4 sm:mb-8 drop-shadow-lg animate-bounce-in" />
 
-            <h1 class="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white drop-shadow-md mb-3 sm:mb-6 leading-tight">
+            <h1 class="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white drop-shadow-md mb-3 sm:mb-6 leading-tight animate-fade-in-up animate-delay-200">
                 {{ __('welcome.title') }}
             </h1>
 
-            <p class="text-lg sm:text-2xl md:text-3xl text-white/90 mb-8 sm:mb-14 font-medium">
+            <p class="text-lg sm:text-2xl md:text-3xl text-white/90 mb-8 sm:mb-14 font-medium animate-fade-in-up animate-delay-400">
                 {{ __('welcome.subtitle') }}
             </p>
 
