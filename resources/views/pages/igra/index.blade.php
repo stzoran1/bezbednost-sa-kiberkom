@@ -177,7 +177,7 @@ class extends Component
     <div class="max-w-2xl w-full">
 
         {{-- Home Button --}}
-        <a href="{{ $localePrefix }}/" style="position:fixed;top:1rem;right:1rem;z-index:9999;padding:0.5rem 1rem;background:rgba(255,255,255,0.25);color:#fff;font-size:0.875rem;font-weight:600;border-radius:9999px;text-decoration:none;backdrop-filter:blur(8px);transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.45)'" onmouseout="this.style.background='rgba(255,255,255,0.25)'" title="{{ __('game.home_title') }}">
+        <a href="{{ $localePrefix }}/" class="fixed top-4 left-4 z-[9999] px-4 py-2 bg-white/25 text-white text-sm font-semibold rounded-full no-underline backdrop-blur-md transition-all duration-200 hover:bg-white/45" title="{{ __('game.home_title') }}">
             &#8962; {{ __('game.home') }}
         </a>
 
