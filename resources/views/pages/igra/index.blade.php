@@ -182,7 +182,7 @@ class extends Component
         </a>
 
         {{-- Header --}}
-        <div class="text-center mb-8">
+        <div class="text-center mb-4 md:mb-8">
             <h1 class="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg">
                 {{ __('game.heading') }}
             </h1>
@@ -191,13 +191,13 @@ class extends Component
 
         @if (! $started)
             {{-- Start Screen — Player Name Input --}}
-            <div class="bg-white/90 backdrop-blur rounded-3xl shadow-2xl p-8 text-center animate-fade-in-up">
-                <x-mascot variant="default" class="w-36 h-36 mx-auto mb-6" />
+            <div class="bg-white/90 backdrop-blur rounded-3xl shadow-2xl p-4 md:p-8 text-center animate-fade-in-up">
+                <x-mascot variant="default" class="w-28 h-28 md:w-36 md:h-36 mx-auto mb-4 md:mb-6" />
 
                 <h2 class="text-2xl md:text-3xl font-extrabold text-purple-700 mb-2">
                     {{ __('game.start.welcome') }}
                 </h2>
-                <p class="text-lg md:text-xl text-gray-600 mb-8">
+                <p class="text-lg md:text-xl text-gray-600 mb-4 md:mb-8">
                     {{ __('game.start.instructions') }}
                 </p>
 
@@ -217,7 +217,7 @@ class extends Component
 
                     <button
                         type="submit"
-                        class="w-full px-8 py-5 bg-purple-600 text-white text-2xl font-bold rounded-2xl hover:bg-purple-700 hover:scale-105 transition-all duration-200 shadow-lg"
+                        class="w-full px-6 py-4 md:px-8 md:py-5 bg-purple-600 text-white text-xl md:text-2xl font-bold rounded-2xl hover:bg-purple-700 hover:scale-105 transition-all duration-200 shadow-lg min-h-[44px]"
                     >
                         {{ __('game.start.button') }}
                     </button>
@@ -235,9 +235,9 @@ class extends Component
 
         @elseif ($finished)
             {{-- Final Results Screen --}}
-            <div class="bg-white/90 backdrop-blur rounded-3xl shadow-2xl p-8 text-center animate-fade-in-up">
+            <div class="bg-white/90 backdrop-blur rounded-3xl shadow-2xl p-4 md:p-8 text-center animate-fade-in-up">
                 <div class="animate-bounce-in">
-                    <x-mascot variant="thumbsup" class="w-40 h-40 mx-auto mb-4" />
+                    <x-mascot variant="thumbsup" class="w-28 h-28 md:w-40 md:h-40 mx-auto mb-4" />
                 </div>
 
                 <h2 class="text-3xl font-extrabold text-purple-700 mb-2">
@@ -266,22 +266,22 @@ class extends Component
                     </p>
                 @endif
 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6">
                     <button
                         wire:click="playAgain"
-                        class="px-8 py-4 bg-purple-600 text-white text-xl font-bold rounded-full hover:bg-purple-700 hover:scale-105 transition-all duration-200 shadow-lg"
+                        class="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-purple-600 text-white text-lg sm:text-xl font-bold rounded-full hover:bg-purple-700 hover:scale-105 transition-all duration-200 shadow-lg min-h-[44px]"
                     >
                         {{ __('game.results.play_again') }}
                     </button>
                     <button
                         wire:click="newPlayer"
-                        class="px-8 py-4 bg-cyan-500 text-white text-xl font-bold rounded-full hover:bg-cyan-600 hover:scale-105 transition-all duration-200 shadow-lg"
+                        class="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-cyan-500 text-white text-lg sm:text-xl font-bold rounded-full hover:bg-cyan-600 hover:scale-105 transition-all duration-200 shadow-lg min-h-[44px]"
                     >
                         {{ __('game.results.new_player') }}
                     </button>
                     <a
                         href="{{ $localePrefix }}/"
-                        class="px-8 py-4 bg-gray-400 text-white text-xl font-bold rounded-full hover:bg-gray-500 hover:scale-105 transition-all duration-200 shadow-lg text-center"
+                        class="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-gray-400 text-white text-lg sm:text-xl font-bold rounded-full hover:bg-gray-500 hover:scale-105 transition-all duration-200 shadow-lg text-center min-h-[44px]"
                     >
                         {{ __('game.results.home') }}
                     </a>
@@ -300,7 +300,7 @@ class extends Component
 
         @elseif ($lastCorrect !== null)
             {{-- Feedback Screen --}}
-            <div class="bg-white/90 backdrop-blur rounded-3xl shadow-2xl p-8 text-center animate-fade-in-up">
+            <div class="bg-white/90 backdrop-blur rounded-3xl shadow-2xl p-4 md:p-8 text-center animate-fade-in-up">
                 @if ($lastCorrect)
                     <div class="animate-bounce-in">
                         <x-mascot variant="thumbsup" class="w-32 h-32 mx-auto mb-4" />
@@ -317,13 +317,13 @@ class extends Component
                     </h2>
                 @endif
 
-                <p class="text-xl md:text-2xl text-gray-700 mb-6 leading-relaxed">
+                <p class="text-lg md:text-2xl text-gray-700 mb-4 md:mb-6 leading-relaxed">
                     {{ $feedbackMessage }}
                 </p>
 
                 <button
                     wire:click="next"
-                    class="px-8 py-4 bg-blue-500 text-white text-xl font-bold rounded-full hover:bg-blue-600 hover:scale-105 transition-all duration-200 shadow-lg"
+                    class="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-blue-500 text-white text-lg sm:text-xl font-bold rounded-full hover:bg-blue-600 hover:scale-105 transition-all duration-200 shadow-lg min-h-[44px]"
                 >
                     @if ($current + 1 >= count($activeScenarios))
                         {{ __('game.feedback.view_result') }}
@@ -335,17 +335,17 @@ class extends Component
 
         @else
             {{-- Question Screen --}}
-            <div class="bg-white/90 backdrop-blur rounded-3xl shadow-2xl p-8 animate-fade-in-up">
+            <div class="bg-white/90 backdrop-blur rounded-3xl shadow-2xl p-4 md:p-8 animate-fade-in-up">
                 {{-- Progress + Timer --}}
-                <div class="flex justify-between items-center mb-4">
-                    <span class="text-base md:text-lg font-semibold text-purple-600">
+                <div class="flex flex-wrap justify-between items-center gap-2 mb-4">
+                    <span class="text-sm md:text-lg font-semibold text-purple-600">
                         {{ __('game.question.progress', ['current' => $current + 1, 'total' => count($activeScenarios)]) }}
                     </span>
                     <span
-                        class="text-base md:text-lg font-mono font-bold text-purple-700 bg-purple-100 px-3 py-1 rounded-full"
+                        class="text-sm md:text-lg font-mono font-bold text-purple-700 bg-purple-100 px-2 py-1 md:px-3 rounded-full"
                         x-text="formatTime(elapsed)"
                     >00:00</span>
-                    <span class="text-base md:text-lg font-semibold text-green-600">
+                    <span class="text-sm md:text-lg font-semibold text-green-600">
                         {{ __('game.question.points') }} {{ $score }}
                     </span>
                 </div>
@@ -362,23 +362,23 @@ class extends Component
                 </div>
 
                 {{-- Scenario --}}
-                <p class="text-xl md:text-2xl font-bold text-gray-800 text-center mb-8 leading-relaxed">
+                <p class="text-lg md:text-2xl font-bold text-gray-800 text-center mb-4 md:mb-8 leading-relaxed">
                     {{ $activeScenarios[$current]['text'] }}
                 </p>
 
                 {{-- Answer Buttons --}}
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                     <button
                         wire:click="answer(true)"
-                        class="flex-1 flex items-center justify-center gap-3 px-8 py-6 bg-green-500 text-white text-2xl font-extrabold rounded-2xl hover:bg-green-600 hover:scale-105 transition-all duration-200 shadow-lg"
+                        class="flex-1 flex items-center justify-center gap-2 sm:gap-3 px-6 py-4 sm:px-8 sm:py-6 bg-green-500 text-white text-xl sm:text-2xl font-extrabold rounded-2xl hover:bg-green-600 hover:scale-105 transition-all duration-200 shadow-lg min-h-[44px]"
                     >
-                        <span class="text-4xl">&#128077;</span> {{ __('game.question.good') }}
+                        <span class="text-3xl sm:text-4xl">&#128077;</span> {{ __('game.question.good') }}
                     </button>
                     <button
                         wire:click="answer(false)"
-                        class="flex-1 flex items-center justify-center gap-3 px-8 py-6 bg-red-500 text-white text-2xl font-extrabold rounded-2xl hover:bg-red-600 hover:scale-105 transition-all duration-200 shadow-lg"
+                        class="flex-1 flex items-center justify-center gap-2 sm:gap-3 px-6 py-4 sm:px-8 sm:py-6 bg-red-500 text-white text-xl sm:text-2xl font-extrabold rounded-2xl hover:bg-red-600 hover:scale-105 transition-all duration-200 shadow-lg min-h-[44px]"
                     >
-                        <span class="text-4xl">&#128078;</span> {{ __('game.question.bad') }}
+                        <span class="text-3xl sm:text-4xl">&#128078;</span> {{ __('game.question.bad') }}
                     </button>
                 </div>
             </div>
