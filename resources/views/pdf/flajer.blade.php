@@ -18,6 +18,8 @@
             @page { margin: 0; size: A4; }
             body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .no-print { display: none !important; }
+            #flajer { width: 210mm; }
+            .print-grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
     </style>
 </head>
@@ -28,14 +30,14 @@
 @endphp
 
 {{-- Toolbar --}}
-<div class="no-print sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200 py-3 px-6 flex items-center justify-between">
+<div class="no-print sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200 py-3 px-4 md:px-6 flex items-center justify-between gap-2">
     <a href="{{ $localePrefix }}/" class="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 font-semibold transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
         {{ __('flyer.back') }}
     </a>
     <button
         id="download-pdf"
-        class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold px-6 py-2.5 rounded-xl shadow hover:shadow-md transition-all"
+        class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold px-4 py-2 md:px-6 md:py-2.5 rounded-xl shadow hover:shadow-md transition-all text-sm md:text-base min-h-[44px]"
     >
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
         {{ __('flyer.download_pdf') }}
@@ -43,7 +45,7 @@
 </div>
 
 {{-- Flyer content --}}
-<div id="flajer" class="w-[210mm] min-h-[297mm] mx-auto my-8 print:my-0 bg-gradient-to-b from-teal-600 via-cyan-500 to-sky-600 p-8 print:p-8 shadow-2xl print:shadow-none">
+<div id="flajer" class="w-full md:w-[210mm] min-h-[297mm] mx-auto my-0 md:my-8 print:my-0 bg-gradient-to-b from-teal-600 via-cyan-500 to-sky-600 p-4 md:p-8 print:p-8 shadow-2xl print:shadow-none">
 
     {{-- Header --}}
     <div class="text-center mb-6">
@@ -60,7 +62,7 @@
             {!! __('flyer.rules.heading') !!}
         </h2>
 
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 print-grid-cols-2 gap-4">
             @foreach([1, 2, 3, 4] as $num)
             <div class="flex gap-3 items-start rounded-xl p-4 border border-gray-300">
                 <div class="flex-shrink-0 w-10 h-10 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold text-lg">{{ $num }}</div>
@@ -74,7 +76,7 @@
     </div>
 
     {{-- Two columns: Danger + Action --}}
-    <div class="grid grid-cols-2 gap-4 mb-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 print-grid-cols-2 gap-4 mb-4">
 
         {{-- Danger Box --}}
         <div class="bg-white rounded-2xl p-5 border border-white/50 border-l-4 border-l-red-500">
