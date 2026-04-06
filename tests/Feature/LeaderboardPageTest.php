@@ -71,6 +71,72 @@ test('leaderboard component has reset functionality', function () {
         ->assertSet('resetSuccess', false);
 });
 
+test('leaderboard hero section displays mascot and animated title', function () {
+    Livewire::test('pages::igra.leaderboard')
+        ->assertSeeHtml('mascot-thumbsup.svg')
+        ->assertSeeHtml('animate-bounce-in');
+});
+
+test('leaderboard podium displays top 3 players with medal emojis', function () {
+    GameScore::factory()->create(['player_name' => 'Gold Player', 'score' => 10, 'time_seconds' => 30]);
+    GameScore::factory()->create(['player_name' => 'Silver Player', 'score' => 8, 'time_seconds' => 30]);
+    GameScore::factory()->create(['player_name' => 'Bronze Player', 'score' => 6, 'time_seconds' => 30]);
+
+    $component = Livewire::test('pages::igra.leaderboard');
+
+    $html = $component->html();
+
+    expect($html)
+        ->toContain('data-testid="podium"')
+        ->toContain('Gold Player')
+        ->toContain('Silver Player')
+        ->toContain('Bronze Player')
+        ->toContain('🥇')
+        ->toContain('🥈')
+        ->toContain('🥉')
+        ->toContain('animate-scale-up-shake');
+});
+
+test('leaderboard podium uses gold silver bronze border colors', function () {
+    GameScore::factory()->create(['player_name' => 'P1', 'score' => 10, 'time_seconds' => 30]);
+    GameScore::factory()->create(['player_name' => 'P2', 'score' => 8, 'time_seconds' => 30]);
+    GameScore::factory()->create(['player_name' => 'P3', 'score' => 6, 'time_seconds' => 30]);
+
+    $html = Livewire::test('pages::igra.leaderboard')->html();
+
+    expect($html)
+        ->toContain('border-[#FFD700]')
+        ->toContain('border-[#C0C0C0]')
+        ->toContain('border-[#CD7F32]');
+});
+
+test('leaderboard podium gracefully handles fewer than 3 scores', function () {
+    GameScore::factory()->create(['player_name' => 'Only Player', 'score' => 10, 'time_seconds' => 30]);
+
+    $html = Livewire::test('pages::igra.leaderboard')->html();
+
+    expect($html)
+        ->toContain('data-testid="podium"')
+        ->toContain('Only Player')
+        ->toContain('🥇')
+        ->not->toContain('🥈')
+        ->not->toContain('🥉');
+});
+
+test('leaderboard podium is hidden when no scores exist', function () {
+    $html = Livewire::test('pages::igra.leaderboard')->html();
+
+    expect($html)->not->toContain('data-testid="podium"');
+});
+
+test('leaderboard podium cards use entrance animations', function () {
+    GameScore::factory()->create(['player_name' => 'Animated', 'score' => 10, 'time_seconds' => 30]);
+
+    $html = Livewire::test('pages::igra.leaderboard')->html();
+
+    expect($html)->toContain('animate-fade-in-up');
+});
+
 test('leaderboard component shows played at date', function () {
     GameScore::factory()->create([
         'player_name' => 'Datum Tim',
