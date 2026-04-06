@@ -47,6 +47,38 @@ test('welcome page has animated background shapes', function () {
     $response->assertSee('welcome-bg-shapes', false);
     $response->assertSee('welcome-bg-shape welcome-bg-shape--1', false);
     $response->assertSee('welcome-bg-shape welcome-bg-shape--5', false);
+    $response->assertSee('welcome-bg-shape welcome-bg-shape--8', false);
+});
+
+test('welcome page has sparkle particles', function () {
+    $response = $this->get('/');
+
+    $response->assertStatus(200);
+    $response->assertSee('welcome-sparkle welcome-sparkle--1', false);
+    $response->assertSee('welcome-sparkle welcome-sparkle--6', false);
+});
+
+test('welcome page has animated gradient background', function () {
+    $response = $this->get('/');
+
+    $response->assertStatus(200);
+    $response->assertSee('welcome-animated-bg', false);
+});
+
+test('welcome page title has shimmer text effect', function () {
+    $response = $this->get('/');
+
+    $response->assertStatus(200);
+    $response->assertSee('animate-shimmer-text', false);
+});
+
+test('welcome page buttons have fun hover effects', function () {
+    $response = $this->get('/');
+
+    $response->assertStatus(200);
+    $response->assertSee('animate-btn-fun animate-btn-yellow', false);
+    $response->assertSee('animate-btn-fun animate-btn-green', false);
+    $response->assertSee('animate-btn-fun animate-btn-white', false);
 });
 
 test('welcome page background shapes wrapper is aria-hidden for accessibility', function () {

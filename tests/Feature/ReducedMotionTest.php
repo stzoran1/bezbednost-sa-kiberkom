@@ -17,9 +17,21 @@ test('prefers-reduced-motion resets opacity and transform on all animated classe
         '.animate-bounce-in',
         '.animate-scale-up-shake',
         '.animate-gentle-float',
+        '.animate-shimmer-text',
+        '.animate-credits',
+        '.animate-btn-fun',
         '.welcome-bg-shape',
+        '.welcome-sparkle',
+        '.welcome-animated-bg',
         '.slide-attention',
         '.slide-highlight',
+
+
+
+        '.slide-conclusion',
+        '.slide-rule',
+        '.slide-title-shimmer',
+        '.slide-celebrate',
     ];
 
     foreach ($animatedClasses as $class) {
