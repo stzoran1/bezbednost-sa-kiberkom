@@ -49,14 +49,15 @@ test('welcome page has animated background shapes', function () {
     $response->assertSee('welcome-bg-shape welcome-bg-shape--5', false);
 });
 
-test('welcome page background shapes are aria-hidden for accessibility', function () {
+test('welcome page background shapes wrapper is aria-hidden for accessibility', function () {
     $response = $this->get('/');
 
     $response->assertStatus(200);
     $content = $response->getContent();
 
-    preg_match_all('/welcome-bg-shape[^"]*"[^>]*aria-hidden="true"/', $content, $matches);
-    expect($matches[0])->toHaveCount(5);
+    // The wrapper div containing all shapes has aria-hidden and pointer-events-none
+    preg_match_all('/pointer-events-none[^"]*"[^>]*aria-hidden="true"/', $content, $matches);
+    expect($matches[0])->toHaveCount(1);
 });
 
 test('welcome page CTA buttons retain hover scale effect alongside animations', function () {

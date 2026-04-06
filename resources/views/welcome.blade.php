@@ -4,11 +4,13 @@
 
 <x-layout :title="__('welcome.title')">
     <div class="min-h-screen bg-gradient-to-br from-purple-600 via-blue-500 to-cyan-400 flex items-center justify-center p-4 sm:p-6 welcome-bg-shapes">
-        <div class="welcome-bg-shape welcome-bg-shape--1" aria-hidden="true"></div>
-        <div class="welcome-bg-shape welcome-bg-shape--2" aria-hidden="true"></div>
-        <div class="welcome-bg-shape welcome-bg-shape--3" aria-hidden="true"></div>
-        <div class="welcome-bg-shape welcome-bg-shape--4" aria-hidden="true"></div>
-        <div class="welcome-bg-shape welcome-bg-shape--5" aria-hidden="true"></div>
+        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
+            <div class="welcome-bg-shape welcome-bg-shape--1"></div>
+            <div class="welcome-bg-shape welcome-bg-shape--2"></div>
+            <div class="welcome-bg-shape welcome-bg-shape--3"></div>
+            <div class="welcome-bg-shape welcome-bg-shape--4"></div>
+            <div class="welcome-bg-shape welcome-bg-shape--5"></div>
+        </div>
         <div class="text-center max-w-3xl mx-auto relative z-10">
             <x-mascot variant="default" class="w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 mx-auto mb-4 sm:mb-8 drop-shadow-lg animate-gentle-float" />
 
@@ -35,6 +37,11 @@
                    class="inline-block bg-white hover:bg-gray-100 text-gray-900 font-extrabold text-lg sm:text-2xl md:text-3xl px-6 py-3 sm:px-12 sm:py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 min-h-[44px] animate-fade-in-up animate-delay-1000">
                     {{ __('welcome.flyer') }}
                 </a>
+            </div>
+
+            <div class="mt-10 sm:mt-16 text-white/50 text-xs sm:text-sm space-y-1">
+                <p>{{ __('welcome.developed_by') }}</p>
+                <p>{{ __('welcome.credits') }}</p>
             </div>
         </div>
     </div>

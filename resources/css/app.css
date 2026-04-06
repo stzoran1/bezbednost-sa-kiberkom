@@ -173,14 +173,11 @@
 
 .welcome-bg-shapes {
     position: relative;
-    overflow: hidden;
 }
 
 .welcome-bg-shape {
     position: absolute;
     border-radius: 50%;
-    pointer-events: none;
-    will-change: transform, opacity;
 }
 
 .welcome-bg-shape--1 {
