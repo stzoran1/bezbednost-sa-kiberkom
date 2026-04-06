@@ -60,6 +60,7 @@ return [
         'player_name_required' => 'Име играча је обавезно.',
         'player_name_min' => 'Име мора имати најмање :min карактера.',
         'player_name_max' => 'Име не сме бити дуже од :max карактера.',
+        'player_name_unique' => 'Играч са овим именом већ постоји. Изабери друго име.',
     ],
 
     'scenarios' => [
