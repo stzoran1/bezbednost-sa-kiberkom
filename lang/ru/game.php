@@ -14,9 +14,8 @@ return [
         'button' => 'Начать игру',
     ],
 
-    'show_leaderboard' => 'Посмотреть таблицу результатов',
-    'hide_leaderboard' => 'Скрыть таблицу результатов',
     'back_to_game' => 'Назад к игре',
+    'view_leaderboard' => 'Посмотреть таблицу результатов',
 
     'results' => [
         'bravo' => 'Браво, :name!',

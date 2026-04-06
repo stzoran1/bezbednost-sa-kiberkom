@@ -105,27 +105,42 @@ it('has zero hardcoded user-facing text in the game view', function () {
     expect($hardcoded)->toBeEmpty('Found hardcoded text: '.implode(', ', $hardcoded));
 });
 
-it('has zero hardcoded user-facing text in the leaderboard partial', function () {
-    $content = file_get_contents(resource_path('views/pages/igra/_leaderboard.blade.php'));
+it('has zero hardcoded user-facing text in the leaderboard page', function () {
+    $content = file_get_contents(resource_path('views/pages/igra/leaderboard.blade.php'));
 
     // Strip Blade comments
     $content = preg_replace('/\{\{--.*?--\}\}/s', '', $content);
 
+    // Strip PHP block at top (class definition)
+    $content = preg_replace('/^<\?php.*?\?>/s', '', $content);
+
     // Strip Blade directives, translation calls, variables, and HTML tags
     $stripped = $content;
     $stripped = preg_replace('/\{\{.*?\}\}/s', '', $stripped);
-    $stripped = preg_replace('/@(if|elseif|else|endif|foreach|endforeach|error|enderror)\b[^@]*/s', '', $stripped);
+    $stripped = preg_replace('/\{!!.*?!!\}/s', '', $stripped);
+    $stripped = preg_replace('/@(if|elseif|else|endif|foreach|endforeach|error|enderror|include|php|endphp)\b[^@]*/s', '', $stripped);
     $stripped = preg_replace('/<[^>]+>/', '', $stripped);
+    $stripped = preg_replace('/x-data="[^"]*"/s', '', $stripped);
+
+    // Remove HTML entities
+    $stripped = preg_replace('/&#\d+;/', '', $stripped);
 
     // Get remaining visible text (letters only)
     preg_match_all('/[a-zA-ZčćšžđČĆŠŽĐа-яА-ЯёЁ]{2,}/', $stripped, $matches);
 
     $ignoredWords = ['div', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'form',
         'input', 'button', 'class', 'type', 'wire', 'submit', 'password',
-        'px', 'py', 'mt', 'pt', 'text', 'bg', 'font', 'sm', 'flex', 'col',
+        'px', 'py', 'mt', 'pt', 'text', 'bg', 'font', 'sm', 'md', 'flex', 'col',
         'row', 'items', 'center', 'rounded', 'border', 'hover', 'transition',
-        'bold', 'semibold', 'left', 'right', 'underline', 'purple', 'red',
-        'green', 'gray', 'white', 'mono',
+        'bold', 'semibold', 'extrabold', 'left', 'right', 'underline', 'purple', 'red',
+        'green', 'gray', 'white', 'orange', 'yellow', 'blue', 'cyan', 'mono',
+        'shadow', 'backdrop', 'blur', 'animate', 'fade', 'bounce', 'scale',
+        'onmouseover', 'onmouseout', 'this', 'rgba', 'style', 'href',
+        'width', 'min', 'max', 'overflow', 'auto', 'inline', 'block',
+        'duration', 'truncate', 'tracking', 'wider', 'uppercase', 'gap',
+        'span', 'fixed', 'top', 'padding', 'color', 'background', 'position',
+        'filter', 'zIndex', 'fontSize', 'fontWeight', 'borderRadius', 'textDecoration',
+        'up', 'in', 'to', 'from', 'via', 'of', 'normal', 'full',
     ];
 
     $hardcoded = array_filter($matches[0], fn ($word) => ! in_array(strtolower($word), array_map('strtolower', $ignoredWords)));

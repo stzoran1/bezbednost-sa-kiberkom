@@ -228,7 +228,7 @@ class extends Component
                         href="{{ $localePrefix }}/igra/leaderboard"
                         class="text-purple-600 hover:text-purple-800 font-semibold text-lg underline transition-colors"
                     >
-                        {{ __('game.show_leaderboard') }}
+                        {{ __('game.view_leaderboard') }}
                     </a>
                 </div>
             </div>
@@ -293,7 +293,7 @@ class extends Component
                         href="{{ $localePrefix }}/igra/leaderboard"
                         class="text-purple-600 hover:text-purple-800 font-semibold text-lg underline transition-colors"
                     >
-                        {{ __('game.show_leaderboard') }}
+                        {{ __('game.view_leaderboard') }}
                     </a>
                 </div>
             </div>
