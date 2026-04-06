@@ -293,6 +293,15 @@ test('all locales have the same scenario count', function () {
     expect($counts['ru'])->toBe($counts['sr-Latn']);
 });
 
+test('starting game rejects duplicate player name', function () {
+    GameScore::factory()->create(['player_name' => 'Tim A']);
+
+    Livewire::test('pages::igra.index')
+        ->set('playerName', 'Tim A')
+        ->call('startGame')
+        ->assertHasErrors(['playerName' => 'unique']);
+});
+
 test('new player resets to start screen', function () {
     Livewire::test('pages::igra.index')
         ->set('playerName', 'Tim A')

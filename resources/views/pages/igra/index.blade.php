@@ -1,15 +1,14 @@
 <?php
 
 use App\Models\GameScore;
+use Illuminate\Validation\Rule;
 use Livewire\Attributes\Layout;
-use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 new
 #[Layout('layouts.app')]
 class extends Component
 {
-    #[Validate('required|min:2|max:30')]
     public string $playerName = '';
 
     public bool $started = false;
@@ -47,12 +46,20 @@ class extends Component
         return __('game.title');
     }
 
+    public function rules(): array
+    {
+        return [
+            'playerName' => ['required', 'min:2', 'max:30', Rule::unique('game_scores', 'player_name')],
+        ];
+    }
+
     public function messages(): array
     {
         return [
             'playerName.required' => __('game.validation.player_name_required'),
             'playerName.min' => __('game.validation.player_name_min'),
             'playerName.max' => __('game.validation.player_name_max'),
+            'playerName.unique' => __('game.validation.player_name_unique'),
         ];
     }
 
