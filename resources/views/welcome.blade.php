@@ -21,16 +21,16 @@
             <div class="welcome-sparkle welcome-sparkle--6"></div>
 
             {{-- Security-themed floating symbols --}}
-            <x-security-symbols symbol="shield" size="24" class="welcome-security-icon welcome-security-icon--1" style="top: 8%; left: 6%;" />
-            <x-security-symbols symbol="lock" size="20" class="welcome-security-icon welcome-security-icon--2" style="top: 12%; right: 10%;" />
-            <x-security-symbols symbol="phone" size="18" class="welcome-security-icon welcome-security-icon--3" style="top: 35%; left: 4%;" />
-            <x-security-symbols symbol="globe" size="22" class="welcome-security-icon welcome-security-icon--4" style="top: 45%; right: 6%;" />
-            <x-security-symbols symbol="key" size="20" class="welcome-security-icon welcome-security-icon--5" style="bottom: 30%; left: 12%;" />
-            <x-security-symbols symbol="shield" size="18" class="welcome-security-icon welcome-security-icon--6" style="bottom: 15%; right: 8%;" />
-            <x-security-symbols symbol="lock" size="22" class="welcome-security-icon welcome-security-icon--7" style="top: 20%; left: 45%;" />
-            <x-security-symbols symbol="globe" size="16" class="welcome-security-icon welcome-security-icon--8" style="bottom: 10%; left: 35%;" />
-            <x-security-symbols symbol="key" size="20" class="welcome-security-icon welcome-security-icon--9" style="top: 70%; right: 20%;" />
-            <x-security-symbols symbol="phone" size="18" class="welcome-security-icon welcome-security-icon--10" style="bottom: 25%; right: 35%;" />
+            <x-security-symbols symbol="shield" size="72" class="welcome-security-icon welcome-security-icon--1" style="top: 8%; left: 6%;" />
+            <x-security-symbols symbol="lock" size="60" class="welcome-security-icon welcome-security-icon--2" style="top: 12%; right: 10%;" />
+            <x-security-symbols symbol="phone" size="56" class="welcome-security-icon welcome-security-icon--3" style="top: 35%; left: 4%;" />
+            <x-security-symbols symbol="globe" size="64" class="welcome-security-icon welcome-security-icon--4" style="top: 45%; right: 6%;" />
+            <x-security-symbols symbol="key" size="60" class="welcome-security-icon welcome-security-icon--5" style="bottom: 30%; left: 12%;" />
+            <x-security-symbols symbol="shield" size="56" class="welcome-security-icon welcome-security-icon--6" style="bottom: 15%; right: 8%;" />
+            <x-security-symbols symbol="lock" size="64" class="welcome-security-icon welcome-security-icon--7" style="top: 20%; left: 45%;" />
+            <x-security-symbols symbol="globe" size="48" class="welcome-security-icon welcome-security-icon--8" style="bottom: 10%; left: 35%;" />
+            <x-security-symbols symbol="key" size="60" class="welcome-security-icon welcome-security-icon--9" style="top: 70%; right: 20%;" />
+            <x-security-symbols symbol="phone" size="56" class="welcome-security-icon welcome-security-icon--10" style="bottom: 25%; right: 35%;" />
         </div>
         <div class="text-center max-w-3xl mx-auto relative z-10">
             <x-mascot variant="default" class="w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 mx-auto mb-4 sm:mb-8 drop-shadow-lg animate-gentle-float" />

@@ -458,15 +458,15 @@
     }
     25% {
         transform: scale(0.7) rotate(90deg);
-        opacity: 0.25;
+        opacity: 0.35;
     }
     50% {
         transform: scale(1) rotate(180deg);
-        opacity: 0.3;
+        opacity: 0.45;
     }
     75% {
         transform: scale(0.7) rotate(270deg);
-        opacity: 0.25;
+        opacity: 0.35;
     }
 }
 
