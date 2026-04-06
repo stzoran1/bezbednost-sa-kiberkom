@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="globeBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#B0E0FF"/>
+    </linearGradient>
+    <linearGradient id="globeLand" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#00D4FF" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+  <!-- Globe sphere -->
+  <circle cx="32" cy="32" r="26" fill="url(#globeBody)" opacity="0.9"/>
+  <!-- Continent shapes (stylized) -->
+  <path d="M22 16c3-2 8-1 10 2s1 7-2 9-8 1-10-2-1-7 2-9z" fill="url(#globeLand)"/>
+  <path d="M34 26c4-1 9 1 11 5s1 9-3 11-9-1-11-5-1-9 3-11z" fill="url(#globeLand)"/>
+  <path d="M16 34c2-2 6-2 8 0s2 6 0 8-6 2-8 0-2-6 0-8z" fill="url(#globeLand)"/>
+  <!-- Latitude lines -->
+  <ellipse cx="32" cy="32" rx="26" ry="10" fill="none" stroke="white" stroke-width="1" opacity="0.3"/>
+  <ellipse cx="32" cy="32" rx="26" ry="20" fill="none" stroke="white" stroke-width="0.8" opacity="0.2"/>
+  <!-- Longitude line -->
+  <ellipse cx="32" cy="32" rx="10" ry="26" fill="none" stroke="white" stroke-width="1" opacity="0.3"/>
+  <!-- Meridian accent -->
+  <line x1="6" y1="32" x2="58" y2="32" stroke="white" stroke-width="0.8" opacity="0.25"/>
+  <!-- Highlight/shine -->
+  <ellipse cx="24" cy="20" rx="8" ry="10" fill="white" opacity="0.2" transform="rotate(-20 24 20)"/>
+  <!-- Rim -->
+  <circle cx="32" cy="32" r="26" fill="none" stroke="white" stroke-width="1.5" opacity="0.5"/>
+  <!-- Orbit ring (cyber feel) -->
+  <ellipse cx="32" cy="32" rx="30" ry="12" fill="none" stroke="#00D4FF" stroke-width="1" opacity="0.3" transform="rotate(-25 32 32)"/>
+  <!-- Small orbiting dot -->
+  <circle cx="56" cy="22" r="2.5" fill="#00D4FF" opacity="0.5"/>
+</svg>

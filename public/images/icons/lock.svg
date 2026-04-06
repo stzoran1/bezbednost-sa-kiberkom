@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="lockBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#B0E0FF"/>
+    </linearGradient>
+    <linearGradient id="lockShackle" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E0F4FF"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+  </defs>
+  <!-- Shackle (U-shaped top) -->
+  <path d="M20 28V20a12 12 0 0 1 24 0v8" fill="none" stroke="url(#lockShackle)" stroke-width="5" stroke-linecap="round"/>
+  <!-- Shackle highlight -->
+  <path d="M22 28V20a10 10 0 0 1 20 0v8" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  <!-- Lock body -->
+  <rect x="14" y="28" width="36" height="28" rx="5" fill="url(#lockBody)" opacity="0.95"/>
+  <!-- Body highlight -->
+  <rect x="16" y="30" width="32" height="8" rx="3" fill="white" opacity="0.3"/>
+  <!-- Keyhole circle -->
+  <circle cx="32" cy="40" r="5" fill="#00D4FF" opacity="0.6"/>
+  <!-- Keyhole slot -->
+  <path d="M32 44v6" stroke="#00D4FF" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+  <!-- Keyhole inner shine -->
+  <circle cx="31" cy="39" r="1.5" fill="white" opacity="0.5"/>
+  <!-- Body rim -->
+  <rect x="14" y="28" width="36" height="28" rx="5" fill="none" stroke="white" stroke-width="1" opacity="0.4"/>
+</svg>

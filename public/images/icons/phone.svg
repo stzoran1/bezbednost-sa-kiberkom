@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="phoneBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#B0E0FF"/>
+    </linearGradient>
+    <linearGradient id="phoneScreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#00D4FF" stop-opacity="0.12"/>
+    </linearGradient>
+  </defs>
+  <!-- Phone body -->
+  <rect x="16" y="4" width="32" height="56" rx="6" fill="url(#phoneBody)" opacity="0.95"/>
+  <!-- Screen -->
+  <rect x="20" y="12" width="24" height="34" rx="2" fill="url(#phoneScreen)"/>
+  <!-- Screen shield icon -->
+  <path d="M32 18l-7 4v5c0 4.5 3 8.5 7 9.5 4-1 7-5 7-9.5v-5l-7-4z" fill="white" opacity="0.45"/>
+  <path d="M29 28l2.5 2.5 4.5-5" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+  <!-- Top notch/speaker -->
+  <rect x="27" y="7" width="10" height="2" rx="1" fill="#00D4FF" opacity="0.4"/>
+  <!-- Home button circle -->
+  <circle cx="32" cy="52" r="3" fill="none" stroke="white" stroke-width="1.2" opacity="0.5"/>
+  <!-- Body highlight -->
+  <rect x="18" y="6" width="10" height="20" rx="3" fill="white" opacity="0.2"/>
+  <!-- Body rim -->
+  <rect x="16" y="4" width="32" height="56" rx="6" fill="none" stroke="white" stroke-width="1" opacity="0.4"/>
+</svg>
