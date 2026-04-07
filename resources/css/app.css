@@ -241,8 +241,8 @@
     box-shadow: 0 0 30px rgba(52, 211, 153, 0.5), 0 0 60px rgba(52, 211, 153, 0.2);
 }
 
-.animate-btn-white:hover {
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 255, 255, 0.2);
+.animate-btn-cyan:hover {
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.5), 0 0 60px rgba(34, 211, 238, 0.2);
 }
 
 /* Background shapes */
@@ -513,11 +513,37 @@
 .welcome-security-icon--9  { animation: symbol-sparkle 3.3s ease-in-out 2.8s infinite, symbol-drift-2 7s ease-in-out 2.8s infinite; }
 .welcome-security-icon--10 { animation: symbol-sparkle 5.2s ease-in-out 0.9s infinite, symbol-drift-5 10s ease-in-out 0.9s infinite; }
 
+/* GPU-acceleration hints for continuously animated elements */
+.welcome-animated-bg {
+    will-change: background-position;
+}
+
+.welcome-bg-shape {
+    will-change: transform, opacity;
+}
+
+.welcome-sparkle {
+    will-change: transform, opacity;
+}
+
+.welcome-security-icon {
+    will-change: transform, opacity;
+}
+
+.animate-gentle-float {
+    will-change: transform;
+}
+
 /* Mobile responsiveness — reduce symbol size and hide some on small screens */
 @media (max-width: 639px) {
+    /* Reduce gradient complexity: smaller background-size means less GPU memory */
+    .welcome-animated-bg {
+        background-size: 200% 200%;
+    }
+
     .welcome-security-icon {
-        transform-origin: center center;
         scale: 0.65;
+        transform-origin: center center;
     }
 
     /* Hide 4 of the 10 symbols to reduce visual density on mobile */
@@ -526,6 +552,25 @@
     .welcome-security-icon--8,
     .welcome-security-icon--10 {
         display: none;
+    }
+
+    /* Hide extra decorative shapes on mobile to reduce concurrent animations */
+    .welcome-bg-shape--6,
+    .welcome-bg-shape--7,
+    .welcome-bg-shape--8 {
+        display: none;
+    }
+
+    /* Hide half the sparkle particles on mobile */
+    .welcome-sparkle--3,
+    .welcome-sparkle--5,
+    .welcome-sparkle--6 {
+        display: none;
+    }
+
+    /* Simplify mascot animation — remove dual animation, use single gentle float */
+    .animate-gentle-float {
+        animation: gentle-float 4s ease-in-out infinite;
     }
 }
 

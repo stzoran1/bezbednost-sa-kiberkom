@@ -138,6 +138,41 @@ test('flyer danger signs render in all locales', function () {
     $response->assertSee('Никогда не встречайся лично');
 });
 
+test('flyer back page renders with qr code and url in sr-Cyrl', function () {
+    app()->setLocale('sr-Cyrl');
+    $response = $this->get('/sr-Cyrl/flajer');
+
+    $response->assertStatus(200);
+    $response->assertSee('id="flajer-back"', false);
+    $response->assertSee('bezbednost-sa-kiberkom.on-forge.com');
+    $response->assertSee('<svg', false);
+    $response->assertSee('Посети наш сајт');
+    $response->assertSee('Скенирај QR код да отвориш сајт');
+});
+
+test('flyer back page renders in ru locale', function () {
+    app()->setLocale('ru');
+    $response = $this->get('/ru/flajer');
+
+    $response->assertStatus(200);
+    $response->assertSee('Посети наш сайт');
+    $response->assertSee('Отсканируй QR-код, чтобы открыть сайт');
+    $response->assertSee('bezbednost-sa-kiberkom.on-forge.com');
+});
+
+test('flyer back page url is a clickable link', function () {
+    app()->setLocale('sr-Cyrl');
+    $response = $this->get('/sr-Cyrl/flajer');
+
+    $response->assertSee('href="https://bezbednost-sa-kiberkom.on-forge.com"', false);
+});
+
+test('flyer back page has page break for print', function () {
+    $content = file_get_contents(resource_path('views/pdf/flajer.blade.php'));
+
+    expect($content)->toContain('break-before: page');
+});
+
 test('flyer action section renders in all locales', function () {
     // sr-Latn
     $response = $this->get('/flajer');
