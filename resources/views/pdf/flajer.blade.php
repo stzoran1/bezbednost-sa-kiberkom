@@ -20,43 +20,36 @@
             .no-print { display: none !important; }
             #flajer {
                 width: 210mm; height: 297mm; overflow: hidden;
-                padding: 6mm 7mm;
-                display: flex; flex-direction: column; gap: 0.6rem;
+                padding: 7mm 8mm;
+                display: flex; flex-direction: column; gap: 0.5rem;
             }
             #flajer-back { width: 210mm; break-before: page; }
             .print-grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-            /* Header */
+            /* Header — keep fonts, shrink mascot + spacing */
             #flajer .flyer-header { margin-bottom: 0; }
-            #flajer .flyer-mascot { width: 5.5rem; height: 5.5rem; margin-bottom: 0.4rem; }
-            #flajer .flyer-title { font-size: 1.75rem; line-height: 1.15; }
-            #flajer .flyer-subtitle { font-size: 0.9rem; margin-top: 0.15rem; }
+            #flajer .flyer-mascot { width: 5.5rem; height: 5.5rem; margin-bottom: 0.25rem; }
+            #flajer .flyer-title { font-size: 2rem; line-height: 1.15; }
 
-            /* Rules */
-            #flajer .flyer-rules { padding: 0.85rem 1rem; margin-bottom: 0; }
-            #flajer .flyer-rules-heading { font-size: 1rem; margin-bottom: 0.6rem; padding-bottom: 0.4rem; }
-            #flajer .flyer-rules-grid { gap: 0.5rem; }
-            #flajer .flyer-rule-card { padding: 0.5rem 0.6rem; gap: 0.5rem; }
+            /* Rules — keep fonts, tighten padding + gaps */
+            #flajer .flyer-rules { padding: 0.75rem 1rem; margin-bottom: 0; }
+            #flajer .flyer-rules-heading { margin-bottom: 0.5rem; padding-bottom: 0.35rem; }
+            #flajer .flyer-rules-grid { gap: 0.4rem; }
+            #flajer .flyer-rule-card { padding: 0.45rem 0.6rem; gap: 0.5rem; }
             #flajer .flyer-rule-num { width: 2rem; height: 2rem; font-size: 0.9rem; }
-            #flajer .flyer-rule-title { font-size: 0.72rem; }
-            #flajer .flyer-rule-text { font-size: 0.65rem; margin-top: 0.15rem; line-height: 1.3; }
+            #flajer .flyer-rule-text { margin-top: 0.1rem; }
 
-            /* Danger + Action columns */
-            #flajer .flyer-columns { gap: 0.5rem; margin-bottom: 0; }
-            #flajer .flyer-box { padding: 0.6rem 0.7rem; }
-            #flajer .flyer-box-header { margin-bottom: 0.4rem; gap: 0.4rem; }
-            #flajer .flyer-box-mascot { width: 2.2rem; height: 2.2rem; }
-            #flajer .flyer-box-heading { font-size: 0.9rem; }
-            #flajer .flyer-box-items > * + * { margin-top: 0.2rem; }
-            #flajer .flyer-box-item { font-size: 0.62rem; line-height: 1.35; }
-            #flajer .flyer-box-warning { font-size: 0.62rem; margin-top: 0.25rem; padding-top: 0.25rem; }
-            #flajer .flyer-brave { padding: 0.35rem; margin-top: 0.25rem; }
-            #flajer .flyer-brave p { font-size: 0.62rem; }
+            /* Danger + Action — keep fonts, tighten padding + gaps */
+            #flajer .flyer-columns { gap: 0.4rem; margin-bottom: 0; }
+            #flajer .flyer-box { padding: 0.5rem 0.65rem; }
+            #flajer .flyer-box-header { margin-bottom: 0.3rem; }
+            #flajer .flyer-box-mascot { width: 2.5rem; height: 2.5rem; }
+            #flajer .flyer-box-items > * + * { margin-top: 0.15rem; }
+            #flajer .flyer-box-warning { margin-top: 0.2rem; padding-top: 0.2rem; }
+            #flajer .flyer-brave { padding: 0.3rem; margin-top: 0.15rem; }
 
-            /* Footer — push to bottom, absorb remaining space */
+            /* Footer — push to bottom */
             #flajer .flyer-footer { margin-top: auto; }
-            #flajer .flyer-footer-message { font-size: 1.05rem; }
-            #flajer .flyer-footer-tagline { font-size: 0.75rem; margin-top: 0.15rem; }
         }
     </style>
 </head>
