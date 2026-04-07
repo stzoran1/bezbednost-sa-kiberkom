@@ -19,6 +19,7 @@
             body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .no-print { display: none !important; }
             #flajer { width: 210mm; }
+            #flajer-back { width: 210mm; break-before: page; }
             .print-grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
     </style>
@@ -136,6 +137,32 @@
         </p>
         <p class="text-sm text-white mt-1">{!! __('flyer.footer.tagline') !!}</p>
     </div>
+</div>
+
+{{-- Back page --}}
+<div id="flajer-back" class="w-full md:w-[210mm] min-h-[297mm] mx-auto my-0 md:my-8 print:my-0 bg-gradient-to-b from-teal-600 via-cyan-500 to-sky-600 p-4 md:p-8 print:p-8 shadow-2xl print:shadow-none flex flex-col items-center justify-center text-center">
+
+    <x-mascot variant="default" class="w-20 h-20 mb-6" />
+
+    <h2 class="text-3xl font-extrabold text-white mb-8">
+        {{ __('flyer.back_page.heading') }}
+    </h2>
+
+    <p class="text-sm font-semibold text-white/80 uppercase tracking-wider mb-2">
+        {{ __('flyer.back_page.url_label') }}
+    </p>
+
+    <a href="{{ __('flyer.back_page.url') }}" class="text-2xl font-bold text-yellow-200 hover:text-yellow-100 underline underline-offset-4 transition-colors mb-10 break-all">
+        {{ __('flyer.back_page.url') }}
+    </a>
+
+    <div class="bg-white rounded-2xl p-6 inline-block mb-6">
+        {!! QrCode::format('svg')->size(300)->generate(__('flyer.back_page.url')) !!}
+    </div>
+
+    <p class="text-lg font-semibold text-white">
+        {{ __('flyer.back_page.scan_qr') }}
+    </p>
 </div>
 
 </body>
