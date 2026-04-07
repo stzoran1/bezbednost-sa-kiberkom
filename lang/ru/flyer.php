@@ -58,7 +58,7 @@ return [
         'heading' => 'Посети наш сайт',
         'url_label' => 'Адрес сайта',
         'scan_qr' => 'Отсканируй QR-код, чтобы открыть сайт',
-        'url' => 'https://bezbednost-sa-kiberkom.on-forge.com',
+        'url' => 'https://bezbednost-sa-kiberkom.on-forge.com/ru',
     ],
 
     'footer' => [
