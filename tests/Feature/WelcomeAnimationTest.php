@@ -158,3 +158,34 @@ test('welcome page security icons have animation classes for all 10 instances', 
         $response->assertSee("welcome-security-icon--{$i}", false);
     }
 });
+
+test('welcome page CSS has mobile animation performance optimizations', function () {
+    $css = file_get_contents(resource_path('css/app.css'));
+
+    // GPU acceleration hints are present
+    expect($css)->toContain('will-change: background-position')
+        ->and($css)->toContain('will-change: transform, opacity')
+        ->and($css)->toContain('will-change: transform');
+
+    // Mobile media query reduces gradient background-size
+    expect($css)->toContain('background-size: 200% 200%');
+
+    // Mobile media query hides extra decorative shapes
+    expect($css)->toContain('.welcome-bg-shape--6')
+        ->and($css)->toContain('.welcome-bg-shape--7')
+        ->and($css)->toContain('.welcome-bg-shape--8');
+
+    // Mobile media query hides some sparkle particles
+    expect($css)->toContain('.welcome-sparkle--3')
+        ->and($css)->toContain('.welcome-sparkle--5')
+        ->and($css)->toContain('.welcome-sparkle--6');
+});
+
+test('welcome page CSS reduced-motion query still disables all animations', function () {
+    $css = file_get_contents(resource_path('css/app.css'));
+
+    // Reduced motion media query exists and targets all elements
+    expect($css)->toContain('prefers-reduced-motion: reduce')
+        ->and($css)->toContain('animation-duration: 0.01ms !important')
+        ->and($css)->toContain('animation-iteration-count: 1 !important');
+});
