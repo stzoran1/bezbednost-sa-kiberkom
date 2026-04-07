@@ -188,6 +188,6 @@ test('flyer action section renders in all locales', function () {
     // ru
     app()->setLocale('ru');
     $response = $this->get('/ru/flajer');
-    $response->assertSee('Всегда расскажи');
+    $response->assertSee('Всегда рассказывай');
     $response->assertSee('Запомни: ты смелый/смелая');
 });
