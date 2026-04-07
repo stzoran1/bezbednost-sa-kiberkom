@@ -153,7 +153,22 @@ class extends Component
                                         {{ floor($entry->time_seconds / 60) }}:{{ str_pad($entry->time_seconds % 60, 2, '0', STR_PAD_LEFT) }}
                                     </td>
                                     <td class="hidden sm:table-cell py-2 px-2 sm:py-3 sm:px-3 text-sm text-right text-gray-400 font-mono">
-                                        {{ $entry->created_at->format('d.m.Y H:i') }}
+                                        <time
+                                            x-data="{ formatted: '' }"
+                                            x-init="
+                                                const d = new Date('{{ $entry->created_at->toIso8601String() }}');
+                                                const dd = String(d.getDate()).padStart(2, '0');
+                                                const mm = String(d.getMonth() + 1).padStart(2, '0');
+                                                const yyyy = d.getFullYear();
+                                                const hh = String(d.getHours()).padStart(2, '0');
+                                                const mi = String(d.getMinutes()).padStart(2, '0');
+                                                formatted = dd + '.' + mm + '.' + yyyy + ' ' + hh + ':' + mi;
+                                            "
+                                            x-text="formatted"
+                                            datetime="{{ $entry->created_at->toIso8601String() }}"
+                                        >
+                                            {{ $entry->created_at->format('d.m.Y H:i') }}
+                                        </time>
                                     </td>
                                 </tr>
                             @endforeach
