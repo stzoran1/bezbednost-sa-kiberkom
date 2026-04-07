@@ -21,7 +21,7 @@
             #flajer {
                 width: 210mm; height: 297mm; overflow: hidden;
                 padding: 6mm 7mm;
-                display: flex; flex-direction: column; justify-content: space-between;
+                display: flex; flex-direction: column; gap: 0.6rem;
             }
             #flajer-back { width: 210mm; break-before: page; }
             .print-grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -53,8 +53,8 @@
             #flajer .flyer-brave { padding: 0.35rem; margin-top: 0.25rem; }
             #flajer .flyer-brave p { font-size: 0.62rem; }
 
-            /* Footer */
-            #flajer .flyer-footer { margin-top: 0; }
+            /* Footer — push to bottom, absorb remaining space */
+            #flajer .flyer-footer { margin-top: auto; }
             #flajer .flyer-footer-message { font-size: 1.05rem; }
             #flajer .flyer-footer-tagline { font-size: 0.75rem; margin-top: 0.15rem; }
         }
