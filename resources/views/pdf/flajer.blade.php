@@ -18,41 +18,45 @@
             @page { margin: 0; size: A4; }
             body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .no-print { display: none !important; }
-            #flajer { width: 210mm; height: 297mm; overflow: hidden; padding: 5mm 6mm; }
+            #flajer {
+                width: 210mm; height: 297mm; overflow: hidden;
+                padding: 6mm 7mm;
+                display: flex; flex-direction: column; justify-content: space-between;
+            }
             #flajer-back { width: 210mm; break-before: page; }
             .print-grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-            /* Compact header */
-            #flajer .flyer-header { margin-bottom: 0.75rem; }
-            #flajer .flyer-mascot { width: 5rem; height: 5rem; margin-bottom: 0.25rem; }
-            #flajer .flyer-title { font-size: 1.6rem; line-height: 1.2; }
-            #flajer .flyer-subtitle { font-size: 0.85rem; margin-top: 0.1rem; }
+            /* Header */
+            #flajer .flyer-header { margin-bottom: 0; }
+            #flajer .flyer-mascot { width: 5.5rem; height: 5.5rem; margin-bottom: 0.4rem; }
+            #flajer .flyer-title { font-size: 1.75rem; line-height: 1.15; }
+            #flajer .flyer-subtitle { font-size: 0.9rem; margin-top: 0.15rem; }
 
-            /* Compact rules */
-            #flajer .flyer-rules { padding: 0.75rem 0.85rem; margin-bottom: 0.5rem; }
-            #flajer .flyer-rules-heading { font-size: 0.95rem; margin-bottom: 0.5rem; padding-bottom: 0.35rem; }
-            #flajer .flyer-rules-grid { gap: 0.4rem; }
-            #flajer .flyer-rule-card { padding: 0.4rem 0.5rem; gap: 0.4rem; }
-            #flajer .flyer-rule-num { width: 1.75rem; height: 1.75rem; font-size: 0.85rem; }
-            #flajer .flyer-rule-title { font-size: 0.7rem; }
-            #flajer .flyer-rule-text { font-size: 0.6rem; margin-top: 0.15rem; line-height: 1.35; }
+            /* Rules */
+            #flajer .flyer-rules { padding: 0.85rem 1rem; margin-bottom: 0; }
+            #flajer .flyer-rules-heading { font-size: 1rem; margin-bottom: 0.6rem; padding-bottom: 0.4rem; }
+            #flajer .flyer-rules-grid { gap: 0.5rem; }
+            #flajer .flyer-rule-card { padding: 0.5rem 0.6rem; gap: 0.5rem; }
+            #flajer .flyer-rule-num { width: 2rem; height: 2rem; font-size: 0.9rem; }
+            #flajer .flyer-rule-title { font-size: 0.72rem; }
+            #flajer .flyer-rule-text { font-size: 0.65rem; margin-top: 0.15rem; line-height: 1.3; }
 
-            /* Compact danger + action columns */
-            #flajer .flyer-columns { gap: 0.4rem; margin-bottom: 0.35rem; }
-            #flajer .flyer-box { padding: 0.5rem 0.6rem; }
-            #flajer .flyer-box-header { margin-bottom: 0.35rem; gap: 0.35rem; }
-            #flajer .flyer-box-mascot { width: 2rem; height: 2rem; }
-            #flajer .flyer-box-heading { font-size: 0.85rem; }
-            #flajer .flyer-box-items > * + * { margin-top: 0.15rem; }
-            #flajer .flyer-box-item { font-size: 0.58rem; line-height: 1.35; }
-            #flajer .flyer-box-warning { font-size: 0.58rem; margin-top: 0.2rem; padding-top: 0.2rem; }
-            #flajer .flyer-brave { padding: 0.3rem; margin-top: 0.2rem; }
-            #flajer .flyer-brave p { font-size: 0.58rem; }
+            /* Danger + Action columns */
+            #flajer .flyer-columns { gap: 0.5rem; margin-bottom: 0; }
+            #flajer .flyer-box { padding: 0.6rem 0.7rem; }
+            #flajer .flyer-box-header { margin-bottom: 0.4rem; gap: 0.4rem; }
+            #flajer .flyer-box-mascot { width: 2.2rem; height: 2.2rem; }
+            #flajer .flyer-box-heading { font-size: 0.9rem; }
+            #flajer .flyer-box-items > * + * { margin-top: 0.2rem; }
+            #flajer .flyer-box-item { font-size: 0.62rem; line-height: 1.35; }
+            #flajer .flyer-box-warning { font-size: 0.62rem; margin-top: 0.25rem; padding-top: 0.25rem; }
+            #flajer .flyer-brave { padding: 0.35rem; margin-top: 0.25rem; }
+            #flajer .flyer-brave p { font-size: 0.62rem; }
 
-            /* Compact footer */
-            #flajer .flyer-footer { margin-top: 0.35rem; }
-            #flajer .flyer-footer-message { font-size: 0.95rem; }
-            #flajer .flyer-footer-tagline { font-size: 0.7rem; margin-top: 0.1rem; }
+            /* Footer */
+            #flajer .flyer-footer { margin-top: 0; }
+            #flajer .flyer-footer-message { font-size: 1.05rem; }
+            #flajer .flyer-footer-tagline { font-size: 0.75rem; margin-top: 0.15rem; }
         }
     </style>
 </head>
