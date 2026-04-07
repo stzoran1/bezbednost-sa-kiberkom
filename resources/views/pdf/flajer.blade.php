@@ -18,9 +18,41 @@
             @page { margin: 0; size: A4; }
             body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .no-print { display: none !important; }
-            #flajer { width: 210mm; }
+            #flajer { width: 210mm; height: 297mm; overflow: hidden; padding: 5mm 6mm; }
             #flajer-back { width: 210mm; break-before: page; }
             .print-grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+            /* Compact header */
+            #flajer .flyer-header { margin-bottom: 0.75rem; }
+            #flajer .flyer-mascot { width: 5rem; height: 5rem; margin-bottom: 0.25rem; }
+            #flajer .flyer-title { font-size: 1.6rem; line-height: 1.2; }
+            #flajer .flyer-subtitle { font-size: 0.85rem; margin-top: 0.1rem; }
+
+            /* Compact rules */
+            #flajer .flyer-rules { padding: 0.75rem 0.85rem; margin-bottom: 0.5rem; }
+            #flajer .flyer-rules-heading { font-size: 0.95rem; margin-bottom: 0.5rem; padding-bottom: 0.35rem; }
+            #flajer .flyer-rules-grid { gap: 0.4rem; }
+            #flajer .flyer-rule-card { padding: 0.4rem 0.5rem; gap: 0.4rem; }
+            #flajer .flyer-rule-num { width: 1.75rem; height: 1.75rem; font-size: 0.85rem; }
+            #flajer .flyer-rule-title { font-size: 0.7rem; }
+            #flajer .flyer-rule-text { font-size: 0.6rem; margin-top: 0.15rem; line-height: 1.35; }
+
+            /* Compact danger + action columns */
+            #flajer .flyer-columns { gap: 0.4rem; margin-bottom: 0.35rem; }
+            #flajer .flyer-box { padding: 0.5rem 0.6rem; }
+            #flajer .flyer-box-header { margin-bottom: 0.35rem; gap: 0.35rem; }
+            #flajer .flyer-box-mascot { width: 2rem; height: 2rem; }
+            #flajer .flyer-box-heading { font-size: 0.85rem; }
+            #flajer .flyer-box-items > * + * { margin-top: 0.15rem; }
+            #flajer .flyer-box-item { font-size: 0.58rem; line-height: 1.35; }
+            #flajer .flyer-box-warning { font-size: 0.58rem; margin-top: 0.2rem; padding-top: 0.2rem; }
+            #flajer .flyer-brave { padding: 0.3rem; margin-top: 0.2rem; }
+            #flajer .flyer-brave p { font-size: 0.58rem; }
+
+            /* Compact footer */
+            #flajer .flyer-footer { margin-top: 0.35rem; }
+            #flajer .flyer-footer-message { font-size: 0.95rem; }
+            #flajer .flyer-footer-tagline { font-size: 0.7rem; margin-top: 0.1rem; }
         }
     </style>
 </head>
@@ -46,30 +78,30 @@
 </div>
 
 {{-- Flyer content --}}
-<div id="flajer" class="w-full md:w-[210mm] min-h-[297mm] mx-auto my-0 md:my-8 print:my-0 bg-gradient-to-b from-teal-600 via-cyan-500 to-sky-600 p-4 md:p-8 print:p-8 shadow-2xl print:shadow-none">
+<div id="flajer" class="w-full md:w-[210mm] min-h-[297mm] mx-auto my-0 md:my-8 print:my-0 bg-gradient-to-b from-teal-600 via-cyan-500 to-sky-600 p-4 md:p-8 shadow-2xl print:shadow-none">
 
     {{-- Header --}}
-    <div class="text-center mb-6">
-        <x-mascot variant="default" class="w-28 h-28 mx-auto mb-3" />
-        <h1 class="text-4xl font-extrabold text-white tracking-tight">
+    <div class="flyer-header text-center mb-6">
+        <x-mascot variant="default" class="flyer-mascot w-28 h-28 mx-auto mb-3" />
+        <h1 class="flyer-title text-4xl font-extrabold text-white tracking-tight">
             {{ __('flyer.header.title') }}
         </h1>
-        <p class="text-lg text-white mt-1">{{ __('flyer.header.subtitle') }}</p>
+        <p class="flyer-subtitle text-lg text-white mt-1">{{ __('flyer.header.subtitle') }}</p>
     </div>
 
     {{-- 4 Golden Rules --}}
-    <div class="bg-white rounded-2xl p-6 mb-4 border border-white/50">
-        <h2 class="text-center text-xl font-bold text-teal-700 mb-5 pb-3 border-b-2 border-teal-200">
+    <div class="flyer-rules bg-white rounded-2xl p-6 mb-4 border border-white/50">
+        <h2 class="flyer-rules-heading text-center text-xl font-bold text-teal-700 mb-5 pb-3 border-b-2 border-teal-200">
             {!! __('flyer.rules.heading') !!}
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 print-grid-cols-2 gap-4">
+        <div class="flyer-rules-grid grid grid-cols-1 md:grid-cols-2 print-grid-cols-2 gap-4">
             @foreach([1, 2, 3, 4] as $num)
-            <div class="flex gap-3 items-start rounded-xl p-4 border border-gray-300">
-                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold text-lg">{{ $num }}</div>
+            <div class="flyer-rule-card flex gap-3 items-start rounded-xl p-4 border border-gray-300">
+                <div class="flyer-rule-num flex-shrink-0 w-10 h-10 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold text-lg">{{ $num }}</div>
                 <div>
-                    <h3 class="font-bold text-gray-800 text-sm leading-tight">{{ __("flyer.rules.$num.title") }}</h3>
-                    <p class="text-xs text-gray-600 mt-1 leading-relaxed">{{ __("flyer.rules.$num.text") }}</p>
+                    <h3 class="flyer-rule-title font-bold text-gray-800 text-sm leading-tight">{{ __("flyer.rules.$num.title") }}</h3>
+                    <p class="flyer-rule-text text-xs text-gray-600 mt-1 leading-relaxed">{{ __("flyer.rules.$num.text") }}</p>
                 </div>
             </div>
             @endforeach
@@ -77,22 +109,22 @@
     </div>
 
     {{-- Two columns: Danger + Action --}}
-    <div class="grid grid-cols-1 md:grid-cols-2 print-grid-cols-2 gap-4 mb-4">
+    <div class="flyer-columns grid grid-cols-1 md:grid-cols-2 print-grid-cols-2 gap-4 mb-4">
 
         {{-- Danger Box --}}
-        <div class="bg-white rounded-2xl p-5 border border-white/50 border-l-4 border-l-red-500">
-            <div class="flex items-center gap-2 mb-3">
-                <x-mascot variant="warning" class="w-12 h-12" />
-                <h2 class="text-lg font-bold text-red-600">{{ __('flyer.danger.heading') }}</h2>
+        <div class="flyer-box bg-white rounded-2xl p-5 border border-white/50 border-l-4 border-l-red-500">
+            <div class="flyer-box-header flex items-center gap-2 mb-3">
+                <x-mascot variant="warning" class="flyer-box-mascot w-12 h-12" />
+                <h2 class="flyer-box-heading text-lg font-bold text-red-600">{{ __('flyer.danger.heading') }}</h2>
             </div>
-            <div class="space-y-1.5">
+            <div class="flyer-box-items space-y-1.5">
                 @foreach(__('flyer.danger.signs') as $sign)
-                <p class="text-xs text-gray-700 flex items-start gap-1.5">
+                <p class="flyer-box-item text-xs text-gray-700 flex items-start gap-1.5">
                     <span class="text-red-500 font-bold text-sm leading-none mt-px">&#10007;</span>
                     {{ $sign }}
                 </p>
                 @endforeach
-                <p class="text-xs text-red-600 font-bold flex items-start gap-1.5 mt-1.5 pt-1.5 border-t border-red-200">
+                <p class="flyer-box-warning flyer-box-item text-xs text-red-600 font-bold flex items-start gap-1.5 mt-1.5 pt-1.5 border-t border-red-200">
                     <span class="text-sm leading-none mt-px">&#10007;</span>
                     {{ __('flyer.danger.warning') }}
                 </p>
@@ -100,28 +132,28 @@
         </div>
 
         {{-- Action Box --}}
-        <div class="bg-white rounded-2xl p-5 border border-white/50 border-l-4 border-l-emerald-500">
-            <div class="flex items-center gap-2 mb-3">
-                <x-mascot variant="thumbsup" class="w-12 h-12" />
-                <h2 class="text-lg font-bold text-emerald-600">{{ __('flyer.action.heading') }}</h2>
+        <div class="flyer-box bg-white rounded-2xl p-5 border border-white/50 border-l-4 border-l-emerald-500">
+            <div class="flyer-box-header flex items-center gap-2 mb-3">
+                <x-mascot variant="thumbsup" class="flyer-box-mascot w-12 h-12" />
+                <h2 class="flyer-box-heading text-lg font-bold text-emerald-600">{{ __('flyer.action.heading') }}</h2>
             </div>
-            <div class="space-y-2">
-                <p class="text-xs text-gray-700 leading-relaxed">
+            <div class="flyer-box-items space-y-2">
+                <p class="flyer-box-item text-xs text-gray-700 leading-relaxed">
                     {!! __('flyer.action.tell') !!}
                 </p>
-                <p class="text-xs text-gray-700 leading-relaxed">
+                <p class="flyer-box-item text-xs text-gray-700 leading-relaxed">
                     {!! __('flyer.action.protect') !!}
                 </p>
-                <p class="text-xs text-gray-700 leading-relaxed">
+                <p class="flyer-box-item text-xs text-gray-700 leading-relaxed">
                     {!! __('flyer.action.hotline') !!}
                 </p>
-                <p class="text-xs text-gray-700 leading-relaxed">
+                <p class="flyer-box-item text-xs text-gray-700 leading-relaxed">
                     {!! __('flyer.action.report_in_app') !!}
                 </p>
-                <p class="text-xs text-gray-700 leading-relaxed">
+                <p class="flyer-box-item text-xs text-gray-700 leading-relaxed">
                     {!! __('flyer.action.block') !!}
                 </p>
-                <div class="bg-emerald-100 rounded-xl p-2.5 mt-1">
+                <div class="flyer-brave bg-emerald-100 rounded-xl p-2.5 mt-1">
                     <p class="text-xs text-emerald-800 font-bold text-center">
                         {!! __('flyer.action.brave') !!}
                     </p>
@@ -131,11 +163,11 @@
     </div>
 
     {{-- Footer --}}
-    <div class="text-center mt-4">
-        <p class="text-xl font-extrabold text-yellow-200">
+    <div class="flyer-footer text-center mt-4">
+        <p class="flyer-footer-message text-xl font-extrabold text-yellow-200">
             {{ __('flyer.footer.message') }}
         </p>
-        <p class="text-sm text-white mt-1">{!! __('flyer.footer.tagline') !!}</p>
+        <p class="flyer-footer-tagline text-sm text-white mt-1">{!! __('flyer.footer.tagline') !!}</p>
     </div>
 </div>
 
