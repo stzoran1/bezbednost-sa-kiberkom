@@ -58,7 +58,7 @@ return [
         'heading' => 'Посети наш сајт',
         'url_label' => 'Адреса сајта',
         'scan_qr' => 'Скенирај QR код да отвориш сајт',
-        'url' => 'https://bezbednost-sa-kiberkom.on-forge.com',
+        'url' => 'https://bezbednost-sa-kiberkom.on-forge.com/sr-Cyrl',
     ],
 
     'footer' => [
