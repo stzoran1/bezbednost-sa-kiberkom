@@ -54,6 +54,13 @@ return [
         'brave' => 'Zapamti: ti si hrabar/hrabra kad tražiš pomoć! &#x1F4AA;',
     ],
 
+    'back_page' => [
+        'heading' => 'Poseti naš sajt',
+        'url_label' => 'Adresa sajta',
+        'scan_qr' => 'Skeniraj QR kod da otvoriš sajt',
+        'url' => 'https://bezbednost-sa-kiberkom.on-forge.com',
+    ],
+
     'footer' => [
         'message' => 'Sa ovim pravilima, internet će biti zabavno i bezbedno mesto!',
         'tagline' => 'Kiberko &#8212; Tvoj vodič za digitalni svet',
