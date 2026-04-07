@@ -78,7 +78,26 @@ test('welcome page buttons have fun hover effects', function () {
     $response->assertStatus(200);
     $response->assertSee('animate-btn-fun animate-btn-yellow', false);
     $response->assertSee('animate-btn-fun animate-btn-green', false);
-    $response->assertSee('animate-btn-fun animate-btn-white', false);
+    $response->assertSee('animate-btn-fun animate-btn-cyan', false);
+});
+
+test('welcome page flyer button has visible text with z-index above pseudo-element overlay', function () {
+    $response = $this->get('/');
+
+    $response->assertStatus(200);
+    $content = $response->getContent();
+
+    // Flyer button should use cyan color scheme for contrast (not white)
+    $response->assertSee('bg-cyan-400', false);
+    $response->assertSee('animate-btn-cyan', false);
+
+    // Flyer button should have text-gray-900 for contrast
+    preg_match('/<a[^>]*flajer[^>]*class="([^"]*)"/', $content, $classMatch);
+    expect($classMatch[1])->toContain('text-gray-900');
+
+    // Button text should be wrapped in a span with relative z-10 to sit above the ::after overlay
+    preg_match('/<a[^>]*flajer[^>]*>(.*?)<\/a>/s', $content, $match);
+    expect($match[1])->toContain('relative z-10');
 });
 
 test('welcome page background shapes wrapper is aria-hidden for accessibility', function () {

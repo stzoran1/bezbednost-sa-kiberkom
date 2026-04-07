@@ -46,17 +46,17 @@
             <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
                 <a href="{{ $localePrefix }}/prezentacija"
                    class="inline-block bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-extrabold text-lg sm:text-2xl md:text-3xl px-6 py-3 sm:px-12 sm:py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 min-h-[44px] animate-fade-in-up animate-delay-600 animate-btn-fun animate-btn-yellow">
-                    {{ __('welcome.presentation') }}
+                    <span class="relative z-10">{{ __('welcome.presentation') }}</span>
                 </a>
 
                 <a href="{{ $localePrefix }}/igra"
                    class="inline-block bg-emerald-400 hover:bg-emerald-300 text-gray-900 font-extrabold text-lg sm:text-2xl md:text-3xl px-6 py-3 sm:px-12 sm:py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 min-h-[44px] animate-fade-in-up animate-delay-800 animate-btn-fun animate-btn-green">
-                    {{ __('welcome.game') }}
+                    <span class="relative z-10">{{ __('welcome.game') }}</span>
                 </a>
 
                 <a href="{{ $localePrefix }}/flajer"
-                   class="inline-block bg-white hover:bg-gray-100 text-gray-900 font-extrabold text-lg sm:text-2xl md:text-3xl px-6 py-3 sm:px-12 sm:py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 min-h-[44px] animate-fade-in-up animate-delay-1000 animate-btn-fun animate-btn-white">
-                    {{ __('welcome.flyer') }}
+                   class="inline-block bg-cyan-400 hover:bg-cyan-300 text-gray-900 font-extrabold text-lg sm:text-2xl md:text-3xl px-6 py-3 sm:px-12 sm:py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 min-h-[44px] animate-fade-in-up animate-delay-1000 animate-btn-fun animate-btn-cyan">
+                    <span class="relative z-10">{{ __('welcome.flyer') }}</span>
                 </a>
             </div>
 
